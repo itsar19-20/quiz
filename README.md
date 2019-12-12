@@ -1,5 +1,7 @@
 # Quiz
 
+![Quiz](docs/images/quiz.png "Quiz")
+
 Progetto iniziato mercoledì 11 dicembre 2019.
 
 ## Componenti del gruppo
