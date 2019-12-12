@@ -1,8 +1,13 @@
-# Quiz
+# Quiz  
+![Activity](https://img.shields.io/github/commit-activity/w/itsar19-20/quiz?style=plastic)
+![OpenIssues](https://img.shields.io/github/issues-raw/itsar19-20/quiz?style=plastic)
+![ClosedIssues](https://img.shields.io/github/issues-closed-raw/itsar19-20/quiz?style=plastic)
+
+
 
 ![Quiz](docs/images/quiz.png "Quiz")
 
-Progetto iniziato mercoledì 11 dicembre 2019.
+Progetto iniziato mercoledì 11 dicembre 2019. 
 
 ## Componenti del gruppo
 
