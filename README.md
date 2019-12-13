@@ -1,5 +1,5 @@
 # Quiz  
-![Activity](https://img.shields.io/github/commit-activity/w/itsar19-20/quiz?style=plastic)
+![Activity](https://img.shields.io/github/commit-activity/m/itsar19-20/quiz?style=plastic)
 ![OpenIssues](https://img.shields.io/github/issues-raw/itsar19-20/quiz?style=plastic)
 ![ClosedIssues](https://img.shields.io/github/issues-closed-raw/itsar19-20/quiz?style=plastic)
 
