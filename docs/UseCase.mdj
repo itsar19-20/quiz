@@ -13582,6 +13582,7 @@
 												"$ref": "AAAAAAFu/wlKvB6dW6Y="
 											},
 											"visible": false,
+											"lineColor": "#ff0000",
 											"fontColor": "#ff0000",
 											"font": "Arial;13;0",
 											"height": 13
@@ -13592,6 +13593,7 @@
 											"_parent": {
 												"$ref": "AAAAAAFu/wlKvB6dW6Y="
 											},
+											"lineColor": "#ff0000",
 											"fontColor": "#ff0000",
 											"font": "Arial;13;1",
 											"left": 419,
@@ -13607,6 +13609,7 @@
 												"$ref": "AAAAAAFu/wlKvB6dW6Y="
 											},
 											"visible": false,
+											"lineColor": "#ff0000",
 											"fontColor": "#ff0000",
 											"font": "Arial;13;0",
 											"width": 73.67724609375,
@@ -13620,12 +13623,14 @@
 												"$ref": "AAAAAAFu/wlKvB6dW6Y="
 											},
 											"visible": false,
+											"lineColor": "#ff0000",
 											"fontColor": "#ff0000",
 											"font": "Arial;13;0",
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
+									"lineColor": "#ff0000",
 									"fontColor": "#ff0000",
 									"font": "Arial;13;0",
 									"left": 414,
@@ -13655,6 +13660,7 @@
 										"$ref": "AAAAAAFu/wlKuh6aNs0="
 									},
 									"visible": false,
+									"lineColor": "#ff0000",
 									"fontColor": "#ff0000",
 									"font": "Arial;13;0",
 									"width": 10,
@@ -13670,6 +13676,7 @@
 										"$ref": "AAAAAAFu/wlKuh6aNs0="
 									},
 									"visible": false,
+									"lineColor": "#ff0000",
 									"fontColor": "#ff0000",
 									"font": "Arial;13;0",
 									"width": 10,
@@ -13685,6 +13692,7 @@
 										"$ref": "AAAAAAFu/wlKuh6aNs0="
 									},
 									"visible": false,
+									"lineColor": "#ff0000",
 									"fontColor": "#ff0000",
 									"font": "Arial;13;0",
 									"width": 10,
@@ -13700,6 +13708,7 @@
 										"$ref": "AAAAAAFu/wlKuh6aNs0="
 									},
 									"visible": false,
+									"lineColor": "#ff0000",
 									"fontColor": "#ff0000",
 									"font": "Arial;13;0",
 									"width": 10,
@@ -13715,12 +13724,14 @@
 										"$ref": "AAAAAAFu/wlKuh6aNs0="
 									},
 									"visible": false,
+									"lineColor": "#ff0000",
 									"fontColor": "#ff0000",
 									"font": "Arial;13;0",
 									"width": 10,
 									"height": 10
 								}
 							],
+							"lineColor": "#ff0000",
 							"fontColor": "#ff0000",
 							"font": "Arial;13;0",
 							"containerChangeable": true,
