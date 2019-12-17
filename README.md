@@ -1,6 +1,5 @@
 # Quiz  
 ![OpenIssues](https://img.shields.io/github/issues-raw/itsar19-20/quiz?style=plastic)
-![ClosedIssues](https://img.shields.io/github/issues-closed-raw/itsar19-20/quiz?style=plastic)
 
 ![Quiz](docs/images/quiz.png "Quiz")
 
