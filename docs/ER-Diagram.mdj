@@ -4091,28 +4091,13 @@
 													"top": 173,
 													"width": 219.138671875,
 													"height": 13
-												},
-												{
-													"_type": "ERDColumnView",
-													"_id": "AAAAAAFvDzrguUdmjc0=",
-													"_parent": {
-														"$ref": "AAAAAAFvDx/GrkB/Tl8="
-													},
-													"model": {
-														"$ref": "AAAAAAFvDzrgf0djMpU="
-													},
-													"font": "Arial;13;0",
-													"left": 645,
-													"top": 239,
-													"width": 219.138671875,
-													"height": 13
 												}
 											],
 											"font": "Arial;13;0",
 											"left": 640,
 											"top": 129,
 											"width": 229.138671875,
-											"height": 128
+											"height": 113
 										}
 									],
 									"font": "Arial;13;0",
@@ -5469,7 +5454,8 @@
 									},
 									"name": "username",
 									"type": "VARCHAR",
-									"length": "20"
+									"length": "20",
+									"primaryKey": true
 								},
 								{
 									"_type": "ERDColumn",
@@ -5539,17 +5525,6 @@
 										"$ref": "AAAAAAFvDx/GrUB7Ywk="
 									},
 									"name": "id_amico"
-								},
-								{
-									"_type": "ERDColumn",
-									"_id": "AAAAAAFvDzrgf0djMpU=",
-									"_parent": {
-										"$ref": "AAAAAAFvDx/GrUB7Ywk="
-									},
-									"name": "ID",
-									"type": "INTEGER",
-									"length": "30",
-									"primaryKey": true
 								}
 							]
 						},
