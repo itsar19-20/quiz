@@ -1,7 +1,5 @@
 # Quiz  
-
 ![Quiz](docs/images/logo-min.png "Quiz")
-
 Progetto iniziato mercoledì 11 dicembre 2019. 
 
 ## Componenti del gruppo
