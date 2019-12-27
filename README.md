@@ -1,4 +1,4 @@
-# CTFLY 
+# QUIZ 
 ![logo-min](docs/images/logo-min.png "Logo")
 Progetto iniziato mercoledì 11 dicembre 2019. 
 
