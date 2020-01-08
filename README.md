@@ -1,5 +1,5 @@
 # QUIZ 
-![logo-min](docs/images/logo-min.png "Logo")
+![logo-min](docs/images/quiz.png "Logo")
 Progetto iniziato mercoledì 11 dicembre 2019. 
 
 ## Componenti del gruppo
