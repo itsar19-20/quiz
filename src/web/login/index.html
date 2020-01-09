@@ -14,22 +14,22 @@
   </div>
   
   <div class="tile-body">
-    <form id="form">
+    <form id="form" action="login" method="post">
       <label class="form-input">
         <i class="material-icons">person</i>
-        <input type="text" autofocus="true" required />
+        <input type="text" autofocus="true" required name="username"/>
         <span class="label">Utente</span>
         <span class="underline"></span>
       </label>
       
       <label class="form-input">
         <i class="material-icons">lock</i>
-        <input type="password" required />
+        <input type="password" required name="password"/>
         <span class="label">Password</span>
         <div class="underline"></div>
       </label>
       <div class="submit-container clearfix" style="margin-top: 2rem;">          
-        <div id="submit" role="button" type="button" class="btn btn-irenic float-right" tabindex="0">
+        <div id="submit" role="button" type="submit" class="btn btn-irenic float-right" tabindex="0">
           <span>ACCEDI</span>
         </div>
         
