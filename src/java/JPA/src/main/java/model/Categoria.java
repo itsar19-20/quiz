@@ -4,11 +4,10 @@ public enum Categoria {
 web,
 programming,
 crypto,
-forences,	
-miscellaneous,
+forensics,	
+misc,
 steganography,
-binaryExploitation,
+binary,
 pwn,
-reverse,
-osint;
+reverse;
 }
