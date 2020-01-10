@@ -29,11 +29,17 @@ public class LoginControllerWeb extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AuthenticationManagerWeb am = new AuthenticationManagerWeb();
-		UtenteWeb u = am.login(request.getParameter("username"), request.getParameter("password"));
-		if (u == null) {
-			request.getRequestDispatcher("/").forward(request, response);
+		String ip= request.getRemoteAddr();
+		System.out.println(ip);
+		if("0:0:0:0:0:0:0:1".equals(ip) || "127.0.0.1".equals(ip)) {
+			UtenteWeb u = am.login(request.getParameter("username"), request.getParameter("password"));
+			if (u == null) {
+				request.getRequestDispatcher("/login.html").forward(request, response);
+			} else {
+				request.getRequestDispatcher("/home.html").forward(request, response);
+			}
 		} else {
-			request.getRequestDispatcher("/home.html").forward(request, response);
+			request.getRequestDispatcher("/403_index.html").forward(request, response);
 		}
 	}
 
