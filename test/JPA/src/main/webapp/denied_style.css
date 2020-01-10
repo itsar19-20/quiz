@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+body {
+  background-color: #0799ff;
+  color: #454749;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Monoton, sans-serif;
+  margin-bottom: .5rem;
+}
+
+.tile {
+  background-color: #ffffff;
+  border-radius: .1rem;
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.2), 0 0.25rem 0.25rem rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 100%;
+  min-width: 320px;
+  max-width: 24rem;
+  overflow: hidden;
+}
+.tile .tile-header {
+  background-color: #393a3c;
+  background-image: url("logo.png");
+  background-position: center;
+  background-size: cover;
+  height: 12rem;
+}
+.tile .tile-body {
+  padding: 2rem;
+}
+
+.form-input {
+  display: block;
+  position: relative;
+  margin-bottom: 1rem;
+}
+.form-input > .material-icons {
+  position: absolute;
+  font-size: 1.5rem;
+  top: 1.2rem;
+}
+.form-input > .material-icons ~ input, .form-input > .material-icons ~ .label, .form-input > .material-icons ~ .underline {
+  margin-left: 2.25rem;
+  width: calc(100% - 2.25rem);
+}
+.form-input input {
+  border: none;
+  box-shadow: none;
+  padding-top: 1.5rem;
+  padding-right: 0;
+  padding-bottom: 0.5rem;
+  padding-left: 0;
+  outline-style: none;
+  width: 100%;
+}
+
+.float-right {
+  float: right;
+}
+
+.submit-container {
+  position: relative;
+}
+.submit-container #submit {
+  position: relative;
+  z-index: 2;
+  outline: none;
+  opacity: 1;
+  transition: transform .1s ease-in, opacity .1s ease-in, border-radius .1s ease-in;
+  right: -1px;
+}
+
+.submit-container #submit.granted ~ .login-pending {
+  opacity: 1;
+  transform: translate(-9rem, -11rem) scale(18, 18);
+  z-index: 3;
+}
+
+.submit-container #submit.granted ~ .login-pending .login-granted-content {
+  opacity: 1;
+}
+.submit-container .login-pending {
+  height: 3rem;
+  width: 3rem;
+  background-color: #ff002b;
+  position: absolute;
+  border-radius: 50%;
+  right: 1rem;
+  bottom: -0.5rem;
+  opacity: 0;
+  overflow: hidden;
+  transform: translate(0, 0) scale(0.5, 0.5);
+  transition: transform 1s ease-in, scale 1s ease-in;
+  z-index: 1;
+}
+.submit-container .login-pending .login-granted-content {
+  background-position: center;
+  background-size: cover;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity .2s ease-in .2s;
+  text-shadow: 0px 0px 20px #ffffff;
+}
+.submit-container .login-pending .login-granted-content .material-icons {
+  font-size: 5px;
+  position: relative;
+  left: 1.25px;
+}
+
+.denied {
+  padding-left: 2em;
+  font-size: 1px;
+  font-family: Arial, Helvetica, sans-serif;
+}
