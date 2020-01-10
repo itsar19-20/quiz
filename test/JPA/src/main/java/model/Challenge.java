@@ -6,24 +6,32 @@ import javax.persistence.*;
 import model.Utente;
 
 /**
- * Entity implementation class for Entity: challenger
+ * Entity implementation class for Entity: Challenge
  *
  */
 @Entity
 
-public class challenger implements Serializable {
+public class Challenge implements Serializable {
 
 	   
 	@Id
 	private String titolo;
 	private String descrizione;
 	private Utente creatore;
-	private int rating;
+	private Difficolta rating;
 	private int punteggio;
 	private String data;
+	private Categoria categora ;
+	public Categoria getCategora() {
+		return categora;
+	}
+	public void setCategora(Categoria categora) {
+		this.categora = categora;
+	}
+
 	private static final long serialVersionUID = 1L;
 
-	public challenger() {
+	public Challenge() {
 		super();
 	}   
 	public String getTitolo() {
@@ -47,11 +55,13 @@ public class challenger implements Serializable {
 	public void setCreatore(Utente creatore) {
 		this.creatore = creatore;
 	}   
-	public int getRating() {
+	public Difficolta getRating() {
 		return this.rating;
+	
+	
 	}
 
-	public void setRating(int rating) {
+	public void setRating(Difficolta rating) {
 		
 		this.rating = rating;
 	}   

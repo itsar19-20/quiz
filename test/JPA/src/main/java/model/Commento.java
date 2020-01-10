@@ -5,7 +5,7 @@ import java.lang.Boolean;
 import java.lang.String;
 import javax.persistence.*;
 import model.Utente;
-import model.challenger;
+import model.Challenge;
 
 /**
  * Entity implementation class for Entity: Commento
@@ -16,7 +16,7 @@ import model.challenger;
 public class Commento implements Serializable {
 
 	
-	private challenger challenger;
+	private Challenge challenge;
 	private Utente autore;   
 	@Id
 	private int id;
@@ -28,12 +28,12 @@ public class Commento implements Serializable {
 	public Commento() {
 		super();
 	}   
-	public challenger getChallenger() {
-		return this.challenger;
+	public Challenge getchallenge() {
+		return this.challenge;
 	}
 
-	public void setChallenger(challenger challenger) {
-		this.challenger = challenger;
+	public void setchallenge(Challenge challenge) {
+		this.challenge = challenge;
 	}   
 	public Utente getAutore() {
 		return this.autore;

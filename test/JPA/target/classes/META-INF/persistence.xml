@@ -2,9 +2,13 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="JPA" transaction-type="RESOURCE_LOCAL">
 		<class>model.Utente</class>
-		<class>model.challenger</class>
+		<class>model.Challenge</class>
 		<class>model.Commento</class>
+<<<<<<< HEAD:test/JPA/src/main/resources/META-INF/persistence.xml
 		<class>model.UtenteWeb</class>
+=======
+		<class>model.StatoChallenge</class>
+>>>>>>> 73e2f5aabde41389bbd86e0c58a75d83e0d41440:test/JPA/target/classes/META-INF/persistence.xml
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/database"/>
