@@ -33,7 +33,11 @@ public class LoginControllerWeb extends HttpServlet {
 		if("0:0:0:0:0:0:0:1".equals(ip) || "127.0.0.1".equals(ip) || "192.168.203.19".equals(ip)) {
 			UtenteWeb u = am.login(request.getParameter("username"), request.getParameter("password"));
 			if (u == null) {
-				request.getRequestDispatcher("/login.html").forward(request, response);
+				if(request.authenticate(response)) {
+					request.getRequestDispatcher("/login.html").forward(request, response);
+				} else {
+					request.getRequestDispatcher("/denied_index.html").forward(request, response);
+				}
 			} else {
 				request.getRequestDispatcher("/home.html").forward(request, response);
 			}
