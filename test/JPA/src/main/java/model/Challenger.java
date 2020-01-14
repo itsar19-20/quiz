@@ -10,7 +10,7 @@ import model.Utente;
  *
  */
 @Entity
-public class challenger implements Serializable {
+public class Challenger implements Serializable {
 
 	@Id
 	private String titolo;
@@ -21,7 +21,7 @@ public class challenger implements Serializable {
 	private String data;
 	private static final long serialVersionUID = 1L;
 
-	public challenger() {
+	public Challenger() {
 		super();
 	}   
 	public String getTitolo() {
