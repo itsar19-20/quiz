@@ -10,7 +10,7 @@ import model.Utente;
  *
  */
 @Entity
-public class Challenger implements Serializable {
+public class Challenge implements Serializable {
 
 	@Id
 	private String titolo;
@@ -19,9 +19,10 @@ public class Challenger implements Serializable {
 	private int rating;
 	private int punteggio;
 	private String data;
+	private String flag;
 	private static final long serialVersionUID = 1L;
 
-	public Challenger() {
+	public Challenge() {
 		super();
 	}   
 	public String getTitolo() {
@@ -66,6 +67,12 @@ public class Challenger implements Serializable {
 
 	public void setData(String data) {
 		this.data = data;
+	}
+	public String getFlag() {
+		return flag;
+	}
+	public void setFlag(String flag) {
+		this.flag = flag;
 	}
    
 }

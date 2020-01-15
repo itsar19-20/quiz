@@ -15,24 +15,19 @@ public class SignupManager {
 		
 		Utente check = em.find(Utente.class, username);
 		
-		if(check != null) {
-			if(!password.contentEquals(check.getPassword())) {
-				Utente u = new Utente();
-				u.setUsername(username);
-				u.setPassword(password);
-				u.setEmail(email);
+		if(check == null) {
+			check = new Utente();
+			check.setUsername(username);
+			check.setPassword(password);
+			check.setEmail(email);
 				
-				em.getTransaction().begin();
-				em.persist(u);
-				em.getTransaction().commit();
+			em.getTransaction().begin();
+			em.persist(check);
+			em.getTransaction().commit();
 				
-				_return = true;
-				em.close();
-			}
-			return _return;
-		} else {
-			em.close();
-			return _return;
-		}
+			_return = true;
+		} 
+		em.close();
+		return _return;
 	}
 }
