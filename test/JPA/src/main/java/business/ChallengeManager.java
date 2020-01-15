@@ -21,6 +21,7 @@ public class ChallengeManager {
 	
 	public boolean challengeModifier(String titolo, String nuovotitolo, String descrizione, int punteggio, String flag) {
 		boolean _return = false;
+		boolean databaseCheck = false;
 		Challenge challenge = challengeSearch(titolo);
 		if(challenge != null) {
 			if(!titolo.contentEquals(nuovotitolo)) {
@@ -29,16 +30,14 @@ public class ChallengeManager {
 				if(check != null) {
 					_return = false;
 				} else {
-					em.getTransaction().begin();
-					challenge.setTitolo(titolo);
-					challenge.setDescrizione(descrizione);
-					challenge.setPunteggio(punteggio);
-					challenge.setFlag(flag);
-					em.getTransaction().commit();
-					_return = true;
+					databaseCheck = true;
 				}
 			} else {
+				databaseCheck = true;
+			}
+			if(databaseCheck) {
 				em.getTransaction().begin();
+				challenge.setTitolo(titolo);
 				challenge.setDescrizione(descrizione);
 				challenge.setPunteggio(punteggio);
 				challenge.setFlag(flag);

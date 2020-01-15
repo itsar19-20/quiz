@@ -18,9 +18,8 @@ public class TokenGen {
 		
 		if (u != null) {
 			_return = generator();
-			u.setToken(_return);
 			em.getTransaction().begin();
-			em.persist(u);
+			u.setToken(_return);
 			em.getTransaction().commit();
 			em.close();
 		}
