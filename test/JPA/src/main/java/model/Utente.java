@@ -23,7 +23,7 @@ public class Utente implements Serializable {
 	private String token;
 	private String immagine;
 	private int punteggio;
-	private int nazionalita;
+	private String nazionalita;
 	private static final long serialVersionUID = 1L;
 
 	public Utente() {
@@ -78,11 +78,11 @@ public class Utente implements Serializable {
 	public void setPunteggio(int punteggio) {
 		this.punteggio = punteggio;
 	}   
-	public int getNazionalita() {
+	public String getNazionalita() {
 		return this.nazionalita;
 	}
 
-	public void setNazionalita(int nazionalita) {
+	public void setNazionalita(String nazionalita) {
 		this.nazionalita = nazionalita;
 	}
    

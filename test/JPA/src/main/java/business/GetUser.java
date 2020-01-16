@@ -9,7 +9,7 @@ public class GetUser {
 	
 	public static Utente getUser(String username) {
 		EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
-		Utente _return = em.find(Utente.class, username);
+		Utente _return = em.find(Utente.class, username);;
 		return _return;
 	}
 	
