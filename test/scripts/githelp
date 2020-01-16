@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-echo -e "githelp: welcome $(whoami)"
-git pull;
-git add .;
-git commit -m "Updated $1";
-git push
