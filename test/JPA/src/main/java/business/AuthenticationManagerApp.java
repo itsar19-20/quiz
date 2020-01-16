@@ -2,6 +2,7 @@ package business;
 
 import model.Utente;
 
+//checked
 
 public class AuthenticationManagerApp {
 	

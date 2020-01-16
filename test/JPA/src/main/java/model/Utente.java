@@ -9,14 +9,11 @@ import javax.persistence.*;
  *
  */
 @Entity
-
-@IdClass(UtentePK.class)
 public class Utente implements Serializable {
 
 	   
 	@Id
-	private String username;   
-	@Id
+	private String username;
 	private String email;
 	private String dataiscrizione;
 	private String password;
