@@ -16,7 +16,7 @@ public class AmiciziaManager {
 		boolean _return = false;
 		String id = utente1.getUsername() + "/" + utente2.getUsername();
 		String idInvertito = utente2.getUsername() + "/" + utente1.getUsername();
-		if ((em.find(Amicizia.class, id) != null) || ((em.find(Amicizia.class, idInvertito) != null))) {
+		if ((em.find(Amicizia.class, id) != null) || ((em.find(Amicizia.class, idInvertito) != null)) || (utente1==utente2) ) {
 			_return = true;
 		}
 		return _return;
