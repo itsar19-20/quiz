@@ -15,7 +15,15 @@ public class TokenGen {
 	public String emailCheck (String email) {
 		String _return = null;
 		
-		Utente u = em.find(Utente.class, email);
+		/*
+		 * List<Utente> ls =
+		 * em.createQuery("SELECT u FROM Utente u WHERE email = :email", Utente.class)
+		 * .setParameter("email", email) .getResultList()
+		 */;
+		
+		Utente u = em.createQuery("SELECT u FROM Utente u WHERE email = :email", Utente.class)
+				.setParameter("email", email)
+				.getSingleResult();
 		
 		if (u != null) {
 			_return = generator();
@@ -31,15 +39,15 @@ public class TokenGen {
 	public String generator() {
 		boolean check = false;
 		String token = null;
-		while(check==false) {
+		Integer temp = 0;
+		while(check==false || temp <= 0) {
 			SecureRandom random = new SecureRandom();
-			byte bytes[] = new byte[20];
-			random.nextBytes(bytes);
-			token = bytes.toString();
+			temp = random.nextInt();
+			token = temp.toString();
 			List<Utente> uList = em.createQuery("SELECT u FROM Utente u WHERE token = :token", Utente.class)
 					.setParameter("token", token)
 					.getResultList();
-			if (uList.get(0)==null) {
+			if (uList.isEmpty()) {
 				check = true;
 			}
 		}

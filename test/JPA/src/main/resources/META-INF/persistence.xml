@@ -7,11 +7,9 @@
 		<class>model.UtenteWeb</class>
 		<class>model.Amicizia</class>
 		<properties>
-			<property name="javax.persistence.jdbc.user" value="canda"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="java.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.password" value="FamilyFir$T95"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/quiz?serverTimezone=Europe/Rome"/>
-			<property name="javax.persistence.schema-generation.database.action" value="create"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/database?serverTimezone=Europe/Rome"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 		</properties>
 	</persistence-unit>

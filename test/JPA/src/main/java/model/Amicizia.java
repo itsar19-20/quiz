@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.lang.String;
 import javax.persistence.*;
 
-import com.sun.xml.bind.v2.schemagen.xmlschema.List;
 
 import model.Utente;
 

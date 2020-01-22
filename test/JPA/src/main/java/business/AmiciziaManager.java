@@ -12,23 +12,27 @@ public class AmiciziaManager {
 
 	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
 
-	public boolean VerificaAmicizia(Utente utente1, Utente utente2) {
-		boolean _return = false;
+	public Amicizia VerificaAmicizia(Utente utente1, Utente utente2) {
+		Amicizia _return = null;
+		if(utente1 == utente2) {
+			return _return;
+		}
 		String id = utente1.getUsername() + "/" + utente2.getUsername();
 		String idInvertito = utente2.getUsername() + "/" + utente1.getUsername();
-		if ((em.find(Amicizia.class, id) != null) || ((em.find(Amicizia.class, idInvertito) != null)) || (utente1==utente2) ) {
-			_return = true;
+		_return = em.find(Amicizia.class, id);
+		if (_return == null) {
+			_return = em.find(Amicizia.class, idInvertito);
 		}
 		return _return;
 	};
 
 	public boolean aggiungiAmicizia(Utente utente1, Utente utente2) {
 		boolean _return = false;
-		if ((VerificaAmicizia(utente1, utente2)) == false) {
+		Amicizia check = VerificaAmicizia(utente1, utente2);
+		if (check == null) {
 			Amicizia amicizia = new Amicizia();
 			amicizia.setUtenti(utente1, utente2);
 			em.getTransaction().begin();
-			;
 			em.persist(amicizia);
 			em.getTransaction().commit();
 			_return = true;
@@ -38,12 +42,10 @@ public class AmiciziaManager {
 
 	public boolean CancellaAmicizia(Utente utente1, Utente utente2) {
 		boolean _return = false;
-		if ((VerificaAmicizia(utente1, utente2) == false)) {
-			Amicizia amicizia = new Amicizia();
-			amicizia.setUtenti(utente1, utente2);
+		Amicizia check = VerificaAmicizia(utente1, utente2);
+		if (check != null) {
 			em.getTransaction().begin();
-			;
-			em.remove(amicizia);
+			em.remove(check);
 			em.getTransaction().commit();
 			_return = true;
 		}
@@ -53,8 +55,8 @@ public class AmiciziaManager {
 	public List<Amicizia> FindAllAmiciza(Utente utente) {
 		// ArrayList<Amicizia> risultato = new ArrayList<Amicizia>();
 		List<Amicizia> amicizie = em
-				.createQuery("select a from  Amicizia   where a.utente1 " + utente + "=  or  a.utente1 " + utente + "",
-						Amicizia.class)
+				.createQuery("select a from  Amicizia a where utente1 = :utente or utente2 = :utente", Amicizia.class)
+				.setParameter("utente", utente)
 				.getResultList();
 		return amicizie;
 	};
