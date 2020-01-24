@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import business.AuthenticationManagerWeb;
 import model.UtenteWeb;
 
@@ -23,31 +25,15 @@ public class LoginControllerWeb extends HttpServlet {
     public LoginControllerWeb() {
         super();
     }
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AuthenticationManagerWeb am = new AuthenticationManagerWeb();
-		String ip = request.getRemoteAddr();
-		System.out.println(ip);
-		//
-		if("0:0:0:0:0:0:0:1".equals(ip) || "127.0.0.1".equals(ip) || "192.168.203.19".equals(ip)) {
-			UtenteWeb u = am.login(request.getParameter("username"), request.getParameter("password"));
-			if (u == null) {
-				request.getRequestDispatcher("/login.html").forward(request, response);
-			} else {
-				request.getRequestDispatcher("/home.html").forward(request, response);
-			}
-		} else {
-			request.getRequestDispatcher("/403_index.html").forward(request, response);
-		}
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		AuthenticationManagerWeb am = new AuthenticationManagerWeb();
+		UtenteWeb u = am.login(request.getParameter("username"), request.getParameter("password"));
+		ObjectMapper om = new ObjectMapper();
+		response.setContentType("application/json");
+		response.getWriter().append(om.writeValueAsString(u));
 	}
-
 }
