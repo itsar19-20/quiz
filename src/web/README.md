@@ -1,5 +1,5 @@
 # CTFLY  - Web
-In questo progetto si utilizza SpringBoot e Docker per fornire un container autosufficiente che puo' essere utilizzato virtualmente ovunque e costituisce il front-end ed il back-end di tutta la parte web ovvero il gestionale.
+Si utilizza SpringBoot e Docker per fornire un container autosufficiente che puo' essere utilizzato virtualmente ovunque e costituisce il front-end ed il back-end di tutta la parte web ovvero il gestionale.
 
 Requisiti
 ------------
