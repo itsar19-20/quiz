@@ -11,7 +11,7 @@ Utilizzo
 -----------
 - Posizionarsi nella directory del progetto:
 
-```$ cd testdockctf/```
+```$ cd web/```
 - Inizializzare il daemon di docker:
 
 ```$ sudo dockerd```
@@ -23,4 +23,4 @@ Utilizzo
 ```$ surf localhost:8080```
 - Per ristabilire i permessi dei files una volta terminato il test:
 
-```$ sudo chown -R $(whoami) ../testdockctf/ && sudo chgrp -R users ../testdockctf/```
+```$ sudo chown -R $(whoami) ../web/ && sudo chgrp -R users ../web/```
