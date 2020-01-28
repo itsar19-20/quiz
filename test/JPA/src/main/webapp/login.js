@@ -1,5 +1,6 @@
 $(() => {
     $('#btnLogin').click((e) => {
+        $('#spinny').show();
         e.preventDefault();
         $.ajax({
             url: '/login',
@@ -15,6 +16,7 @@ $(() => {
                 location.href = '/hometest.html';
             } else {
                 $('#error').modal('show');
+                $('#spinny').hide();
             }
         })
     })

@@ -17,6 +17,10 @@ html {
   background-color: red;
 }
 
+#spinny {
+  display: none;
+}
+
 #errorText {
   color: white;
   font-size: 300%;
