@@ -19,6 +19,7 @@ public class Commento implements Serializable {
 	private Challenge challenger;
 	private Utente autore;   
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private Boolean spoiler;
 	private String data;
