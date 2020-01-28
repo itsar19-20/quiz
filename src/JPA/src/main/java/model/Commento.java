@@ -24,6 +24,7 @@ public class Commento implements Serializable {
 	private Boolean spoiler;
 	private String data;
 	private String testo;
+	
 	private static final long serialVersionUID = 1L;
 
 	public Commento() {

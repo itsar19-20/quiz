@@ -1,7 +1,7 @@
 package model;
 
 import java.io.Serializable;
-import java.lang.String;
+
 import javax.persistence.*;
 
 /**
@@ -21,6 +21,7 @@ public class Utente implements Serializable {
 	private String immagine;
 	private int punteggio;
 	private String nazionalita;
+	private String ultimoaccesso;
 	private static final long serialVersionUID = 1L;
 
 	public Utente() {
@@ -81,6 +82,12 @@ public class Utente implements Serializable {
 
 	public void setNazionalita(String nazionalita) {
 		this.nazionalita = nazionalita;
+	}
+	public String getUltimoaccesso() {
+		return ultimoaccesso;
+	}
+	public void setUltimoaccesso(String ultimoaccesso) {
+		this.ultimoaccesso = ultimoaccesso;
 	}
    
 }
