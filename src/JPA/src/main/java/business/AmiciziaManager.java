@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import business.exception.BasicException;
 import model.Amicizia;
 import model.Utente;
 import utility.JPAUtil;
@@ -13,7 +14,9 @@ public class AmiciziaManager {
 	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
 
 	public Amicizia VerificaAmicizia(Utente utente1, Utente utente2) {
+			
 		Amicizia _return = null;
+		
 		if(utente1 == utente2) {
 			return _return;
 		}
@@ -26,20 +29,31 @@ public class AmiciziaManager {
 		return _return;
 	};
 
-	public boolean aggiungiAmicizia(Utente utente1, Utente utente2) {
-		boolean _return = false;
+	public void aggiungiAmicizia(Utente utente1, Utente utente2) throws BasicException {
+	try {	
 		Amicizia check = VerificaAmicizia(utente1, utente2);
-		if (check == null) {
+		if (check != null) 
+		{throw new BasicException("l'amicizia è già presnete nel db",utente1.getUsername()+"/"+utente2.getUsername()); }
+			
 			Amicizia amicizia = new Amicizia();
 			amicizia.setUtenti(utente1, utente2);
 			em.getTransaction().begin();
 			em.persist(amicizia);
 			em.getTransaction().commit();
-			_return = true;
+			
 		}
-		return _return;
-	};
+	catch(BasicException bx)
+	{ System.out.print(bx.toString());
+		
+	}
+	
+	}
 
+	
+
+
+
+	
 	public boolean CancellaAmicizia(Utente utente1, Utente utente2) {
 		boolean _return = false;
 		Amicizia check = VerificaAmicizia(utente1, utente2);
@@ -52,6 +66,7 @@ public class AmiciziaManager {
 		return _return;
 	};
 
+	
 	public List<Amicizia> FindAllAmiciza(Utente utente) {
 		// ArrayList<Amicizia> risultato = new ArrayList<Amicizia>();
 		List<Amicizia> amicizie = em
