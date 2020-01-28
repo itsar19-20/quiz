@@ -13,7 +13,7 @@ $(() => {
         .done((utente) => {
             if(utente) {
                 localStorage.setItem('user', JSON.stringify(utente));
-                location.href = '/hometest.html';
+                location.href = '/home.html';
             } else {
                 $('#error').modal('show');
                 $('#spinny').hide();
