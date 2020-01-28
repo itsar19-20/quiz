@@ -1,5 +1,6 @@
 $(() => {
     $('#btnUsername').click(() => {
+        $('#spinnybtn').show();
         $.ajax({
             url: '/uc',
             method: 'post',
@@ -9,16 +10,21 @@ $(() => {
             }
         })
             .done((utente) => {
+                $('#spinnybtn').hide();
                 if (utente) {
                     $('#temp').remove();
+                    $('#temp2').hide();
                     $("#tabb tbody").prepend("<tr id = 'temp'><td id = 'username'>" + `${utente.username}` +
                         "</td><td>" + `${utente.email}` + "</td><td>" + `${utente.nazionalita}` +
                         "</td><td>" + `${utente.punteggio}` + "</td><td>" + `${utente.dataiscrizione}` + "</td></tr>");
                     $('#removebtn').show();
                 } else {
+                    $('#temp').remove();
+                    $('#removebtn').hide();
                     $('#errorNF').show();
+                    $('#temp2').show();
                     setTimeout(() => {
-                        $('#errorNF').hide();
+                        $('#errorNF').fadeOut(speed = 300);
                     }, 2000);
                 }
             })

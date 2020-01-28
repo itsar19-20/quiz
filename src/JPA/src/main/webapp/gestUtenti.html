@@ -11,8 +11,8 @@
 <body>
   <div id="sidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" id="close">X</a>
-    <a href="/hometest.html">Home</a>
-    <a href="#">Services</a>
+    <a href="/home.html">Home</a>
+    <a href="/stat.html">Statistiche</a>
     <a href="#">Clients</a>
     <a href="/login.html" id="logout">Logout</a>
   </div>
@@ -24,8 +24,14 @@
     <input type="text" class="form-control" placeholder="Type Username" aria-label="Recipient's username"
       aria-describedby="button-addon2" id="inpUser">
     <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button" id="btnUsername" style="background-color: rgb(58, 58, 58);">&#8594</button>
+      <button class="btn btn-outline-secondary" type="button" id="btnUsername" style="background-color: rgb(58, 58, 58);">
+        <span id="txtbtn">&#8594</span>
+      </button>
     </div>
+  </div>
+
+  <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status" id="spinnybtn">
+    <span class="sr-only">Loading...</span>
   </div>
 
   <table class="table" id="tabb">
@@ -39,6 +45,7 @@
       </tr>
     </thead>
     <tbody>
+      <tr id="temp2"><td></td><td></td><td></td><td></td><td></td></tr>
     </tbody>
   </table>
 
