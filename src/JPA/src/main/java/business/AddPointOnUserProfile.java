@@ -5,9 +5,7 @@ import utility.JPAUtil;
 
 import javax.persistence.EntityManager;
 
-import business.exception.BasicException;
-import business.exception.NotFindInDbException;
-
+import business.exeception.*;
 ///NEL CASO SI STABILISCA CHE  NEL DATABSE DEVE ESSERCI UN TABELLA 
 ///CHE DESCRIVA QUALI UTENTI HANNO COMPLETATO QUALI CHALLENGER SARÀ NECESSARIO
 ///INSERIE NEL IF LA CONDIZIONE CHE QUEL UTENTE NON ABBIA GIÀ COMPLETATO QUELLA
