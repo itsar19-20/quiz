@@ -3,9 +3,8 @@ package business;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.
 
-import business.exception.BasicException;
+import business.exeception.BasicException;
 import model.Amicizia;
 import model.Utente;
 import utility.JPAUtil;
@@ -35,7 +34,6 @@ public class AmiciziaManager {
 		Amicizia check = VerificaAmicizia(utente1, utente2);
 		if (check != null) 
 		{throw new BasicException("l'amicizia è già presnete nel db",utente1.getUsername()+"/"+utente2.getUsername()); }
-			
 			Amicizia amicizia = new Amicizia();
 			amicizia.setUtenti(utente1, utente2);
 			em.getTransaction().begin();

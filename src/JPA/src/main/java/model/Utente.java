@@ -24,7 +24,7 @@ public class Utente implements Serializable {
 	private String nazionalita;
 	private String ultimoaccesso;
 	private static final long serialVersionUID = 1L;
-    @OneToMany (mappedBy = "utente")
+    @OneToMany (mappedBy = "autore")
 	private List<Commento> commenti;
     
     @OneToMany (mappedBy = "creatore")

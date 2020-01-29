@@ -19,7 +19,7 @@
 
 #removebtn {
   display: none;
-  background-color: rgb(58, 58, 58); 
+  box-shadow: 2px 2px 2px black; 
   margin-left: 10%;
 }
 
