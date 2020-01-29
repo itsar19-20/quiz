@@ -22,13 +22,22 @@
         <button class="openbtn" id="toggle">&#9776; Menu</button><span id="name"></span>
       </div>
     
-      <div class="input-group mb-3" id="searchuser">
-        <input type="text" class="form-control" placeholder="Type Username" aria-label="Recipient's username"
-          aria-describedby="button-addon2" id="inpUser">
+      <div class="input-group flex-nowrap" id="searchuser">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="addon-wrapping">Cerca</span>
+        </div>
+        <input id="userinput" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button" id="btnUsername" style="background-color: rgb(58, 58, 58);">
-            <span id="txtbtn">&#8594</span>
-          </button> 
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Tutti
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" id="btnall">Tutti</a>
+              <a class="dropdown-item" id="btnadmin">Admin</a>
+              <a class="dropdown-item" id="btnmod">Moderatori</a>
+            </div>
+          </div>
         </div>
       </div>
     
@@ -49,6 +58,40 @@
       </table>
 
       <button type="button" id="insertbtn" class="btn btn-primary btn-lg">Inserisci</button>
+
+      <div class="modal fade" id="insertuser" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Inserisci Utente</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Username</span>
+                </div>
+                <input id="usernameIns" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <div id="errorUser"><span>Username esistente!</span></div>
+            </div>
+            <div class="modal-body">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Password</span>
+                </div>
+                <input id="passwordIns" type="text" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div id="checkboxIns"><input type="checkbox" id="adminIns" value="true"><span id="adminInstxt">Admin</span></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="save">Salva</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

@@ -8,6 +8,53 @@
   
 }
 
+.admin {
+  display: none;
+}
+
+#checkboxIns {
+  margin-left: 5%;
+}
+
+#adminInstxt {
+  margin-left: 1.5%;
+  font-size: 120%;
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+#errorUser {
+  margin-left: 5%;
+  width: 40%;
+  display: none;
+  background-color: red;
+}
+
+#errorUser span {
+  font-weight: 600;
+  margin-left: 10%;
+  color: white;
+}
+
+#filter {
+  color: black;
+  background-color: lightgrey;
+}
+
+#btnall {
+  cursor: pointer;
+  display: none;
+}
+
+#btnadmin {
+  display: block;
+  cursor: pointer;
+}
+
+#btnmod {
+  display: block;
+  cursor: pointer;
+}
+
 #insertbtn {
   margin-left: 80%;
   margin-top: 2%;

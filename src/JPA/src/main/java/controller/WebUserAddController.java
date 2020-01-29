@@ -1,30 +1,25 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import business.WebUserSearcher;
-import model.UtenteWeb;
+import business.WebUserAdder;
 
 /**
- * Servlet implementation class WebUserController
+ * Servlet implementation class WebUserAddController
  */
-@WebServlet("/webus")
-public class WebUserController extends HttpServlet {
+@WebServlet("/wua")
+public class WebUserAddController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WebUserController() {
+    public WebUserAddController() {
         super();
     }
 
@@ -32,11 +27,8 @@ public class WebUserController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		WebUserSearcher wum = new WebUserSearcher();
-		List<UtenteWeb> modList = wum.GetModList();
-		ObjectMapper om = new ObjectMapper();
-		response.setContentType("/application/JSON");
-		response.getWriter().append(om.writeValueAsString(modList));
+		WebUserAdder wadd = new WebUserAdder();
+		wadd.addWebUser(request.getParameter("username"), request.getParameter("password"), request.getParameter("admin"));
 	}
 
 }
