@@ -1,0 +1,67 @@
+#spinnybtn {
+  display: none;
+  margin-left: 86.5%;
+}
+
+.line {
+  cursor: pointer;
+  
+}
+
+#insertbtn {
+  margin-left: 80%;
+  margin-top: 2%;
+  box-shadow: 2px 2px 2px black;
+}
+
+#name {
+  margin-left: 77.5%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 200%;
+  font-weight: 700;
+  color: white;
+}
+
+.line:hover {
+  background-color: rgba(7, 153, 255, .5);
+  
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 40%;
+}
+
+#tabb {
+    background-color: white;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+  }
+  
+  #searchuser {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+  }
+
+  #errorNF {
+    display: none;
+    text-align: center;
+    background-color: red;
+    width: 40%;
+    height: fit-content;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #errorMX {
+    font-size: 300%;
+    font-weight: 700;
+    color: white;
+  }
+  
