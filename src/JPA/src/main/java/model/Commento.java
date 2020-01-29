@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.persistence.*;
-import model.Utente;
+import model.*;
 import model.Challenge;
 
 /**
@@ -15,9 +15,11 @@ import model.Challenge;
 
 public class Commento implements Serializable {
 
-	
+	@ManyToOne
 	private Challenge challenger;
-	private Utente autore;   
+	
+	@ManyToOne
+	private Utente creatore;   
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;

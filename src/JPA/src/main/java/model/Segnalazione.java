@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Segnalazione implements Serializable{
@@ -15,7 +16,9 @@ public class Segnalazione implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	private String autore;
+	
+	@ManyToOne
+	private Utente autore;
 	private String motivazione;
 	private Date data;
 	public Integer getId() {
@@ -24,10 +27,10 @@ public class Segnalazione implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getAutore() {
+	public Utente getAutore() {
 		return autore;
 	}
-	public void setAutore(String autore) {
+	public void setAutore(Utente autore) {
 		this.autore = autore;
 	}
 	public String getMotivazione() {

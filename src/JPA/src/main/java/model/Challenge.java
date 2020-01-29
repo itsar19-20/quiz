@@ -2,6 +2,8 @@ package model;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.List;
+
 import javax.persistence.*;
 import model.Utente;
 
@@ -20,7 +22,8 @@ public class Challenge implements Serializable {
 	private int punteggio;
 	private String data;
 	private String flag;
-	
+	@OneToMany (mappedBy = "challenger")
+	private List<Commento> commenti;
 	private static final long serialVersionUID = 1L;
 
 	public Challenge() {

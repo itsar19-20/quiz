@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -23,7 +24,11 @@ public class Utente implements Serializable {
 	private String nazionalita;
 	private String ultimoaccesso;
 	private static final long serialVersionUID = 1L;
+    @OneToMany (mappedBy = "utente")
+	private List<Commento> commenti;
 
+    @OneToMany (mappedBy="autore") 
+    private List<Segnalazione> segnalazioni;
 	public Utente() {
 		super();
 	}   
