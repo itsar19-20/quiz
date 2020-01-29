@@ -17,6 +17,7 @@ public class Challenge implements Serializable {
 	@Id
 	private String titolo;
 	private String descrizione;
+	@ManyToOne
 	private Utente creatore;
 	private int rating;
 	private int punteggio;
