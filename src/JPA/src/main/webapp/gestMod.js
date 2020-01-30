@@ -14,14 +14,18 @@ $(() => {
             console.log(modList);
             var i = 0;
             modList.forEach(u => {
-                $('#tabb').append("<tr class='line' id = '" + `${i}` + "'><td id = 'user" + `${i}` + "'>" + `${u.username}` + "</td><td>" + `${u.password}` + "</td><th><span class = 'admin' id = 'admin" + `${i}` + "'>" + `${u.admin}` + "</span><span class='dot' id='dot" + `${i}` + "'></span></th></tr>");
+                $('#tabb').append(`<tr class='line' id='${i}'>` + 
+                    `<td data-id='${i}' id='user${i}'>${u.username}</td>` + 
+                    `<td data-id='${i}'>${u.password}</td>` + 
+                    `<td data-id='${i}'><span class = 'admin' id='admin${i}'>${u.admin}</span><span class='dot' id='dot${i}'></span></td>` + 
+                "</tr>");
                 if(u.admin) {
-                    $('#dot' + `${i}`).css("background-color","green");
+                    $('#dot' + i).css("background-color","green");
                 } else if(!u.admin) {
-                    $('#dot' + `${i}`).css("background-color","red");
+                    $('#dot' + i).css("background-color","red");
                 }
                 if(u.username==utente.username) {
-                    $('#' + `${i}`).remove();
+                    $('#' + i).remove();
                 }
                 i++;
             });
@@ -65,64 +69,77 @@ $(() => {
         })
     })
 
-    var btnfilter = 0;
+    $('#userinput').focus(() => {
+        $('#filter').text("Tutti");
+        $('#btnadmin').show();
+        $('#btnmod').show();
+        $('#btnall').hide();
+        for(i = 0; i<lengthmod; i++) {
+            $('#' + i).show();
+        }
+    })
 
     $('#userinput').keyup(() => {
         var inp = $('#userinput').val();
         for(i = 0; i<lengthmod; i++) {
-            var user = $('#user' + `${i}`).text();
+            var user = $('#user' + i).text();
             if(!user.startsWith(inp)) {
-                $('#' + `${i}`).hide();
+                $('#' + i).hide();
             } else {
-                $('#' + `${i}`).show();
+                $('#' + i).show();
             }
         }
     })
 
     $('#btnadmin').click(() => {
-        btnfilter = 1;
         $('#userinput').val('');
         $('#filter').text("Admin");
         $('#btnall').show();
         $('#btnmod').show();
         $('#btnadmin').hide();
         for(i = 0; i<lengthmod; i++) {
-            var admin = $('#admin' + `${i}`).text();
+            var admin = $('#admin' + i).text();
             if(admin=="true") {
-                $('#' + `${i}`).show();
+                $('#' + i).show();
             } else {
-                $('#' + `${i}`).hide();
+                $('#' + i).hide();
             }
         }
     })
 
     $('#btnall').click(() => {
-        btnfilter = 0;
         $('#userinput').val('');
         $('#filter').text("Tutti");
         $('#btnadmin').show();
         $('#btnmod').show();
         $('#btnall').hide();
         for(i = 0; i<lengthmod; i++) {
-            $('#' + `${i}`).show();
+            $('#' + i).show();
         }
     })
 
     $('#btnmod').click(() => {
-        btnfilter = 2;
         $('#userinput').val('');
         $('#filter').text("Moderatori");
         $('#btnall').show();
         $('#btnadmin').show();
         $('#btnmod').hide();
         for(i = 0; i<lengthmod; i++) {
-            var admin = $('#admin' + `${i}`).text();
+            var admin = $('#admin' + i).text();
             if(admin=="false") {
-                $('#' + `${i}`).show();
+                $('#' + i).show();
             } else {
-                $('#' + `${i}`).hide();
+                $('#' + i).hide();
             }
         }
     })
-    
+
+    $( "#tabb tbody" ).on( "click", ".line td", function() {
+        var idline = $(this).data('id');
+        console.log(idline);
+        $('#userEdit').modal('show');
+        var username = $(`#user${idline}`).text();
+        console.log(username);
+        $('#usernameEdit').attr('value', username);
+      });    
 })
