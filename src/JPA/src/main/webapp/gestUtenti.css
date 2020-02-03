@@ -4,11 +4,36 @@
   margin-left: 86.5%;
 }
 
+.puntmod{
+  display: none;
+}
+
+#name {
+  margin-left: 77.5%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 200%;
+  font-weight: 700;
+  color: white;
+}
+
 #tabb {
   background-color: white;
   width: 80%;
   margin-left: 10%;
   margin-top: 5%;
+}
+
+.input-group mb-3{
+  width: 5%;
+}
+
+div[name='tabbtn'] {
+  display: none;
+}
+
+.punteggio:hover {
+  background-color: rgba(7, 153, 255, .5);
+  cursor: pointer;
 }
 
 #searchuser {

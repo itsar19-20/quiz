@@ -25,6 +25,8 @@ public class SignupManager {
 			check.setPassword(password);
 			check.setEmail(email);
 			check.setDataiscrizione(dtf.format(now));
+			
+			
 				
 			em.getTransaction().begin();
 			em.persist(check);

@@ -34,6 +34,11 @@ public class Utente implements Serializable {
     private List<Segnalazione> segnalazioni;
 	public Utente() {
 		super();
+		this.token=null;
+		this.ultimoaccesso=null;
+		this.punteggio=0;
+		this.commenti=null;
+		this.segnalazioni=null;
 	}   
 	public String getUsername() {
 		return this.username;
