@@ -27,5 +27,4 @@ public class PasswordManager {
 		}
 		return true;
 	}
-	
 }
