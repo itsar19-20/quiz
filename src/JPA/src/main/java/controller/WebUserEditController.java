@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import business.WebUserEdit;
+import business.WebUserManager;
+
 
 /**
  * Servlet implementation class WebUserEditController
@@ -27,7 +28,7 @@ public class WebUserEditController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		WebUserEdit wue = new WebUserEdit();
+		WebUserManager wue = new WebUserManager();
 		wue.edit(request.getParameter("username"), request.getParameter("password"), request.getParameter("admin"));
 	}
 

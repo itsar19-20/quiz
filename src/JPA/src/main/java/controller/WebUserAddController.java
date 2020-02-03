@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import business.WebUserAdder;
+import business.WebUserManager;
 
 /**
  * Servlet implementation class WebUserAddController
@@ -27,7 +27,7 @@ public class WebUserAddController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		WebUserAdder wadd = new WebUserAdder();
+		WebUserManager wadd = new WebUserManager();
 		wadd.addWebUser(request.getParameter("username"), request.getParameter("password"), request.getParameter("admin"));
 	}
 

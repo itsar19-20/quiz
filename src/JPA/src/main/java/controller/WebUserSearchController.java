@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import business.WebUserSearcher;
+import business.WebUserManager;
 import model.UtenteWeb;
 
 /**
@@ -32,7 +32,7 @@ public class WebUserSearchController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		WebUserSearcher wum = new WebUserSearcher();
+		WebUserManager wum = new WebUserManager();
 		List<UtenteWeb> modList = wum.GetModList();
 		ObjectMapper om = new ObjectMapper();
 		response.setContentType("/application/JSON");

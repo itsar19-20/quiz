@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import business.WebUserRemove;
+import business.WebUserManager;
 
 /**
  * Servlet implementation class WebUserRemoveController
@@ -27,7 +27,7 @@ public class WebUserRemoveController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		WebUserRemove wur = new WebUserRemove();
+		WebUserManager wur = new WebUserManager();
 		wur.remove(request.getParameter("username"));
 	}
 
