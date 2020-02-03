@@ -29,6 +29,7 @@ public class LoginControllerWeb extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AuthenticationManagerWeb am = new AuthenticationManagerWeb();
 		UtenteWeb u = am.login(request.getParameter("username"), request.getParameter("password"));

@@ -26,6 +26,7 @@ public class WebUserAddController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		WebUserManager wadd = new WebUserManager();
 		wadd.addWebUser(request.getParameter("username"), request.getParameter("password"), request.getParameter("admin"));

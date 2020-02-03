@@ -24,10 +24,9 @@ public class WebUserManager {
 		em.getTransaction().commit();
 	}
 	
-	public List<UtenteWeb> GetModList() {
+	public List<UtenteWeb> getModList() {
 		EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
-		List<UtenteWeb> modList = em.createQuery("SELECT u FROM UtenteWeb u", UtenteWeb.class).getResultList();
-		return modList;
+		return em.createQuery("SELECT u FROM UtenteWeb u", UtenteWeb.class).getResultList();
 	}
 	
 	public void remove(String username) {

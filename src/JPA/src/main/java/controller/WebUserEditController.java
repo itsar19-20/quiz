@@ -27,6 +27,7 @@ public class WebUserEditController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		WebUserManager wue = new WebUserManager();
 		wue.edit(request.getParameter("username"), request.getParameter("password"), request.getParameter("admin"));

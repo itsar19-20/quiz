@@ -13,7 +13,7 @@ public class AmiciziaManager {
 
 	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
 
-	public Amicizia VerificaAmicizia(Utente utente1, Utente utente2) {
+	public Amicizia verificaAmicizia(Utente utente1, Utente utente2) {
 			
 		Amicizia _return = null;
 		
@@ -31,7 +31,7 @@ public class AmiciziaManager {
 
 	public void aggiungiAmicizia(Utente utente1, Utente utente2) throws BasicException {
 	try {	
-		Amicizia check = VerificaAmicizia(utente1, utente2);
+		Amicizia check = verificaAmicizia(utente1, utente2);
 		if (check != null) 
 		{throw new BasicException("l'amicizia è già presnete nel db",utente1.getUsername()+"/"+utente2.getUsername()); }
 			Amicizia amicizia = new Amicizia();
@@ -53,26 +53,22 @@ public class AmiciziaManager {
 
 
 	
-	public boolean CancellaAmicizia(Utente utente1, Utente utente2) {
-		boolean _return = false;
-		Amicizia check = VerificaAmicizia(utente1, utente2);
+	public boolean cancellaAmicizia(Utente utente1, Utente utente2) {
+		Amicizia check = verificaAmicizia(utente1, utente2);
 		if (check != null) {
 			em.getTransaction().begin();
 			em.remove(check);
 			em.getTransaction().commit();
-			_return = true;
+			return true;
 		}
-		return _return;
+		return false;
 	};
 
 	
-	public List<Amicizia> FindAllAmiciza(Utente utente) {
-		// ArrayList<Amicizia> risultato = new ArrayList<Amicizia>();
-		List<Amicizia> amicizie = em
-				.createQuery("select a from  Amicizia a where utente1 = :utente or utente2 = :utente", Amicizia.class)
+	public List<Amicizia> findAllAmiciza(Utente utente) {
+		return em.createQuery("select a from  Amicizia a where utente1 = :utente or utente2 = :utente", Amicizia.class)
 				.setParameter("utente", utente)
 				.getResultList();
-		return amicizie;
 	};
 
 };

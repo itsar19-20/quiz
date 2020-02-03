@@ -1,5 +1,7 @@
 package business;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import model.Utente;
@@ -10,8 +12,11 @@ public class UserManager {
 	static EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
 	
 	public static Utente getUser(String username) {
-		Utente _return = em.find(Utente.class, username);;
-		return _return;
+		return em.find(Utente.class, username);
+	}
+	
+	public static List<Utente> userSearch() {
+		return em.createQuery("SELECT u FROM Utente u", Utente.class).getResultList();
 	}
 	
 	public static void removeUser(String username) {

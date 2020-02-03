@@ -13,9 +13,6 @@ import utility.JPAUtil;
 public class SignupManager {
 	
 	public boolean signup(String username, String password, String email, String nazionalita) {
-		
-		boolean _return = false;
-
 		EntityManager em =  JPAUtil.getInstance().getEmf().createEntityManager();
 		
 		Utente check = em.find(Utente.class, username);   
@@ -33,9 +30,9 @@ public class SignupManager {
 			em.persist(check);
 			em.getTransaction().commit();
 				
-			_return = true;
+			return true;
 		} 
 		em.close();
-		return _return;
+		return false;
 	}
 }

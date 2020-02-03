@@ -16,7 +16,6 @@ public class ChallengeManager {
 	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
 	
 	public boolean addChallenge(String titolo, String descrizione, Utente creatore, int punteggio, String flag) {
-		boolean _return = false;
 		Challenge check = em.find(Challenge.class, titolo);
 		if(check==null) {
 			check = new Challenge();
@@ -33,10 +32,10 @@ public class ChallengeManager {
 			em.persist(check);
 			em.getTransaction().commit();
 			
-			_return = true;
+			return true;
 		}
 		em.close();
-		return _return;
+		return false;
 	}
 	
 	public void challengeRemover(String titolo) {
@@ -49,7 +48,6 @@ public class ChallengeManager {
 	}
 	
 	public boolean challengeModifier(String titolo, String descrizione, int punteggio, String flag) {
-		boolean _return = false;
 		Challenge challenge = challengeSearch(titolo);
 		if(challenge != null) {
 			em.getTransaction().begin();
@@ -57,14 +55,13 @@ public class ChallengeManager {
 			challenge.setPunteggio(punteggio);
 			challenge.setFlag(flag);
 			em.getTransaction().commit();
-			_return = true;
+			return true;
 		}
-		return _return;
+		return false;
 	}
 	
 	private Challenge challengeSearch(String titolo) {
-		Challenge _return = em.find(Challenge.class, titolo);
-		return _return;
+		return em.find(Challenge.class, titolo);
 	}
 
 }

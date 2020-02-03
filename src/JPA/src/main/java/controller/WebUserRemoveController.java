@@ -26,6 +26,7 @@ public class WebUserRemoveController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		WebUserManager wur = new WebUserManager();
 		wur.remove(request.getParameter("username"));
