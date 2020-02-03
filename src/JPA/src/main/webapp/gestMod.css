@@ -2,11 +2,26 @@
   display: none;
 }
 
+#footer {
+  height: 5%;
+  margin-bottom: 0%;
+}
+
 #checkboxIns {
   margin-left: 5%;
 }
 
+#checkboxEdit {
+  margin-left: 5%;
+}
+
 #adminInstxt {
+  margin-left: 1.5%;
+  font-size: 120%;
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+#adminEdittxt {
   margin-left: 1.5%;
   font-size: 120%;
   font-family: Tahoma, Geneva, sans-serif;
@@ -85,4 +100,5 @@
     margin-top: 5%;
   }
 
+  
   

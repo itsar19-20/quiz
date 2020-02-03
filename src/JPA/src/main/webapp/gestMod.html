@@ -39,7 +39,7 @@
           </div>
         </div>
       </div>
-    
+      
       <table class="table" id="tabb">
         <thead class="thead-dark">
           <tr>
@@ -88,11 +88,13 @@
         </div>
       </div>
 
+      <!--aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
+
       <div class="modal" id = "userEdit" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
+              <h5 class="modal-title">Modifica credenziali</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -104,13 +106,23 @@
                 </div>
                 <input id="usernameEdit" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" readonly>
               </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Password</span>
+                </div>
+                <input id="passwordEdit" type="text" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <div id="checkboxEdit"><input type="checkbox" id="adminEdit" value="true"><span id="adminEdittxt">Admin</span></div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" id="">Salva modifiche</button>
+              <button type="button" class="btn btn-primary" id="saveEdit">Salva modifiche</button>
+              <button type="button" class="btn btn-secondary" id="remove">Rimuovi</button>
             </div>
           </div>
         </div>
       </div>
+
+    <div id="footer"></div>
 
     <script src="/jquery-3.4.1.min.js"></script>
     <script src="/popper.min.js"></script>

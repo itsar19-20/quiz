@@ -11,12 +11,11 @@ $(() => {
         .done((mod) => {
             modList = JSON.parse(mod);
             lengthmod = modList.length;
-            console.log(modList);
             var i = 0;
             modList.forEach(u => {
                 $('#tabb').append(`<tr class='line' id='${i}'>` + 
                     `<td data-id='${i}' id='user${i}'>${u.username}</td>` + 
-                    `<td data-id='${i}'>${u.password}</td>` + 
+                    `<td data-id='${i}' id='pass${i}'>${u.password}</td>` + 
                     `<td data-id='${i}'><span class = 'admin' id='admin${i}'>${u.admin}</span><span class='dot' id='dot${i}'></span></td>` + 
                 "</tr>");
                 if(u.admin) {
@@ -134,12 +133,53 @@ $(() => {
         }
     })
 
+    var idline;
+
     $( "#tabb tbody" ).on( "click", ".line td", function() {
-        var idline = $(this).data('id');
-        console.log(idline);
+        idline = $(this).data('id');
         $('#userEdit').modal('show');
         var username = $(`#user${idline}`).text();
-        console.log(username);
+        var password = $(`#pass${idline}`).text();
         $('#usernameEdit').attr('value', username);
-      });    
+        $('#passwordEdit').attr('value', password);
+        var admin = $(`#admin${idline}`).text();
+        if (admin == "true") {
+            $('#adminEdit').prop("checked", true);
+        } else {
+            $('#adminEdit').prop("checked", false);
+        }
+      }); 
+    
+    $('#saveEdit').click(() => {
+        if ($('#adminEdit').prop('checked')) {
+            admin = "true";
+        } else {
+            admin = "false";
+        }
+        $.ajax({
+            url:"/wuec",
+            method: "post",
+            data: {
+                username: $(`#user${idline}`).text(),
+                password: $('#passwordEdit').val(),
+                admin: admin
+            }
+        })
+        .done(() => {
+            location.reload(true);
+        })
+    })
+
+    $('#remove').click(() => {
+        $.ajax({
+            url: "/wurc",
+            method: "post",
+            data: {
+                username: $(`#user${idline}`).text()
+            }
+        })
+        .done(() => {
+            location.reload(true);
+        })
+    })
 })

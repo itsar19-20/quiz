@@ -1,5 +1,10 @@
 $(() => {
     var utente = JSON.parse(localStorage.getItem('user'));
+    if(localStorage.getItem('user')) {
+        
+    } else {
+        location.href = 'login.html';
+    }
     setInterval(() => {
         if(localStorage.getItem('user')) {
         
