@@ -1,7 +1,11 @@
 package model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import model.Segnalazione;
 
 @Entity
 public class UtenteWeb {
@@ -10,6 +14,8 @@ public class UtenteWeb {
 	private String username;
 	private String password;
 	private boolean admin;
+	@OneToMany(mappedBy = "risolutore")
+	private List<Segnalazione> segnalazioni;
 	
 	
 	public String getUsername() {

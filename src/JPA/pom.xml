@@ -30,6 +30,16 @@
 			<version>4.0.1</version>
 		    <scope>provided</scope>
 		</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.sonarsource.sonarlint.core/sonarlint-core -->
+<dependency>
+    <groupId>org.sonarsource.sonarlint.core</groupId>
+    <artifactId>sonarlint-core</artifactId>
+    <version>4.7.0.12286</version>
+</dependency>
+
+
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
