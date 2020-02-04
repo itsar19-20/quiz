@@ -25,13 +25,9 @@ public class SignupManager {
 			check.setUsername(username);
 			check.setEmail(email);
 			check.setDataiscrizione(dtf.format(now));
- Azzazello-95
 	    	check.setPassword(password);
 	 	    check.setNazionalita(nazionalita);
-
-			
-			
-				 master
+	 	    
 			em.getTransaction().begin();
 			em.persist(check);
 			em.getTransaction().commit();
