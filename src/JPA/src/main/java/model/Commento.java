@@ -14,17 +14,18 @@ import model.Challenge;
 
 public class Commento implements Serializable {
 
-	@ManyToOne
-	private Challenge challenger;
-	
-	@ManyToOne
-	private Utente autore;   
+	   
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private Boolean spoiler;
 	private String data;
 	private String testo;
+	@ManyToOne
+	private Challenge challenger;
+	
+	@ManyToOne
+	private Utente autore;
 	
 	private static final long serialVersionUID = 1L;
 
