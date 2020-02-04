@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import model.Segnalazione;
 
+
 @Entity
 public class UtenteWeb {
 	
@@ -16,11 +17,10 @@ public class UtenteWeb {
 	private boolean admin;
 	@OneToMany(mappedBy = "risolutore")
 	private List<Segnalazione> segnalazioni;
-	
-    public UtenteWeb() {
-	
-    
-    };
+	public UtenteWeb() {
+		segnalazioni = null;
+	}
+
 	
 	public String getUsername() {
 		return username;

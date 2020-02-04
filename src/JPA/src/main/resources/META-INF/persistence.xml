@@ -14,7 +14,6 @@
 			<property name="javax.persistence.schema-generation.database.action" value="create"/>
       <property name="hbm2ddl.auto" value="create"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
-			
 		</properties>
 	  
 	

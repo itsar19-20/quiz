@@ -4,10 +4,6 @@
   margin-left: 86.5%;
 }
 
-.puntmod{
-  display: none;
-}
-
 #name {
   margin-left: 77.5%;
   font-family: Arial, Helvetica, sans-serif;
@@ -16,24 +12,31 @@
   color: white;
 }
 
-#tabb {
+.puntmod {
+  display: none;
+}
+
+thead th {
+  background-color: black;
+  position: sticky;
+  top: -1;
+}
+
+.table-responsive {
   background-color: white;
+  max-height:60%;
   width: 80%;
   margin-left: 10%;
   margin-top: 5%;
+  
+}
+
+#tabb {
+  background-color: white;
 }
 
 .input-group mb-3{
   width: 5%;
-}
-
-div[name='tabbtn'] {
-  display: none;
-}
-
-.punteggio:hover {
-  background-color: rgba(7, 153, 255, .5);
-  cursor: pointer;
 }
 
 #searchuser {

@@ -33,13 +33,14 @@ public class UserController extends HttpServlet {
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String cause = request.getParameter("action");
-		List<Utente> u = UserManager.userSearch();
+		UserManager um = new UserManager();
+		List<Utente> u = um.userSearch();
 		if (cause.contentEquals("search")) {
 			ObjectMapper om = new ObjectMapper();
 			response.setContentType("application/JSON");
 			response.getWriter().append(om.writeValueAsString(u));
 		} else if (cause.contentEquals("delete")) {
-			UserManager.removeUser(request.getParameter("username"));
+			um.removeUser(request.getParameter("username"));
 		}
 	}
 
