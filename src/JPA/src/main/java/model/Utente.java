@@ -23,8 +23,8 @@ public class Utente implements Serializable {
 	private int punteggio;
 	private String nazionalita;
 	private String ultimoaccesso;
-	private static final long serialVersionUID = 1L;
-    @OneToMany (mappedBy = "autore")
+	
+	@OneToMany (mappedBy = "autore")
 	private List<Commento> commenti;
     
     @OneToMany (mappedBy = "creatore")
@@ -32,9 +32,84 @@ public class Utente implements Serializable {
 
     @OneToMany (mappedBy="autore") 
     private List<Segnalazione> segnalazioni;
-	public Utente() {
+	
+    
+    
+    public Utente() {
 		super();
-	}   
+         setToken("null");	
+    	 setUltimoaccesso("null");
+    	 setImmagine("null");	
+	     setPunteggio(0);	
+     }
+
+	
+	
+
+
+	
+
+
+	@Override
+	public String toString() {
+		return "Utente [username=" + username + ", email=" + email + ", dataiscrizione=" + dataiscrizione
+				+ ", password=" + password + ", token=" + token + ", immagine=" + immagine + ", punteggio=" + punteggio
+				+ ", nazionalita=" + nazionalita + ", ultimoaccesso=" + ultimoaccesso + ", commenti=" + commenti
+				+ ", challengers=" + challengers + ", segnalazioni=" + segnalazioni + "]";
+	}
+
+
+
+
+
+
+
+
+	public List<Commento> getCommenti() {
+		return commenti;
+		
+	}
+
+
+
+
+	public void setCommenti(List<Commento> commenti) {
+		this.commenti = commenti;
+	}
+
+
+
+
+	public List<Challenge> getChallengers() {
+		return challengers;
+	}
+
+
+
+
+	public void setChallengers(List<Challenge> challengers) {
+		this.challengers = challengers;
+	}
+
+
+
+
+	public List<Segnalazione> getSegnalazioni() {
+		return segnalazioni;
+	}
+
+
+
+
+	public void setSegnalazioni(List<Segnalazione> segnalazioni) {
+		this.segnalazioni = segnalazioni;
+	}
+	private static final long serialVersionUID = 1L;
+    
+		
+
+	
+	
 	public String getUsername() {
 		return this.username;
 	}

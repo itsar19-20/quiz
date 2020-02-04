@@ -19,6 +19,12 @@ public class Challenge implements Serializable {
 	private String descrizione;
 	@ManyToOne
 	private Utente creatore;
+	public List<Commento> getCommenti() {
+		return commenti;
+	}
+	public void setCommenti(List<Commento> commenti) {
+		this.commenti = commenti;
+	}
 	private int rating;
 	private int punteggio;
 	private String data;

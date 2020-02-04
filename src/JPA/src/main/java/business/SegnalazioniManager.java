@@ -17,14 +17,16 @@ public class SegnalazioniManager {
 	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
 
 
-	SegnalazioniManager(){
+	public SegnalazioniManager(){
 
 	};
 
 
-	public List<Segnalazione> trovaSegnalazioni(boolean stato) {
-		List<Segnalazione> Segnalazioni = em.createQuery("SELECT s FROM Segnalazione s WHERE s.risolta = :risolta", Segnalazione.class)
-	    .setParameter("risolta", stato)
+	
+	
+	
+	public List<Segnalazione> trovaSegnalazioni() {
+		List<Segnalazione> Segnalazioni = em.createQuery("SELECT s FROM Segnalazione s ", Segnalazione.class)
 	   .getResultList()
 	    ;
 		
@@ -62,15 +64,13 @@ public class SegnalazioniManager {
 	
 	
 	
-	public void addSegnalazione(String autore, String motivazione  ) throws NotFindInDbException , BasicException  {
+	public void addSegnalazione(Utente autore, String motivazione  ) throws NotFindInDbException , BasicException  {
 
 		try {
 
-			Utente creatore = em.find(Utente.class, autore);
+			
 
-			if (creatore == null) {
-				throw new  NotFindInDbException("Utente", autore);   			    
-			}	
+				
 
 			if (motivazione== null) {
 				throw new BasicException("la motivazione è  nulla", motivazione);
@@ -81,7 +81,7 @@ public class SegnalazioniManager {
 
 			Segnalazione segn = new Segnalazione();
 			segn.setData(dtf.format(now));
-			segn.setAutore(creatore);
+			segn.setAutore(autore);
 			segn.setMotivazione(motivazione);
 			
 			
@@ -90,10 +90,6 @@ public class SegnalazioniManager {
 			em.persist(segn);
 			em.getTransaction().commit();
 		}
-
-		catch(NotFindInDbException ndbex) {
-			System.out.print(ndbex.toString());
-		}	
 
 		catch(BasicException bex) {
 		   System.out.print(bex.toString());

@@ -14,6 +14,9 @@
 			<property name="javax.persistence.schema-generation.database.action" value="create"/>
 			<property name="javax.persistence.jdbc.user" value="canda"/>
 			<property name="javax.persistence.jdbc.password" value="FamilyFir$T95"/>
+		    <property name="hbm2ddl.auto" value="create"/>
 		</properties>
+	  
+	
 	</persistence-unit>
 </persistence>

@@ -21,14 +21,16 @@ public class SignupManager {
 			check = new Utente();
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
 			LocalDateTime now = LocalDateTime.now();
+			
 			check.setUsername(username);
-			check.setPassword(password);
 			check.setEmail(email);
 			check.setDataiscrizione(dtf.format(now));
-				
+	    	check.setPassword(password);
+	 	    check.setNazionalita(nazionalita);
 			em.getTransaction().begin();
 			em.persist(check);
 			em.getTransaction().commit();
+			
 				
 			return true;
 		} 
