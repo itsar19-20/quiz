@@ -29,9 +29,9 @@ public class Segnalazione implements Serializable{
 
 
 
-  public 	Segnalazione (){
-		 this.risolta = false;
-		 this.risolutore = null;
+	public 	Segnalazione (){
+		this.risolta = false;
+		this.risolutore = null;
 	}
 
 	public Integer getId()	 
@@ -66,7 +66,7 @@ public class Segnalazione implements Serializable{
 	public void setMotivazione(String motivazione) {
 		this.motivazione = motivazione;
 	}
-	
+
 	public String getData() {
 		return data;
 	}
