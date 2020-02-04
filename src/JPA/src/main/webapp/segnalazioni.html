@@ -1,9 +1,14 @@
 <html>
 
 <head>
+    <title>Segnalazioni1</title>
 
+    <!--bootstrap-->
     <link rel="stylesheet" href="/bootstrap.min.css">
     <link rel="stylesheet" href="/common.css">
+     
+    <!--tua pag css-->
+    <link rel="stylesheet" href="/segnalazioni.css">
 </head>
 
 <body>
@@ -12,18 +17,43 @@
         <a href="/home.html">Home</a>
         <a href="/gestUtenti.html">Gestione Utenti</a>
         <a href="/gestMod.html" id="modgest">Gestione Moderatori</a>
-        <a href="/stat.html">Statistiche</a>
-        <a href="/segnalazioni.html">Segnalazioni</a>
+       
         <a href="/login.html" id="logout">Logout</a>
-      </div>
-      <div id="main">
+    </div>
+    <div id="main">
         <button class="openbtn" id="toggle">&#9776; Menu</button>
-      </div>
+    </div>
 
-    <script src="/jquery-3.4.1.min.js"></script>
-    <script src="/popper.min.js"></script>
-    <script src="/bootstrap.min.js"></script>
-    <script src="/common.js"></script>
+    <table class="table" id="tabb">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">autore</th>
+            <th scope="col">segnalazione</th>
+            <th scope="col">Data</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+
+
+
+
+
+
+
+
+         
+       <!--jquery--> 
+       <script src="/jquery-3.4.1.min.js"></script>
+       <script src="/popper.min.js"></script>
+       <script src="/bootstrap.min.js"></script>
+       <script src="/common.js"></script>
+   
+       <script src="/segnalazioni.js"></script>
+
+
 </body>
 
 </html>
