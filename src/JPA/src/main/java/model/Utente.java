@@ -37,11 +37,15 @@ public class Utente implements Serializable {
     
     public Utente() {
 		super();
-         setToken("null");	
+        setToken("null");	
     	 setUltimoaccesso("null");
     	 setImmagine("null");	
-	     setPunteggio(0);	
-     }
+	     setPunteggio(0);
+				this.commenti=null;
+		    this.segnalazioni=null;
+
+    
+    }
 
 	
 	
@@ -50,13 +54,6 @@ public class Utente implements Serializable {
 	
 
 
-	@Override
-	public String toString() {
-		return "Utente [username=" + username + ", email=" + email + ", dataiscrizione=" + dataiscrizione
-				+ ", password=" + password + ", token=" + token + ", immagine=" + immagine + ", punteggio=" + punteggio
-				+ ", nazionalita=" + nazionalita + ", ultimoaccesso=" + ultimoaccesso + ", commenti=" + commenti
-				+ ", challengers=" + challengers + ", segnalazioni=" + segnalazioni + "]";
-	}
 
 
 
@@ -110,6 +107,8 @@ public class Utente implements Serializable {
 
 	
 	
+	   
+
 	public String getUsername() {
 		return this.username;
 	}
