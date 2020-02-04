@@ -23,8 +23,8 @@ public class Utente implements Serializable {
 	private int punteggio;
 	private String nazionalita;
 	private String ultimoaccesso;
-	private static final long serialVersionUID = 1L;
-    @OneToMany (mappedBy = "autore")
+	
+	@OneToMany (mappedBy = "autore")
 	private List<Commento> commenti;
     
     @OneToMany (mappedBy = "creatore")
@@ -32,14 +32,83 @@ public class Utente implements Serializable {
 
     @OneToMany (mappedBy="autore") 
     private List<Segnalazione> segnalazioni;
-	public Utente() {
+	
+    
+    
+    public Utente() {
 		super();
-		this.token=null;
-		this.ultimoaccesso=null;
-		this.punteggio=0;
-		this.commenti=null;
-		this.segnalazioni=null;
-	}   
+        setToken("null");	
+    	 setUltimoaccesso("null");
+    	 setImmagine("null");	
+	     setPunteggio(0);
+				this.commenti=null;
+		    this.segnalazioni=null;
+
+    
+    }
+
+	
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+	public List<Commento> getCommenti() {
+		return commenti;
+		
+	}
+
+
+
+
+	public void setCommenti(List<Commento> commenti) {
+		this.commenti = commenti;
+	}
+
+
+
+
+	public List<Challenge> getChallengers() {
+		return challengers;
+	}
+
+
+
+
+	public void setChallengers(List<Challenge> challengers) {
+		this.challengers = challengers;
+	}
+
+
+
+
+	public List<Segnalazione> getSegnalazioni() {
+		return segnalazioni;
+	}
+
+
+
+
+	public void setSegnalazioni(List<Segnalazione> segnalazioni) {
+		this.segnalazioni = segnalazioni;
+	}
+	private static final long serialVersionUID = 1L;
+    
+		
+
+	
+	
+	   
+
 	public String getUsername() {
 		return this.username;
 	}

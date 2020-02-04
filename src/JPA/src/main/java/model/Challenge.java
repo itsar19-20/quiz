@@ -20,6 +20,12 @@ public class Challenge implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "creatore")
 	private Utente creatore;
+	public List<Commento> getCommenti() {
+		return commenti;
+	}
+	public void setCommenti(List<Commento> commenti) {
+		this.commenti = commenti;
+	}
 	private int rating;
 	private int punteggio;
 	private String data;
