@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -18,9 +19,13 @@ public class Segnalazione implements Serializable{
 	private Integer id;
 	
 	@ManyToOne
+	@JoinColumn(name = "autore")
 	private Utente autore;
 	private String motivazione;
 	private Date data;
+	@ManyToOne
+	@JoinColumn(name = "risolutore")
+	private UtenteWeb risolutore;
 	public Integer getId() {
 		return id;
 	}

@@ -1,7 +1,7 @@
 $(() => {
     $('#btnLogin').click((e) => {
-        $('#spinny').show();
-        e.preventDefault();
+        $('#spinny').show();//spinner per segnalare caricamento
+        e.preventDefault();//evita al tag <form> di inviare dato senza passare da ajax
         $.ajax({
             url: '/login',
             method: 'post',
@@ -12,10 +12,10 @@ $(() => {
         })
         .done((utente) => {
             if(utente) {
-                localStorage.setItem('user', JSON.stringify(utente));
+                localStorage.setItem('userCTFLY', JSON.stringify(utente));
                 location.href = '/home.html';
             } else {
-                $('#error').modal('show');
+                $('#error').modal('show');//credenziali errate
                 $('#spinny').hide();
             }
         })

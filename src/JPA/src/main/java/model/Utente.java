@@ -102,5 +102,23 @@ public class Utente implements Serializable {
 	public void setUltimoaccesso(String ultimoaccesso) {
 		this.ultimoaccesso = ultimoaccesso;
 	}
+	public List<Commento> getCommenti() {
+		return commenti;
+	}
+	public void setCommenti(List<Commento> commenti) {
+		this.commenti = commenti;
+	}
+	public List<Challenge> getChallengers() {
+		return challengers;
+	}
+	public void setChallengers(List<Challenge> challengers) {
+		this.challengers = challengers;
+	}
+	public List<Segnalazione> getSegnalazioni() {
+		return segnalazioni;
+	}
+	public void setSegnalazioni(List<Segnalazione> segnalazioni) {
+		this.segnalazioni = segnalazioni;
+	}
    
 }
