@@ -5,6 +5,9 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import model.Segnalazione;
 
 @Entity
@@ -18,17 +21,20 @@ public class UtenteWeb {
 	private List<Segnalazione> segnalazioni;
 	
     public UtenteWeb() {
-	
-    
+      segnalazioni = null;
+      
     };
 	
 	public String getUsername() {
 		return username;
 	}
+	
+	@JsonIgnore
 	public List<Segnalazione> getSegnalazioni() {
 		return segnalazioni;
 	}
 
+	@JsonIgnore
 	public void setSegnalazioni(List<Segnalazione> segnalazioni) {
 		this.segnalazioni = segnalazioni;
 	}

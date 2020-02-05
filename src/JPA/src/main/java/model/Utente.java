@@ -41,25 +41,11 @@ public class Utente implements Serializable {
     	 setUltimoaccesso("null");
     	 setImmagine("null");	
 	     setPunteggio(0);
-				this.commenti=null;
-		    this.segnalazioni=null;
+		this.commenti=null;
+		  this.segnalazioni=null;
 
     
     }
-
-	
-	
-
-
-	
-
-
-
-
-
-
-
-
 
 
 	public List<Commento> getCommenti() {

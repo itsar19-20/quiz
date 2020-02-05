@@ -15,15 +15,16 @@ private final String USERNAME= "username";
 private final String PASSWORD= "password";
 private final String EMAIL ="email";
 private final String NAZIONALITA= "nazionalita";
-	//@Test
-	//public void test() {
-		//SignupManager sum = new SignupManager();
-        
-	//	sum.signup(USERNAME, PASSWORD,EMAIL , NAZIONALITA);
-	//}
+	
 
-	//@After
-	@Test
+@Test
+	public void test() {
+		SignupManager sum = new SignupManager();
+        
+		sum.signup(USERNAME, PASSWORD,EMAIL , NAZIONALITA);
+	}
+
+	@After
 	public void afeter() {
 		EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
         Utente u = em.find(Utente.class, USERNAME);

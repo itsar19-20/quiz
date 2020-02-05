@@ -9,18 +9,11 @@ $.ajax({
         var i = 0;
         modList.forEach(u => {
             $('#tabb').append(`<tr class='line' id='${i}'>` + 
-                `<td data-id='${i}' id='autore${i}'>${u.autore}</td>` + 
-                `<td data-id='${i}' id='pass${i}'>${u.password}</td>` + 
-                `<td data-id='${i}'><span class = 'admin' id='admin${i}'>${u.admin}</span><span class='dot' id='dot${i}'></span></td>` + 
-            "</tr>");
-            if(u.admin) {
-                $('#dot' + i).css("background-color","green");
-            } else if(!u.admin) {
-                $('#dot' + i).css("background-color","red");
-            }
-            if(u.username==utente.username) {
-                $('#' + i).remove();
-            }
+                `<td data-id='${i}' id='autore${i}'>${u.autore_username}</td>` + 
+                `<td data-id='${i}' id='data${i}'>${u.data}</td>` +
+                `<td data-id='${i}' id='motivazione${i}'>${u.motivazione_username}</td>` +"</tr>");
+                        
             i++;
-        });
+        }
+        );
     })

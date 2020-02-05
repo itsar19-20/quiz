@@ -1,14 +1,16 @@
 package model;
 
 import java.io.Serializable;
-import java.util.Date;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Segnalazione implements Serializable{
@@ -20,11 +22,15 @@ public class Segnalazione implements Serializable{
 
 	//METTERE UN ENUMERAZIONE PER I TIPI DI SEGNALAZIONE
 	@ManyToOne
+	@JoinColumn(name = "autore")
 	private Utente autore;
-	@ManyToOne
+
+	@ManyToOne 
+	@JoinColumn(name = "risolutore")
 	private UtenteWeb risolutore;
 	private String motivazione;
 	private String data;
+
 	private boolean risolta;
 
 
@@ -76,6 +82,12 @@ public class Segnalazione implements Serializable{
 
 	public void setData(String data) {
 		this.data = data;
+	}
+
+	@Override
+	public String toString() {
+		return "Segnalazione [id=" + id + ", autore=" + autore + ", risolutore=" + risolutore + ", motivazione="
+				+ motivazione + ", data=" + data + ", risolta=" + risolta + "]";
 	}
 
 
