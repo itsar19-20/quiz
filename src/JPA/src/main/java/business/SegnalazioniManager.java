@@ -6,6 +6,9 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+
+
+
 import model.Segnalazione;
 import model.Utente;
 import model.UtenteWeb;
@@ -43,13 +46,14 @@ public class SegnalazioniManager {
 			UtenteWeb risolutore =(em.find(UtenteWeb.class, userNameRisolutore)); 
             
 			Segnalazione s =em.find(Segnalazione.class, segnId);
-           
-               
 
-			em.getTransaction().begin(); 
+			
+			
+			 em.getTransaction().begin(); 
 		     s.setRisolutore(risolutore);
-			em.getTransaction().commit();
+	         em.getTransaction().commit();
 
+		
 		}	
 
 		catch(NotFindInDbException ex) {

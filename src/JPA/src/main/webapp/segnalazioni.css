@@ -1,6 +1,49 @@
-#tabb {
+#tabbIrrisolte{
     background-color: white;
     width: 80%;
     margin-left: 10%;
-    margin-top: 5%;
+    margin-top: 1%;
+   
+    ;
+  
+   
   }
+
+  #tabbRisolte{
+    background-color: white;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 1%;
+
+ 
+    
+    
+  }
+  #name {
+    margin-left: 77.5%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 200%;
+    font-weight: 700;
+    color: white;
+  }
+   
+  
+  #tipoSegn {
+      margin-left: 10%;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 200%;
+      font-weight: 700;
+      color: white;
+    
+    }
+
+    .buttonStily{
+      padding: 16px;
+      border-radius: 50%;
+      background-color: #4CAF50;
+      border: 2px solid #4CAF50;
+    }
+  
+    .buttonStily:hover{
+      background-color: #0799ff;
+    }

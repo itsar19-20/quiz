@@ -17,9 +17,9 @@ import model.Utente;
 import model.UtenteWeb;
 
 public class SegnalazioneManagerTest {
-	private  Utente AUTORE;
+	private  String AUTORE= "oliz";
 	private UtenteWeb risolutore;
-	private String MOTIVAZIONE= "si";
+	private String MOTIVAZIONE= "bug";
 	
 
 
@@ -31,21 +31,35 @@ public class SegnalazioneManagerTest {
 		EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
         SegnalazioniManager sm = new SegnalazioniManager();
         
-       AUTORE =  em.find(Utente.class, "panino");
+      //   Utente autore =  em.find(Utente.class, "oliz");
        
-          sm.addSegnalazione(AUTORE, MOTIVAZIONE); 
+       //  sm.addSegnalazione(autore, MOTIVAZIONE); 
 	  
-    //   List<Segnalazione> segnalazioni= sm.trovaSegnalazioni();
+        
+          
+          
+    List<Segnalazione> segnalazioni= sm.trovaSegnalazioni();
 
-	//   System.out.println(segnalazioni.toString());
+	  System.out.println(segnalazioni.toString());
+	  
+	  for (int i=0 ; i> segnalazioni.size() ; i ++ ) {
+		  UtenteWeb web = new  UtenteWeb();
+		   web = segnalazioni.get(i).getRisolutore();
+		   System.out.println(web.toString());
+	  };
 	   
 	
-//	   Integer id = 1;
-      //System.out.println(segn.toString());
-	   
-	//   sm.risolviSegnalazione(id, "Azazzello-95");
+	 
+    //  System.out.println(segn.toString());
+      // Integer id = 14;
+	 //  sm.risolviSegnalazione(id, "Azazzello-95");
 	  
 	 
+	   
+	   
+	   
+	   
+	
 	}
 
 }

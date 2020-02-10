@@ -12,7 +12,13 @@
 </head>
 
 <body>
-    <div id="sidebar" class="sidebar">
+  
+
+
+
+
+   <!--barra a lato-->
+  <div id="sidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" id="close">X</a>
         <a href="/home.html">Home</a>
         <a href="/gestUtenti.html">Gestione Utenti</a>
@@ -20,11 +26,18 @@
        
         <a href="/login.html" id="logout">Logout</a>
     </div>
+     <!--barra a lato-->
+
+     
     <div id="main">
         <button class="openbtn" id="toggle">&#9776; Menu</button>
-    </div>
-
-    <table class="table" id="tabb">
+        <span id="name"></span>
+        <span id ="tipoSegn"></span>
+        <button id="bott" type="button" class="buttonStily" ></button>
+      </div>
+   
+      <!--tabella1-->
+    <table class="table" id="tabbIrrisolte">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Autore</th>
@@ -32,6 +45,21 @@
             <th scope="col">Motivazione </th>
           </tr>
         </thead>
+        <!--tabella1-->
+      
+        <!--tabella2-->
+    <table class="table" id="tabbRisolte">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Autore</th>
+          <th scope="col">Data</th>
+          <th scope="col">Motivazione </th>
+         <th scope="col">Risolutore </th>
+        </tr>
+      </thead>
+      <!--tabella2-->
+    
+        
         <tbody>
         </tbody>
       </table>

@@ -8,19 +8,21 @@ import org.junit.After;
 import org.junit.Test;
 
 import business.SignupManager;
-import model.Utente;
+import model.*;
+import business.*;
 
 public class SigUpTest {
-private final String USERNAME= "username";
-private final String PASSWORD= "password";
-private final String EMAIL ="email";
-private final String NAZIONALITA= "nazionalita";
+private final String USERNAME= "oliz";
+private final String PASSWORD= "www";
+private final String EMAIL ="@olizOne";
+private final String NAZIONALITA= "ita";
 	
 
 @Test
 	public void test() {
 		SignupManager sum = new SignupManager();
-        
+        WebUserManager web = new WebUserManager();
+        web.addWebUser("Azazzello-95", "password", "admin");
 		sum.signup(USERNAME, PASSWORD,EMAIL , NAZIONALITA);
 	}
 
@@ -32,7 +34,7 @@ private final String NAZIONALITA= "nazionalita";
         //System.out.print(u.toString());
         
        em.getTransaction().begin();
-       em.remove(u);
+//       em.remove(u);
        em.getTransaction().commit();
         
         

@@ -5,6 +5,10 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Entity implementation class for Entity: Utente
  *
@@ -62,8 +66,7 @@ public class Utente implements Serializable {
 
 
 
-
-	public List<Challenge> getChallengers() {
+ 	public List<Challenge> getChallengers() {
 		return challengers;
 	}
 
@@ -76,14 +79,14 @@ public class Utente implements Serializable {
 
 
 
-
+	@JsonIgnore
 	public List<Segnalazione> getSegnalazioni() {
 		return segnalazioni;
 	}
 
 
 
-
+	@JsonIgnore
 	public void setSegnalazioni(List<Segnalazione> segnalazioni) {
 		this.segnalazioni = segnalazioni;
 	}

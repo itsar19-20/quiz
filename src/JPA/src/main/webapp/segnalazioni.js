@@ -1,19 +1,95 @@
+
+
+ var utente = JSON.parse(localStorage.getItem('user'));
+ $('#name').text(`${utente.username}`);
+ var statoSegn= 'Segnalazioni non risolte';
+ $('#tipoSegn').text('Segnalazioni non risolte');
+ var flag = new Boolean(true);
+ 
 $.ajax({
     url: '/sc',
     method: 'post'
 })
     .done((mod) => {
         modList = JSON.parse(mod);
-        console.log(modList)
-        lengthmod = modList.length;
-        var i = 0;
-        modList.forEach(u => {
-            $('#tabb').append(`<tr class='line' id='${i}'>` + 
-                `<td data-id='${i}' id='autore${i}'>${u.autore_username}</td>` + 
-                `<td data-id='${i}' id='data${i}'>${u.data}</td>` +
-                `<td data-id='${i}' id='motivazione${i}'>${u.motivazione_username}</td>` +"</tr>");
-                        
-            i++;
+  
+      console.log(modList) 
+
+ /*lista negativa*/ 
+        var nonRisList=[];
+      
+        var o =0; 
+         modList.forEach(el =>{
+            if(!el.risolta ){
+            nonRisList[o]= el;
+          };
+         
+         o++
+        
         }
-        );
-    })
+         )     
+     /*   console.log(nonRisList);*/
+
+
+         lengthmod = modList.length;
+        var i = 0;
+        nonRisList.forEach(u => {   
+            $('#tabbIrrisolte').append(
+                `<tr class='line' id='${i}'>` +    
+                `<td data-id='${i}' id='autore${i}'>${u.autore.username}</td>` + 
+                `<td data-id='${i}' id='data${i}'>${u.data}</td>` +
+                `<td data-id='${i}' id='motivazione${i}'>${u.motivazione}</td>` +
+               "</tr>");
+                     
+            i++;
+        });
+ /*lista positiva*/
+
+   var RisList=[];
+
+var w =0; 
+ modList.forEach(el =>{
+    if(el.risolta ){
+
+       RisList[w]= el;
+  }   
+  ;
+  w++
+}
+ )     
+
+ console.log(RisList)
+
+
+ lengthmod = modList.length;
+var e = 0;
+RisList.forEach(u => {   
+    $('#tabbRisolte').append(
+        `<tr class='line' id='${i}'>` +    
+        `<td data-id='${i}' id='autore${i}'>${u.autore.username}</td>` + 
+        `<td data-id='${i}' id='data${i}'>${u.data}</td>` +
+        `<td data-id='${i}' id='motivazione${i}'>${u.motivazione}</td>` +
+      `<td data-id='${i}' id='risolutore${i}'> ${u.risolutore.username } </td>` +
+        "</tr>");
+             
+    e++;
+});
+ /*lista positiva*/   
+
+
+/*bottone*/
+
+
+$('#bott').click(() => {
+    if (flag){
+        $('#tipoSegn').text('Segnalazioni  risolte');
+        $('#bott').css('background-color', 'red'); 
+    }
+    
+  
+                     
+  
+} )
+
+
+})
