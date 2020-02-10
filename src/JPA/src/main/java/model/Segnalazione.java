@@ -28,7 +28,7 @@ public class Segnalazione implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "risolutore_username")
-	/*@JsonIgnore*/
+
 	private UtenteWeb risolutore;
 	private String motivazione;
 	private String data;

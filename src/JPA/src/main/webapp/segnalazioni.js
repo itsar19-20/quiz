@@ -2,9 +2,9 @@
 
  var utente = JSON.parse(localStorage.getItem('user'));
  $('#name').text(`${utente.username}`);
- var statoSegn= 'Segnalazioni non risolte';
+ 
  $('#tipoSegn').text('Segnalazioni non risolte');
- var flag = new Boolean(true);
+ var flag = false;
  
 $.ajax({
     url: '/sc',
@@ -82,10 +82,19 @@ RisList.forEach(u => {
 
 $('#bott').click(() => {
     if (flag){
-        $('#tipoSegn').text('Segnalazioni  risolte');
-        $('#bott').css('background-color', 'red'); 
-    }
-    
+        $('#tipoSegn').text('Segnalazioni non risolte');
+        $('#bott').css('background-color', 'red');
+        $('#bott').css('border','red');
+        $('#tabbIrrisolte').show();
+        $('#tabbRisolte').hide();
+        flag=false; 
+    }else {$('#tipoSegn').text('Segnalazioni  risolte');
+           $('#bott').ss('background-color', 'green');
+           $('#bott').css('border','green');
+           $('#tabbIrrisolte').hide();
+           $('#tabbRisolte').show();
+           flag =true; };
+        
   
                      
   

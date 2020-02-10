@@ -3,8 +3,9 @@
     width: 80%;
     margin-left: 10%;
     margin-top: 1%;
+    
    
-    ;
+    
   
    
   }
@@ -14,7 +15,7 @@
     width: 80%;
     margin-left: 10%;
     margin-top: 1%;
-
+    display : none;
  
     
     
@@ -37,13 +38,12 @@
     
     }
 
-    .buttonStily{
+    #bott{
       padding: 16px;
       border-radius: 50%;
-      background-color: #4CAF50;
-      border: 2px solid #4CAF50;
+      background-color: red;
+      border: 2px solid  red;
+      
     }
   
-    .buttonStily:hover{
-      background-color: #0799ff;
-    }
+   

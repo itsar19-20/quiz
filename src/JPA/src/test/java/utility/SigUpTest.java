@@ -1,6 +1,6 @@
 package utility;
 
-import static org.junit.Assert.*;
+
 
 import javax.persistence.EntityManager;
 

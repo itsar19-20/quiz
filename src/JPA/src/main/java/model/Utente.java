@@ -4,9 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
@@ -51,7 +48,7 @@ public class Utente implements Serializable {
     
     }
 
-
+     @JsonIgnore
 	public List<Commento> getCommenti() {
 		return commenti;
 		
@@ -59,20 +56,20 @@ public class Utente implements Serializable {
 
 
 
-
+     @JsonIgnore
 	public void setCommenti(List<Commento> commenti) {
 		this.commenti = commenti;
 	}
 
 
-
+     @JsonIgnore
  	public List<Challenge> getChallengers() {
 		return challengers;
 	}
 
 
 
-
+     @JsonIgnore
 	public void setChallengers(List<Challenge> challengers) {
 		this.challengers = challengers;
 	}
