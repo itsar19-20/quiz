@@ -18,6 +18,7 @@ public class Challenge implements Serializable {
 	private String titolo;
 	private String descrizione;
 	@ManyToOne
+	@JoinColumn(name = "creatore")
 	private Utente creatore;
 	public List<Commento> getCommenti() {
 		return commenti;

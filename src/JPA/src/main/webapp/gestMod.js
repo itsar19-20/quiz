@@ -1,49 +1,49 @@
 $(() => {
-    $('#filter').text("Tutti");
-    var modList;
-    var utente = JSON.parse(localStorage.getItem('user'));
-    var lengthmod;
-    $('#name').text(`${utente.username}`);
+    $('#filter').text("Tutti");//setta subito il testo del bottone su "tutti"
+    var modList; //variabile per salvare la lista di moderatori
+    var utente = JSON.parse(localStorage.getItem('userCTFLY'));
+    var lengthmod; //variabile per salvare la lunghezza della lista
+    $('#name').text(`${utente.username}`);//nome di chi ha effettuato l'accesso
     $.ajax({
-        url: '/webus',
+        url: '/webus', //webusersearch
         method: 'post'
     })
         .done((mod) => {
             modList = JSON.parse(mod);
             lengthmod = modList.length;
             var i = 0;
-            modList.forEach(u => {
+            modList.forEach(u => { //crea la taballa secondo i dati ricevuti dal server
                 $('#tabb').append(`<tr class='line' id='${i}'>` + 
                     `<td data-id='${i}' id='user${i}'>${u.username}</td>` + 
                     `<td data-id='${i}' id='pass${i}'>${u.password}</td>` + 
-                    `<td data-id='${i}'><span class = 'admin' id='admin${i}'>${u.admin}</span><span class='dot' id='dot${i}'></span></td>` + 
+                    `<td data-id='${i}'><span class = 'admin' id='admin${i}'>${u.admin}</span><span class='dot' id='dot${i}'></span></td>` + //lo span è per poter controllare se l'utente di una determinata linea è moderatore
                 "</tr>");
-                if(u.admin) {
+                if(u.admin) { //cambia il colore del pallino in base ai permessi da amministratore
                     $('#dot' + i).css("background-color","green");
                 } else if(!u.admin) {
                     $('#dot' + i).css("background-color","red");
                 }
-                if(u.username==utente.username) {
+                if(u.username==utente.username) { //rimuove dalla lista l'utente collegato
                     $('#' + i).remove();
                 }
                 i++;
             });
         })
     
-    $('#insertbtn').click(() => {
+    $('#insertbtn').click(() => { //pulsante per inserire moderatori
         $('#insertuser').modal('show');
     })
 
-    $('#usernameIns').keyup(() => {
+    $('#usernameIns').keyup(() => { //inserimento dell'username del nuovo utente
         var temp = $('#usernameIns').val();
         var i = 0;
         modList.forEach(u => {
-            if(u.username==temp || utente.username==temp) {
+            if(u.username==temp || utente.username==temp) { //se l'username esiste gia mostra un errore e toglie il pulsante per salvare
                 $('#errorUser').show();
                 $('#save').css("visibility", "hidden");
                 i = 1;
-            } else if (i==0) {
-                $('#errorUser').fadeOut(speed = 300);
+            } else if (i==0) { //elimina il messaggio di errore se presente e fa riapparire il pulsante per salvare
+                $('#errorUser').fadeOut(speed = 300); 
                 $('#save').css("visibility", "visible");
             }
         })
@@ -51,11 +51,11 @@ $(() => {
 
     $('#save').click(() => {
         var admin = "false";
-        if ($('#adminIns').prop("checked")) {
+        if ($('#adminIns').prop("checked")) { //se la checkbox è attivata setta la variabile admin a true
             admin = "true";
         }
         $.ajax({
-            url: '/wua',
+            url: '/wua', //webuseradd
             method: 'post',
             data: {
                 username: $('#usernameIns').val(),
@@ -64,11 +64,11 @@ $(() => {
             }
         })
         .done(() => {
-            location.reload(true);
+            location.reload(true); //dopo aver inserito un utente ricarica la pagina per mostrare le modifiche effettuate
         })
     })
 
-    $('#userinput').focus(() => {
+    $('#userinput').focus(() => { //quando la barra di ricerca prende il focus sistema il pulsante di filtro e mostra di nuovo tutte le linee
         $('#filter').text("Tutti");
         $('#btnadmin').show();
         $('#btnmod').show();
@@ -78,7 +78,7 @@ $(() => {
         }
     })
 
-    $('#userinput').keyup(() => {
+    $('#userinput').keyup(() => { //barra di ricerca degli utenti
         var inp = $('#userinput').val();
         for(i = 0; i<lengthmod; i++) {
             var user = $('#user' + i).text();
@@ -90,7 +90,7 @@ $(() => {
         }
     })
 
-    $('#btnadmin').click(() => {
+    $('#btnadmin').click(() => { //filtro
         $('#userinput').val('');
         $('#filter').text("Admin");
         $('#btnall').show();
@@ -106,7 +106,7 @@ $(() => {
         }
     })
 
-    $('#btnall').click(() => {
+    $('#btnall').click(() => { //filtro
         $('#userinput').val('');
         $('#filter').text("Tutti");
         $('#btnadmin').show();
@@ -117,7 +117,7 @@ $(() => {
         }
     })
 
-    $('#btnmod').click(() => {
+    $('#btnmod').click(() => { //filtro
         $('#userinput').val('');
         $('#filter').text("Moderatori");
         $('#btnall').show();
@@ -133,9 +133,9 @@ $(() => {
         }
     })
 
-    var idline;
+    var idline; //variabile per riferirsi alla linea in cui si sta operando
 
-    $( "#tabb tbody" ).on( "click", ".line td", function() {
+    $( "#tabb tbody" ).on( "click", ".line td", function() { //funzione per rendere clickabili le righe, editing degli utenti web
         idline = $(this).data('id');
         $('#userEdit').modal('show');
         var username = $(`#user${idline}`).text();
@@ -150,14 +150,14 @@ $(() => {
         }
       }); 
     
-    $('#saveEdit').click(() => {
+    $('#saveEdit').click(() => { //pulsante di salvataggio delle modifiche
         if ($('#adminEdit').prop('checked')) {
             admin = "true";
         } else {
             admin = "false";
         }
         $.ajax({
-            url:"/wuec",
+            url:"/wuec", //webusereditcontroller
             method: "post",
             data: {
                 username: $(`#user${idline}`).text(),
@@ -172,7 +172,7 @@ $(() => {
 
     $('#remove').click(() => {
         $.ajax({
-            url: "/wurc",
+            url: "/wurc", //webuserremovecontroller
             method: "post",
             data: {
                 username: $(`#user${idline}`).text()

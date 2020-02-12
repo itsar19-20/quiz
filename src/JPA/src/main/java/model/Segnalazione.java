@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSetter;
@@ -23,6 +22,7 @@ public class Segnalazione implements Serializable {
 
 	// METTERE UN ENUMERAZIONE PER I TIPI DI SEGNALAZIONE
 	@ManyToOne
+
 	@JoinColumn(name = "autore_username")
 	private Utente autore;
 
@@ -37,6 +37,9 @@ public class Segnalazione implements Serializable {
 
 	public Segnalazione() {
 
+	public 	Segnalazione (){
+		this.risolta = false;
+		this.risolutore = null;
 	}
 
 	public Integer getId() {

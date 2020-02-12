@@ -2,7 +2,6 @@ package business;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -16,14 +15,7 @@ import utility.JPAUtil;
 import business.exeception.*;
 public class SegnalazioniManager {
 
-
 	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
-
-
-
-
-
-
 
 	public List<Segnalazione> trovaSegnalazioni() {
 		List<Segnalazione> Segnalazioni = em.createQuery("SELECT s FROM Segnalazione s ", Segnalazione.class)
@@ -32,6 +24,7 @@ public class SegnalazioniManager {
 
 		return Segnalazioni;		
 	}
+
 
 
 	public void risolviSegnalazione(Integer segnId , String   userNameRisolutore) throws NotFindInDbException{
@@ -43,6 +36,7 @@ public class SegnalazioniManager {
 			if ((em.find(UtenteWeb.class, userNameRisolutore))== null ){
 				throw new  NotFindInDbException("UtenteWeb", userNameRisolutore);			
 			}
+
 			UtenteWeb risolutore =(em.find(UtenteWeb.class, userNameRisolutore)); 
             
 			Segnalazione s =em.find(Segnalazione.class, segnId);
@@ -53,25 +47,20 @@ public class SegnalazioniManager {
 		     s.setRisolutore(risolutore);
 	         em.getTransaction().commit();
 
-		
-		}	
+				}	
 
 		catch(NotFindInDbException ex) {
 			System.out.print(ex.toString());
 		}
-
-
-
-
 	}
 
 
 
-	public void addSegnalazione(Utente autore, String motivazione  ) throws NotFindInDbException , BasicException  {
+	public void addSegnalazione(Utente autore, String motivazione) throws NotFindInDbException , BasicException  {
 
 		try {
 			if (motivazione== null) {
-				throw new BasicException("la motivazione è  nulla", motivazione);
+				throw new BasicException("la motivazione e' nulla", motivazione);
 			}
 
 			
@@ -92,17 +81,10 @@ public class SegnalazioniManager {
 			em.getTransaction().commit();
 
 		}
-
 		catch(BasicException bex) {
 			System.out.print(bex.toString());
 		}	
-
-
-
-
 	}
-
-
 };  
 
 

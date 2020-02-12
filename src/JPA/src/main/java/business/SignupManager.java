@@ -26,13 +26,10 @@ public class SignupManager {
 			check.setUsername(username);
 			check.setEmail(email);
 			check.setDataiscrizione(dtf.format(now));
-
 	    	check.setPassword(password);
 	 	    check.setNazionalita(nazionalita);
-
-			
-			
-    		em.getTransaction().begin();
+	 	    
+			em.getTransaction().begin();
 			em.persist(check);
 			em.getTransaction().commit();
 			

@@ -14,6 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Utente implements Serializable {
 
 	   
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	private String username;
 	private String email;
@@ -47,6 +51,7 @@ public class Utente implements Serializable {
 
     
     }
+
 
      @JsonIgnore
 	public List<Commento> getCommenti() {
@@ -88,13 +93,7 @@ public class Utente implements Serializable {
 		this.segnalazioni = segnalazioni;
 	}
 	private static final long serialVersionUID = 1L;
-    
-		
-
-	
-	
-	   
-
+  
 	public String getUsername() {
 		return this.username;
 	}
@@ -157,5 +156,10 @@ public class Utente implements Serializable {
 	public void setUltimoaccesso(String ultimoaccesso) {
 		this.ultimoaccesso = ultimoaccesso;
 	}
+	
+	
+	
+	
+
    
 }
