@@ -3,10 +3,6 @@
     width: 80%;
     margin-left: 10%;
     margin-top: 1%;
-    
-   
-    
-  
    
   }
 
@@ -15,11 +11,15 @@
     width: 80%;
     margin-left: 10%;
     margin-top: 1%;
-    display : none;
- 
-    
-    
+    display : none;  
   }
+
+  .line:hover {
+    background-color: rgba(7, 153, 255, .5);
+    cursor: pointer;
+  }
+
+
   #name {
     margin-left: 77.5%;
     font-family: Arial, Helvetica, sans-serif;

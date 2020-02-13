@@ -101,4 +101,23 @@ $('#bott').click(() => {
 } )
 
 
+/*bottone*/
+/*modal*/
+var idline;
+
+
+$("#tabbIrrisolte tbody" ).on( "click", ".line td", function() {
+    /*idline = $(this).data('id);*/
+    console.log("il metodo è andato"); 
+    $('#myModal').modal('show');      
+});
+
+
+
+
+/*modal*/
+
+
+
+
 })
