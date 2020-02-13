@@ -14,6 +14,10 @@ public class WebUserManager {
 		UtenteWeb u = new UtenteWeb();
 		u.setUsername(username);
 		u.setPassword(password);
+		
+		if(admin == "true") {
+			
+		}
 		if(admin.contentEquals("true")) {
 			u.setAdmin(true);
 		} else if(admin.contentEquals("false")) {

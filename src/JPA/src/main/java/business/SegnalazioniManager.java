@@ -5,6 +5,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+
+
+
 import model.Segnalazione;
 import model.Utente;
 import model.UtenteWeb;
@@ -23,20 +26,28 @@ public class SegnalazioniManager {
 	}
 
 
-	public void risolviSegnalazione(Segnalazione segn , String   userNameRisolutore) throws NotFindInDbException{
+
+	public void risolviSegnalazione(Integer segnId , String   userNameRisolutore) throws NotFindInDbException{
 		try {
-			if (em.find(Segnalazione.class, segn.getId())== null ) {
-				throw new  NotFindInDbException("Segnalazione", " data:"+segn.getData()+" autore: "+segn.getAutore().getUsername()+" motivazione:"+ segn.getMotivazione());
+			if (em.find(Segnalazione.class, segnId)== null ) {
+				throw new  NotFindInDbException("Segnalazione","segnId");
 			} 
 
 			if ((em.find(UtenteWeb.class, userNameRisolutore))== null ){
 				throw new  NotFindInDbException("UtenteWeb", userNameRisolutore);			
 			}
-			UtenteWeb risolutore =(em.find(UtenteWeb.class, userNameRisolutore));
-			em.getTransaction().begin();
-			segn.setRisolutore(risolutore);
-			em.getTransaction().commit();
-		}	
+
+			UtenteWeb risolutore =(em.find(UtenteWeb.class, userNameRisolutore)); 
+            
+			Segnalazione s =em.find(Segnalazione.class, segnId);
+
+			
+			
+			 em.getTransaction().begin(); 
+		     s.setRisolutore(risolutore);
+	         em.getTransaction().commit();
+
+				}	
 
 		catch(NotFindInDbException ex) {
 			System.out.print(ex.toString());
@@ -52,9 +63,12 @@ public class SegnalazioniManager {
 				throw new BasicException("la motivazione e' nulla", motivazione);
 			}
 
+			
+			
+			
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 			LocalDateTime now = LocalDateTime.now();
-
+			
 			Segnalazione segn = new Segnalazione();
 			segn.setData(dtf.format(now));
 			segn.setAutore(autore);
@@ -65,6 +79,7 @@ public class SegnalazioniManager {
 			em.getTransaction().begin();
 			em.persist(segn);
 			em.getTransaction().commit();
+
 		}
 		catch(BasicException bex) {
 			System.out.print(bex.toString());

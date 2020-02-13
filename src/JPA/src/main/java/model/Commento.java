@@ -4,6 +4,11 @@ import java.io.Serializable;
 import java.lang.Boolean;
 import java.lang.String;
 import javax.persistence.*;
+
+
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonSetter;
+
 import model.Challenge;
 
 /**
@@ -22,7 +27,7 @@ public class Commento implements Serializable {
 	private String data;
 	private String testo;
 	@ManyToOne
-	private Challenge challenger;
+	private Challenge challenge;
 	
 	@ManyToOne
 	private Utente autore;
@@ -32,17 +37,22 @@ public class Commento implements Serializable {
 	public Commento() {
 		super();
 	}   
+	@JsonGetter
 	public Challenge getChallenger() {
-		return this.challenger;
+		return this.challenge;
 	}
-
+     
+	@JsonSetter
 	public void setChallenger(Challenge challenger) {
-		this.challenger = challenger;
+		this.challenge = challenger;
 	}   
+   
+	@JsonGetter 
 	public Utente getAutore() {
 		return this.autore;
 	}
-
+ 
+	@JsonSetter
 	public void setAutore(Utente autore) {
 		this.autore = autore;
 	}   

@@ -30,7 +30,7 @@ public class Challenge implements Serializable {
 	private int punteggio;
 	private String data;
 	private String flag;
-	@OneToMany (mappedBy = "challenger")
+	@OneToMany (mappedBy = "challenge")
 	private List<Commento> commenti;
 	private static final long serialVersionUID = 1L;
 

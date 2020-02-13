@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * Entity implementation class for Entity: Utente
@@ -45,12 +46,54 @@ public class Utente implements Serializable {
     	 setUltimoaccesso("null");
     	 setImmagine("null");	
 	     setPunteggio(0);
-				this.commenti=null;
-		    this.segnalazioni=null;
+		this.commenti=null;
+		  this.segnalazioni=null;
 
     
     }
 
+
+     @JsonIgnore
+	public List<Commento> getCommenti() {
+		return commenti;
+		
+	}
+
+
+
+     @JsonIgnore
+	public void setCommenti(List<Commento> commenti) {
+		this.commenti = commenti;
+	}
+
+
+     @JsonIgnore
+ 	public List<Challenge> getChallengers() {
+		return challengers;
+	}
+
+
+
+     @JsonIgnore
+	public void setChallengers(List<Challenge> challengers) {
+		this.challengers = challengers;
+	}
+
+
+
+	@JsonIgnore
+	public List<Segnalazione> getSegnalazioni() {
+		return segnalazioni;
+	}
+
+
+
+	@JsonIgnore
+	public void setSegnalazioni(List<Segnalazione> segnalazioni) {
+		this.segnalazioni = segnalazioni;
+	}
+	private static final long serialVersionUID = 1L;
+  
 	public String getUsername() {
 		return this.username;
 	}
@@ -113,23 +156,10 @@ public class Utente implements Serializable {
 	public void setUltimoaccesso(String ultimoaccesso) {
 		this.ultimoaccesso = ultimoaccesso;
 	}
-	public List<Commento> getCommenti() {
-		return commenti;
-	}
-	public void setCommenti(List<Commento> commenti) {
-		this.commenti = commenti;
-	}
-	public List<Challenge> getChallengers() {
-		return challengers;
-	}
-	public void setChallengers(List<Challenge> challengers) {
-		this.challengers = challengers;
-	}
-	public List<Segnalazione> getSegnalazioni() {
-		return segnalazioni;
-	}
-	public void setSegnalazioni(List<Segnalazione> segnalazioni) {
-		this.segnalazioni = segnalazioni;
-	}
+	
+	
+	
+	
+
    
 }
