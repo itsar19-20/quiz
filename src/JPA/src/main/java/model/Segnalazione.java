@@ -35,7 +35,7 @@ public class Segnalazione implements Serializable {
 
 	private boolean risolta;
 
-	public Segnalazione() {
+	
 
 	public 	Segnalazione (){
 		this.risolta = false;
