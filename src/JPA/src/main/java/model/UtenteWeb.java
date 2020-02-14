@@ -14,6 +14,7 @@ public class UtenteWeb {
 	private String username;
 	private String password;
 	private boolean admin;
+	//private boolean attivo;
 	@OneToMany(mappedBy = "risolutore")
 	private List<Segnalazione> segnalazioni;
 	
@@ -48,5 +49,14 @@ public class UtenteWeb {
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
 	}
-	
+
+	/*
+	 * public boolean isAttivo() {
+		return attivo;
+	}
+
+	public void setAttivo(boolean attivo) {
+		this.attivo = attivo;
+	}
+	*/
 }
