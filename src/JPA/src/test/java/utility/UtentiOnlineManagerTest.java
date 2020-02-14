@@ -11,6 +11,7 @@ public class UtentiOnlineManagerTest {
 	@Test
 	public void test() {
 		UtentiOnlineManager uom=new UtentiOnlineManager();
+		uom.selezionaUtenti();
 	}
 
 }
