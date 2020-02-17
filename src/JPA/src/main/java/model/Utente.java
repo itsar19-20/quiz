@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Entity implementation class for Entity: Utente
  *
@@ -36,6 +38,9 @@ public class Utente implements Serializable {
 
     @OneToMany (mappedBy="autore") 
     private List<Segnalazione> segnalazioni;
+    
+    @OneToMany
+    private List<Amicizia> amicizie;
 	
     
     
@@ -125,11 +130,21 @@ public class Utente implements Serializable {
 	public void setChallengers(List<Challenge> challengers) {
 		this.challengers = challengers;
 	}
+	@JsonIgnore
 	public List<Segnalazione> getSegnalazioni() {
 		return segnalazioni;
 	}
+	@JsonIgnore
 	public void setSegnalazioni(List<Segnalazione> segnalazioni) {
 		this.segnalazioni = segnalazioni;
+	}
+	@JsonIgnore
+	public List<Amicizia> getAmicizie() {
+		return amicizie;
+	}
+	@JsonIgnore
+	public void setAmicizie(List<Amicizia> amicizie) {
+		this.amicizie = amicizie;
 	}
    
 }

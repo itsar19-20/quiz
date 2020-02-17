@@ -9,11 +9,10 @@
 		<class>model.UtenteWeb</class>
 		<properties>
 			<property name="java.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/CTFLYUsers?serverTimezone=Europe/Rome"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/database?serverTimezone=Europe/Rome"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
       <property name="hbm2ddl.auto" value="create"/>
-			<property name="javax.persistence.jdbc.user" value="ceph"/>
-			<property name="javax.persistence.jdbc.password" value="P4$$w0rd"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
 		</properties>
 	  
 	

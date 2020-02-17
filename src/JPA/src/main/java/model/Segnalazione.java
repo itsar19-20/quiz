@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonSetter;
+
 @Entity
 public class Segnalazione implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -52,9 +55,11 @@ public class Segnalazione implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	@JsonGetter
 	public Utente getAutore() {
 		return autore;
 	}
+	@JsonSetter
 	public void setAutore(Utente autore) {
 		this.autore = autore;
 
