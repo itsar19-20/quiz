@@ -18,9 +18,9 @@ public class Amicizia implements Serializable {
 	   
 	@Id
 	private String id;
-	@ManyToOne
+	@ManyToOne (targetEntity = Utente.class)
 	private Utente utente;
-	@ManyToOne
+	@ManyToOne (targetEntity = Utente.class)
 	private Utente amico;
 	private static final long serialVersionUID = 1L;
 
