@@ -37,6 +37,8 @@ public class SegnalazioniController extends HttpServlet {
 
 		SegnalazioniManager sm = new SegnalazioniManager();	
    	   List<Segnalazione> segnalazioni = sm.trovaSegnalazioni();
+   	   
+   	   
    	   ObjectMapper om = new ObjectMapper();
 	   response.setContentType("/application/JSON");
 	   response.getWriter().append(om.writeValueAsString(segnalazioni));

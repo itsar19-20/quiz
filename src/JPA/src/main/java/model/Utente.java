@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -18,7 +19,7 @@ public class Utente implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID1 = 1L;
 	@Id
 	private String username;
 	private String email;
@@ -50,12 +51,54 @@ public class Utente implements Serializable {
     	 setUltimoaccesso("null");
     	 setImmagine("null");	
 	     setPunteggio(0);
-				this.commenti=null;
-		    this.segnalazioni=null;
+		this.commenti=null;
+		  this.segnalazioni=null;
 
     
     }
 
+
+     @JsonIgnore
+	public List<Commento> getCommenti() {
+		return commenti;
+		
+	}
+
+
+
+     @JsonIgnore
+	public void setCommenti(List<Commento> commenti) {
+		this.commenti = commenti;
+	}
+
+
+     @JsonIgnore
+ 	public List<Challenge> getChallengers() {
+		return challengers;
+	}
+
+
+
+     @JsonIgnore
+	public void setChallengers(List<Challenge> challengers) {
+		this.challengers = challengers;
+	}
+
+
+
+	@JsonIgnore
+	public List<Segnalazione> getSegnalazioni() {
+		return segnalazioni;
+	}
+
+
+
+	@JsonIgnore
+	public void setSegnalazioni(List<Segnalazione> segnalazioni) {
+		this.segnalazioni = segnalazioni;
+	}
+	private static final long serialVersionUID = 1L;
+  
 	public String getUsername() {
 		return this.username;
 	}
@@ -118,6 +161,7 @@ public class Utente implements Serializable {
 	public void setUltimoaccesso(String ultimoaccesso) {
 		this.ultimoaccesso = ultimoaccesso;
 	}
+<<<<<<< HEAD
 	public List<Commento> getCommenti() {
 		return commenti;
 	}
@@ -146,5 +190,12 @@ public class Utente implements Serializable {
 	public void setAmicizie(List<Amicizia> amicizie) {
 		this.amicizie = amicizie;
 	}
+=======
+	
+	
+	
+	
+
+>>>>>>> b69154899b9cc56904ed7eb08793b2afe9d6d682
    
 }
