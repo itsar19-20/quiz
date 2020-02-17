@@ -8,18 +8,12 @@ import javax.persistence.EntityManager;
 import model.Utente;
 import utility.JPAUtil;
 
-public class TokenGen {
+public class TokenManager {
 	
 	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
 	
 	public String emailCheck (String email) {
 		String _return = null;
-		
-		/*
-		 * List<Utente> ls =
-		 * em.createQuery("SELECT u FROM Utente u WHERE email = :email", Utente.class)
-		 * .setParameter("email", email) .getResultList()
-		 */;
 		
 		Utente u = em.createQuery("SELECT u FROM Utente u WHERE email = :email", Utente.class)
 				.setParameter("email", email)
@@ -36,7 +30,7 @@ public class TokenGen {
 		return _return;
 	}
 	
-	public String generator() {
+	private String generator() {
 		boolean check = false;
 		String token = null;
 		Integer temp = 0;
@@ -52,6 +46,18 @@ public class TokenGen {
 			}
 		}
 		return token;
+	}
+	
+	public boolean check (String token) {
+		boolean _return = false;
+		EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
+		Utente u = em.createQuery("SELECT u FROM Utente u WHERE token = :token", Utente.class)
+				.setParameter("token", token)
+				.getSingleResult();
+		if(u != null) {
+			_return = true;
+		}
+		return _return;
 	}
 
 }

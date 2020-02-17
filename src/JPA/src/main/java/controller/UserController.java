@@ -34,7 +34,7 @@ public class UserController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String cause = request.getParameter("action");
 		UserManager um = new UserManager();
-		List<Utente> u = um.userSearch();
+		List<Utente> u = um.usersSearch();
 		if (cause.contentEquals("search")) {
 			ObjectMapper om = new ObjectMapper();
 			response.setContentType("application/JSON");

@@ -9,10 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonSetter;
-
-import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 @Entity
@@ -63,18 +59,12 @@ public class Segnalazione implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-<<<<<<< HEAD
-=======
 
->>>>>>> b69154899b9cc56904ed7eb08793b2afe9d6d682
 	@JsonGetter
 	public Utente getAutore() {
 		return autore;
 	}
-<<<<<<< HEAD
-=======
 
->>>>>>> b69154899b9cc56904ed7eb08793b2afe9d6d682
 	@JsonSetter
 	public void setAutore(Utente autore) {
 		this.autore = autore;
