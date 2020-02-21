@@ -13,6 +13,7 @@ import model.Utente;
  */
 @Entity
 public class Challenge implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	private String titolo;
@@ -20,20 +21,26 @@ public class Challenge implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "creatore")
 	private Utente creatore;
-	public List<Commento> getCommenti() {
-		return commenti;
-	}
-	public void setCommenti(List<Commento> commenti) {
-		this.commenti = commenti;
-	}
+	
 	private int rating;
 	private int punteggio;
 	private String data;
 	private String flag;
 	@OneToMany (mappedBy = "challenge")
 	private List<Commento> commenti;
-	private static final long serialVersionUID = 1L;
-
+	
+	
+	
+	
+	public List<Commento> getCommenti() {
+		return commenti;
+	}
+	public void setCommenti(List<Commento> commenti) {
+		this.commenti = commenti;
+	}
+	
+	
+	
 	public Challenge() {
 		super();
 	}   

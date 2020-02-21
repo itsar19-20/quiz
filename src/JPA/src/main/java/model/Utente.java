@@ -92,7 +92,7 @@ public class Utente implements Serializable {
 	public void setSegnalazioni(List<Segnalazione> segnalazioni) {
 		this.segnalazioni = segnalazioni;
 	}
-	private static final long serialVersionUID = 1L;
+
   
 	public String getUsername() {
 		return this.username;
