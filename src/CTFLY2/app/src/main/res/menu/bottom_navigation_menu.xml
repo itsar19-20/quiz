@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/search"
-        android:icon="@drawable/ic_podium"
-        android:title="Search" />
 
     <item
-        android:id="@+id/comment"
-        android:icon="@drawable/ic_google_signup"
-        android:title="Comment" />
-
-    <item
-        android:id="@+id/stats"
+        android:id="@+id/prof"
         android:icon="@drawable/ic_user"
-        android:title="Stats" />
+        android:title="Profilo" />
+    <item
+        android:id="@+id/podium"
+        android:icon="@drawable/ic_podium"
+        android:title="Classifica" />
+    <item
+        android:id="@+id/homepage"
+        android:icon="@drawable/ic_homepage"
+        android:title="Homepage" />
+    <item
+        android:id="@+id/shops"
+        android:icon="@drawable/ic_supermarket"
+        android:title="Shop" />
+    <item
+        android:id="@+id/friends"
+        android:icon="@drawable/ic_friend"
+        android:title="Amici" />
+
 </menu>
