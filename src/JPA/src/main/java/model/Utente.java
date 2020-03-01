@@ -4,13 +4,17 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
 /**
  * Entity implementation class for Entity: Utente
  *
  */
 @Entity
 public class Utente implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	private String username;
@@ -50,7 +54,47 @@ public class Utente implements Serializable {
     
     }
 
-	private static final long serialVersionUID = 1L;
+     @JsonGetter
+	public List<Commento> getCommenti() {
+		return commenti;
+		
+	}
+
+
+
+     @JsonSetter
+	public void setCommenti(List<Commento> commenti) {
+		this.commenti = commenti;
+	}
+
+
+     @JsonGetter
+ 	public List<Challenge> getChallengers() {
+		return challengers;
+	}
+
+
+
+     @JsonSetter
+	public void setChallengers(List<Challenge> challengers) {
+		this.challengers = challengers;
+	}
+
+
+
+	@JsonGetter
+	public List<Segnalazione> getSegnalazioni() {
+		return segnalazioni;
+	}
+
+
+
+	@JsonSetter
+	public void setSegnalazioni(List<Segnalazione> segnalazioni) {
+		this.segnalazioni = segnalazioni;
+	}
+
+
   
 	public String getUsername() {
 		return this.username;
@@ -115,34 +159,7 @@ public class Utente implements Serializable {
 		this.ultimoaccesso = ultimoaccesso;
 	}
 
-	public List<Commento> getCommenti() {
-		return commenti;
-	}
-	public void setCommenti(List<Commento> commenti) {
-		this.commenti = commenti;
-	}
-	public List<Challenge> getChallengers() {
-		return challengers;
-	}
-	public void setChallengers(List<Challenge> challengers) {
-		this.challengers = challengers;
-	}
-	@JsonIgnore
-	public List<Segnalazione> getSegnalazioni() {
-		return segnalazioni;
-	}
-	@JsonIgnore
-	public void setSegnalazioni(List<Segnalazione> segnalazioni) {
-		this.segnalazioni = segnalazioni;
-	}
-	@JsonIgnore
-	public List<Amicizia> getAmicizie() {
-		return amicizie;
-	}
-	@JsonIgnore
-	public void setAmicizie(List<Amicizia> amicizie) {
-		this.amicizie = amicizie;
-	}
+
 
 	public boolean isAttivo() {
 		return attivo;
