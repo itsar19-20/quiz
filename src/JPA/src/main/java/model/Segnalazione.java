@@ -41,7 +41,7 @@ public class Segnalazione implements Serializable {
 	private String motivazione;
 	private String data;
 	private boolean risolta;
-    private String tipo;
+   
 
 
 	public 	Segnalazione (){
@@ -49,13 +49,7 @@ public class Segnalazione implements Serializable {
 		this.risolutore = null;
 	}
 
-	public String getTipo(){
-		return tipo;
-	};  
 	
-	public void setTipo(String tipo) {
-		this.tipo= tipo;
-	};
 	
 	
 	public Integer getId() {

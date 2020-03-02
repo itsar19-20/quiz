@@ -34,7 +34,7 @@ public class WebUserSearchController extends HttpServlet {
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		WebUserManager wum = new WebUserManager();
-		List<UtenteWeb> modList = wum.getModList();
+		List<UtenteWeb> modList = wum.getUtenteWebList();
 		ObjectMapper om = new ObjectMapper();
 		response.setContentType("/application/JSON");
 		response.getWriter().append(om.writeValueAsString(modList));

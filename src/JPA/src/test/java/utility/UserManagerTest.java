@@ -11,10 +11,11 @@ import org.junit.After;
 import org.junit.Test;
 
 public class UserManagerTest {
-	private final String USERNAME ="tizio";
-	private final String PASSWORD ="pass";
-	private final String EMAIL= "@tizio";
+	private final String USERNAME ="giocatore";
+	private final String PASSWORD ="play";
+	private final String EMAIL= "@gioco";
 	private final Boolean CANCELLA =false;
+	
     
 	UserManager userM = new UserManager();
 	

@@ -17,6 +17,7 @@ import model.Utente;
 import model.UtenteWeb;
 
 public class SegnalazioneManagerTest {
+	
 	private  String AUTORE= "oliz";
 	private UtenteWeb risolutore;
 	private String MOTIVAZIONE= "bug";

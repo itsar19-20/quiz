@@ -123,7 +123,7 @@ public class SegnalazioniManager {
 			LocalDateTime now = LocalDateTime.now();
 			segn.setData(dtf.format(now));
 			segn.setAutore(autore);
-			segn.setTipo(tipo);
+			
 
 
 		}catch(NotFindInDbException nfdbx) {

@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import javax.persistence.EntityManager;
 
 import model.Commento;
+import model.Utente;
+import model.Challenge;
 
 import org.junit.After;
 import org.junit.Test;
@@ -12,34 +14,51 @@ import org.junit.Test;
 import business.CommentoManager;
 
 public class CommentoManagerTest {
- private final String AUTORE="tizio";
- private final String CHALLENGER ="pest";
- private final Boolean SPOILER =false;
- private final String  TESTO ="questo è il flag $$$$$$$$";
- private final Boolean CANCELLA= false; 	
+	private final String AUTORE="tizio";
+	private final String CHALLENGER ="pest";
+	private final Boolean SPOILER =false;
+	private final String  TESTO ="questo è il flag $$$$$$$$";
+	private final Boolean CANCELLA= false; 	
+	private final Boolean ADD = false;
+	private final Boolean CHANGESPOILER = true;
 
- CommentoManager commM = new CommentoManager();
-EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager(); 
- 
- @Test
+	CommentoManager commM = new CommentoManager();
+	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager(); 
+
+	@Test
 	public void test() {
 
-	 commM.AddCommneto(AUTORE, CHALLENGER, SPOILER, TESTO);
-	//System.out.println("ha creato il commento "+em.find(Commento.class, 1).toString()+"");
- 	
-    //commM.ChangeSpoiler(1);	
- 
- }
+		if(ADD) {
+			commM.AddCommneto(AUTORE, CHALLENGER, SPOILER, TESTO);
+		}
 
- @After
- public void remuve() {
-	 if (CANCELLA) {
-		 commM.remuveComment(1);
-	     System.out.println("hai  rimosso il commento "+em.find(Commento.class, 1).toString()+"");
-	 
-	 };
- };
- 
- 
- 
+		if (CHANGESPOILER) {
+			Commento comm = new Commento();
+
+
+     		comm=em.createQuery("Select c from Commento c where autore = : a and"
+					+" challenge = :c and"
+					+ " testo = : t", Commento.class).
+					setParameter("a", em.find(Utente.class, AUTORE)).
+					setParameter("c", em.find(Challenge.class, CHALLENGER)).
+					setParameter("t", TESTO).
+					getSingleResult();
+					
+		   commM.ChangeSpoiler(comm.getId());
+		};
+
+
+	}
+
+	@After
+	public void remuve() {
+		if (CANCELLA) {
+			commM.remuveComment(1);
+			System.out.println("hai  rimosso il commento "+em.find(Commento.class, 1).toString()+"");
+
+		};
+	};
+
+
+
 }

@@ -36,6 +36,13 @@ public class SegnSpoiler extends  Extended implements Serializable {
 		this.comm = comm;
 	}
 
+	@Override
+	public String toString() {
+		return "SegnSpoiler [comm=" + comm + ", getComm()=" + getComm() + ", getType()=" + getType() + ", getId()="
+				+ getId() + ", getRisolutore()=" + getRisolutore() + ", getAutore()=" + getAutore() + ", getData()="
+				+ getData() + ", isRisolta()=" + isRisolta()+ "]";
+	}
+
 
 
 
