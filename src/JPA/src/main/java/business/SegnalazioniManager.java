@@ -17,6 +17,7 @@ public class SegnalazioniManager {
 
 	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
 
+	// questo metodo andrea modificato
 	public List<Segnalazione> trovaSegnalazioni() {
 		List<Segnalazione> Segnalazioni = em.createQuery("SELECT s FROM Segnalazione s ", Segnalazione.class)
 				.getResultList()
@@ -69,8 +70,11 @@ public class SegnalazioniManager {
 				throw new NotFindInDbException("Utente", autore.getUsername());
 			}
 
+			
 			SegnGenerica segn = new SegnGenerica();
-			//        
+			addBase(autore,segn);
+			segn.setDescrizione(motivazione);
+			
 			em.getTransaction().begin();
 			em.persist(segn);
 			em.getTransaction().commit();
@@ -91,11 +95,10 @@ public class SegnalazioniManager {
 			}
 
 
-			//			Istanzio l'eccezione
 
 			SegnSpoiler segn = new SegnSpoiler(); 
 
-			addBase(autore,segn.getType(),segn);
+			addBase(autore,segn);
 			segn.setComm(comm);  
 
 			em.getTransaction().begin();
@@ -113,7 +116,7 @@ public class SegnalazioniManager {
 	//	LE UTILITY
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 
-	private void addBase( Utente autore ,String tipo, Segnalazione segn) {	
+	private void addBase( Utente autore ,Segnalazione segn) {	
 
 		try {
 			if (em.find(Utente.class, autore.getUsername()) == null) {
