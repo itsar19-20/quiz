@@ -26,15 +26,22 @@ public class SegnGenerica  extends Extended  implements Serializable {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		return "SegnGenerica [descrizione=" + descrizione + ", getDescrizione()=" + getDescrizione() + ", getType()="
-				+ getType() + ", getId()=" + getId() + ", getRisolutore()="
-				+ getRisolutore() + ", getAutore()=" + getAutore() + ", getData()=" + getData() + ", isRisolta()="
-				+ isRisolta() + ", toString()=" + super.toString() + "]";
+		return "SegnGenerica [descrizione=" + descrizione + ", getLavorazione()=" + getLavorazione() + ", getTipo()="
+				+ getTipo() + ", getId()=" + getId() + ", getRisolutore()=" + getRisolutore() + ", getAutore()="
+				+ getAutore() + ", getData()=" + getData() + ", isRisolta()=" + isRisolta() +"]";
 	}
+
+	
+
+	
+
+
+	
+	
+	
 	
 	
 	

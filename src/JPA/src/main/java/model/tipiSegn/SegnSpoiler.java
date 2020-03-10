@@ -22,9 +22,7 @@ public class SegnSpoiler extends  Extended implements Serializable {
 	@ManyToOne
 	@JoinColumn(name ="commento_id")
 
-
-
-	private Commento	comm;
+	private Commento comm;
 
 	@JsonGetter 
 	public Commento getComm() {
@@ -38,12 +36,15 @@ public class SegnSpoiler extends  Extended implements Serializable {
 
 	@Override
 	public String toString() {
-		return "SegnSpoiler [comm=" + comm + ", getComm()=" + getComm() + ", getType()=" + getType() + ", getId()="
-				+ getId() + ", getRisolutore()=" + getRisolutore() + ", getAutore()=" + getAutore() + ", getData()="
-				+ getData() + ", isRisolta()=" + isRisolta()+ "]";
+		return "SegnSpoiler [getComm()=" + getComm() + ", getLavorazione()=" + getLavorazione() + ", getTipo()="
+				+ getTipo() + ", getId()=" + getId() + ", getRisolutore()=" + getRisolutore() + ", getAutore()="
+				+ getAutore() + ", getData()=" + getData() + ", isRisolta()=" + isRisolta() +  "]";
 	}
 
-
+	
+	
+	
+	
 
 
 

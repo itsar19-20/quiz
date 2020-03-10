@@ -9,15 +9,13 @@ import model.Segnalazione;
 
 public  abstract class Extended extends Segnalazione  {
 
-private String type ;
+
 
        public Extended(String type) {
-    	   this.type =type;
+    	   setTipo(type);
        };  
 	
-       public String getType() {
-    	   return this.type;
-       };    
+          
        
        
 }
