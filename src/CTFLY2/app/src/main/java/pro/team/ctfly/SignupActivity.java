@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import DbUtility.DbUserLoginAdapter;
+
 public class SignupActivity extends AppCompatActivity {
     private DbUserLoginAdapter adapt;
 

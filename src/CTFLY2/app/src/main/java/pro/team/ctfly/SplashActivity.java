@@ -8,6 +8,8 @@ import android.os.Bundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import DbUtility.DbUserLoginAdapter;
+
 public class SplashActivity extends AppCompatActivity {
 
     private DbUserLoginAdapter adapt;
