@@ -6,42 +6,93 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="293dp"
-        android:layout_height="39dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+    <TextView
+        android:id="@+id/toptab1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/black_rectangle"
+        android:gravity="center"
+        android:text="1"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        app:layout_constraintBottom_toBottomOf="@+id/toptab2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchfriendlist"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/toptab2"
+        android:layout_width="175dp"
+        android:layout_height="40dp"
+        android:background="@drawable/black_rectangle"
+        android:gravity="center"
+        android:text="Username"
+        android:textAlignment="center"
+        android:textColor="#FFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.669"
+        app:layout_constraintHorizontal_bias="0.005"
+        app:layout_constraintStart_toEndOf="@+id/toptab1"
+        app:layout_constraintTop_toBottomOf="@+id/searchfriendlist"
+        app:layout_constraintVertical_bias="0.083" />
+
+    <TextView
+        android:id="@+id/toptab3"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:background="@drawable/black_rectangle"
+        android:gravity="center"
+        android:text="Punteggio"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        app:layout_constraintBottom_toBottomOf="@+id/toptab2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toEndOf="@+id/toptab2"
+        app:layout_constraintTop_toBottomOf="@+id/searchfriendlist"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/searchfriendlist"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Cerca username..."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.315"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.062" />
+        app:layout_constraintVertical_bias="0.059" />
 
     <ListView
         android:id="@+id/friendlist"
         android:layout_width="315dp"
-        android:layout_height="435dp"
+        android:layout_height="360dp"
+
         android:background="@drawable/tab"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:layout_constraintVertical_bias="0.227" />
+        app:layout_constraintTop_toBottomOf="@+id/toptab2"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="42dp"
+    <ImageButton
+        android:id="@+id/searchbtnfriendlist"
+        android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_marginEnd="36dp"
+        android:src="@drawable/ic_search_white"
+        android:background="@drawable/black_sphere"
         app:layout_constraintBottom_toTopOf="@+id/friendlist"
-        app:layout_constraintEnd_toStartOf="@+id/editText"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/searchfriendlist"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.535"
-        app:srcCompat="@drawable/ic_search_black" />
+        app:layout_constraintVertical_bias="0.3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

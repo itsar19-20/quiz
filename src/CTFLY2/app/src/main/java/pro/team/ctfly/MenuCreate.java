@@ -28,7 +28,7 @@ public class MenuCreate {
                         ss.startActivity(new Intent(ss, HomeActivity.class));
                         break;
                     case R.id.friends:
-                        ss.startActivity(new Intent(ss, FriendsActivity.class));
+                        //ss.startActivity(new Intent(ss, FriendsActivity.class));
                         break;
                     case R.id.shops:
                         ss.startActivity(new Intent(ss, ShopActivity.class));
