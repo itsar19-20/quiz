@@ -72,13 +72,26 @@
         android:id="@+id/friendlist"
         android:layout_width="315dp"
         android:layout_height="360dp"
-
         android:background="@drawable/tab"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toptab2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0" >
+    </ListView>
+
+    <ImageButton
+        android:id="@+id/addfriend"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/white_circle"
+        android:src="@drawable/ic_add_circle_black"
+        app:layout_constraintBottom_toBottomOf="@+id/friendlist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.98" />
 
     <ImageButton
         android:id="@+id/searchbtnfriendlist"

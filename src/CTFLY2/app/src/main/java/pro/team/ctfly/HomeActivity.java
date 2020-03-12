@@ -18,6 +18,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         BottomNavigationView plafoniera = findViewById(R.id.bottom_navigation);
+
         plafoniera.setSelectedItemId(R.id.homepage);
         plafoniera.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -28,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
                         HomeActivity.this.startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
                         break;
                     case R.id.podium:
-                        HomeActivity.this.startActivity(new Intent(HomeActivity.this, PodioActivity.class));
+
                         break;
                     case R.id.homepage:
                         HomeActivity.this.startActivity(new Intent(HomeActivity.this, HomeActivity.class));
