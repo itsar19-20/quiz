@@ -3,6 +3,8 @@ package model;
 import java.io.Serializable;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -32,10 +34,14 @@ public class Commento implements Serializable {
 	@ManyToOne
 	private Utente autore;
 	
+	@OneToMany
+	private List<Segnalazione> segn;
+	
 	private static final long serialVersionUID = 1L;
 
 	public Commento() {
 		super();
+		
 	}   
 	@JsonGetter
 	public Challenge getChallenger() {
@@ -84,5 +90,23 @@ public class Commento implements Serializable {
 	public void setTesto(String testo) {
 		this.testo = testo;
 	}
-   
+	
+	@JsonGetter 
+	public List<Segnalazione> getSegn() {
+		return segn;
+	}
+	
+	@JsonSetter
+	public void setSegn(List<Segnalazione> segn) {
+		this.segn = segn;
+	}
+	@Override
+	public String toString() {
+		return "Commento [id=" + id + ", spoiler=" + spoiler + ", data=" + data + ", testo=" + testo + ", challenge="
+				+ challenge + ", autore=" + autore + ", segn=" + segn + "]";
+	}
+  
+	
+	
+	
 }

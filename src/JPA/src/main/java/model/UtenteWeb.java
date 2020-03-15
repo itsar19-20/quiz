@@ -48,7 +48,7 @@ public class UtenteWeb {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public boolean isAdmin() {
+	public boolean getAdmin() {
 		return admin;
 	}
 	public void setAdmin(boolean admin) {
