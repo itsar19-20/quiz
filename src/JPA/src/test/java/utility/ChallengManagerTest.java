@@ -17,21 +17,27 @@ public class ChallengManagerTest {
 	private final int PUNTEGGIO=12;
 	private final String FLAG = "soluione@@";
 	private final String DESCRIZIONE ="qualcosa";
-	private final Boolean AUTORIZZAZIONE = false;
+	
+	private final Boolean CANCELLA = false;
+	private final Boolean ADD = true;
+	private final Boolean MOD = true;
+	
 	
 	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
-
-	@Test
-	public void Add() {
-	Challenge chal = new Challenge();
 	ChallengeManager chalMan = new ChallengeManager();
 	
+	
+	@Test
+	public void Add() {
+	
+	if(ADD) {	
+	Challenge chal = new Challenge();	
 	chalMan.addChallenge(TITOLO, DESCRIZIONE,  CREATORE, PUNTEGGIO, FLAG);
 	System.out.print("l'add ha funzioanto");
+	}
 	
-	String punteggioString =""+PUNTEGGIO;
-	
-	chalMan.challengeModifier(TITOLO, null ,"9"+punteggioString, "T"+FLAG);
+	if(MOD)
+	chalMan.challengeModifier(TITOLO, null ,"666", "T"+FLAG);
 	System.out.print("ha funzionato il challengeModifier");
 	
 	
@@ -41,7 +47,7 @@ public class ChallengManagerTest {
 	
  @After
  public void delate() {
-	 if(AUTORIZZAZIONE){
+	 if(CANCELLA){
 		 Challenge chal = em.find(Challenge.class, "prova");
 		 em.getTransaction().begin();
 		 em.remove(chal);

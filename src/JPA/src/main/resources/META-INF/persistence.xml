@@ -4,17 +4,17 @@
 		<class>model.Amicizia</class>
 		<class>model.Challenge</class>
 		<class>model.Commento</class>
+		<class>model.Segnalazione</class>
 		<class>model.Utente</class>
 		<class>model.UtenteWeb</class>
-		<class>model.Segnalazione</class>
-		<class>model.tipiSegn.SegnSpoiler</class>
 		<class>model.tipiSegn.SegnGenerica</class>
+		<class>model.tipiSegn.SegnSpoiler</class>
 		<properties>
 			<property name="java.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/quiz?serverTimezone=Europe/Rome"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-			<!--    <property name="hbm2ddl.auto" value="updata"/>-->
- 		 <!--<property name="hbm2ddl.auto" value="create"/>-->
+			   <!-- <property name="hbm2ddl.auto" value="updata"/>-->
+ 		 <property name="hbm2ddl.auto" value="create"/>
 			<property name="javax.persistence.schema-generation.database.action" value="create"/>
 			<property name="javax.persistence.jdbc.user" value="canda"/>
 			<property name="javax.persistence.jdbc.password" value="FamilyFir$T95"/>

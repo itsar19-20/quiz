@@ -5,61 +5,68 @@ import static org.junit.Assert.*;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.ManyToOne;
 
 import org.junit.Test;
-
 import business.SegnalazioniManager;
-import business.exeception.BasicException;
 import business.exeception.NotFindInDbException;
-import model.Segnalazione;
+import model.Commento;
 import model.Utente;
-import model.UtenteWeb;
+import model.Segnalazione;
+
+
+
 
 public class SegnalazioneManagerTest {
-	private  String AUTORE= "oliz";
-	private UtenteWeb risolutore;
-	private String MOTIVAZIONE= "bug";
+private String AUTORE= "tizio";
+private String RISOLUTORE ="tEst";
+
+// SEGNALAZIONE SPOILER
+
+private int ID_COMMENTO= 1;
+
+//SEGNALAZIONE GENRICA
+
+private String DESCRIZIONE ="non mi fa accedere da un altro computer";
+
+// COMANDI TEST
+
+private Boolean ADD_SPOILER = false;
+private Boolean ADD_GENRIC= false;
+private Boolean RISOLVI = false; 
+private Boolean LIST = true; 
 	
 
-
-	
-	
+EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
+SegnalazioniManager sm = new SegnalazioniManager();
 	
 	@Test
-	public void test() throws NotFindInDbException, BasicException {
-		EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
-        SegnalazioniManager sm = new SegnalazioniManager();
-        
-      //   Utente autore =  em.find(Utente.class, "oliz");
-       
-       //  sm.addSegnalazione(autore, MOTIVAZIONE); 
-	  
-        
-          
-          
-    List<Segnalazione> segnalazioni= sm.trovaSegnalazioni();
-
-	  System.out.println(segnalazioni.toString());
-	  
-	  for (int i=0 ; i> segnalazioni.size() ; i ++ ) {
-		  UtenteWeb web = new  UtenteWeb();
-		   web = segnalazioni.get(i).getRisolutore();
-		   System.out.println(web.toString());
-	  };
-	   
+	public void test() throws NotFindInDbException {
+		if (ADD_SPOILER) {
+			sm.addSegnalazioneSpoiler(em.find(Utente.class, AUTORE), em.find(Commento.class, ID_COMMENTO));
+		}
+		
 	
-	 
-    //  System.out.println(segn.toString());
-      // Integer id = 14;
-	 //  sm.risolviSegnalazione(id, "Azazzello-95");
-	  
-	 
-	   
-	   
-	   
-	   
-	
+	if (ADD_GENRIC) {	
+		sm.addSegnalazioneGenerica(em.find(Utente.class, AUTORE), DESCRIZIONE);		
+		
 	}
 
+	if(RISOLVI) {
+		sm.risolviSegnalazione(5, RISOLUTORE);
+				};
+	
+
+	if (LIST) {
+		List<Segnalazione> sengS =sm.trovaSegnalazioni();
+		
+		
+		
+		 
+		 
+		 
+		 
+	}			
+				
+				
+}
 }

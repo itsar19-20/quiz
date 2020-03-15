@@ -1,8 +1,6 @@
-package controller;
+package controllerTest;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,33 +9,36 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import business.WebUserManager;
-import model.UtenteWeb;
+import business.UserManager;
+import model.Utente;
 
 /**
- * Servlet implementation class WebUserController
+ * Servlet implementation class Test
  */
-@WebServlet("/webus")
-public class WebUserSearchController extends HttpServlet {
+@WebServlet("/Test")
+public class Test extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WebUserSearchController() {
+    public Test() {
         super();
     }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		WebUserManager wum = new WebUserManager();
-		List<UtenteWeb> modList = wum.getUtenteWebList();
-		ObjectMapper om = new ObjectMapper();
-		response.setContentType("/application/JSON");
-		response.getWriter().append(om.writeValueAsString(modList));
+		UserManager um = new UserManager();
+		Utente u = um.getUser(request.getParameter("username"));
+		if(u!=null) {
+			if(u.getPassword().contentEquals(request.getParameter("password"))) {
+				ObjectMapper om = new ObjectMapper();
+				response.setContentType("application/json");
+				response.getWriter().append(om.writeValueAsString(u));
+			}
+		}
 	}
 
 }

@@ -13,7 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 
@@ -38,27 +37,43 @@ public class Segnalazione implements Serializable {
 	@JoinColumn(name = "risolutore_username")
 	private UtenteWeb risolutore;
 
+	private boolean lavorazione;
 
-	private String motivazione;
+	private String tipo;   
 	private String data;
 	private boolean risolta;
-    private String tipo;
 
+	
 
 	public 	Segnalazione (){
 		this.risolta = false;
 		this.risolutore = null;
+		this.lavorazione= false;
+
 	}
 
-	public String getTipo(){
-		return tipo;
+	public Boolean getLavorazione(){
+		return this.lavorazione;
+	} 
+
+	public void setLavorazione(Boolean lavorazione) {
+		if (this.risolta) {
+			this.lavorazione = false;
+		}else {this.lavorazione= lavorazione;
+		}
+	}
+
+	
+	
+
+	public String getTipo() {
+		return this.tipo;
 	};  
-	
-	public void setTipo(String tipo) {
-		this.tipo= tipo;
+
+	protected void setTipo (String tipo) {
+		this.tipo = tipo;
 	};
-	
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -101,13 +116,26 @@ public class Segnalazione implements Serializable {
 	public void setData(String data) {
 		this.data = data;
 	}
-	
-	
 
 	@Override
 	public String toString() {
-		return "Segnalazione [id=" + id + ", autore=" + autore + ", risolutore=" + risolutore + ", motivazione="
-				+ motivazione + ", data=" + data + ", risolta=" + risolta + "]";
+		return "Segnalazione [id=" + id + ", autore=" + autore + ", risolutore=" + risolutore + ", lavorazione="
+				+ lavorazione + ", tipo=" + tipo + ", data=" + data + ", risolta=" + risolta + "]";
 	}
+
+	
+
+	
+
+
+
+	
+
+	
+
+
+
+
+
 
 }
