@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import business.SegnalazioniManager;
 import model.Segnalazione;
+import model.tipiSegn.*;
 
 /**
  * Servlet implementation class SegnalazioniController
@@ -20,30 +22,31 @@ import model.Segnalazione;
 @WebServlet("/sc")
 public class SegnalazioniController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SegnalazioniController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public SegnalazioniController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
 
+	
+	
 		SegnalazioniManager sm = new SegnalazioniManager();	
-   	   List<Segnalazione> segnalazioni = sm.trovaSegnalazioni();
-   	   
-   	   
-   	   ObjectMapper om = new ObjectMapper();
-	   response.setContentType("/application/JSON");
-	   response.getWriter().append(om.writeValueAsString(segnalazioni));
-   	  
-   	  
+		ObjectMapper om = new ObjectMapper();
+
+		 List<Segnalazione>listSegnalazioni = sm.trovaSegnalazioni();	 	
+	  	response.setContentType("application/JSON");
+		response.getWriter().append(om.writeValueAsString(listSegnalazioni));
+	
 	}
 
 }

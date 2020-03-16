@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import javax.persistence.*;
 
 
@@ -10,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 import model.Challenge;
+import model.tipiSegn.SegnSpoiler;
 
 /**
  * Entity implementation class for Entity: Commento
@@ -18,6 +20,7 @@ import model.Challenge;
 @Entity
 
 public class Commento implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	   
 	@Id
@@ -26,25 +29,37 @@ public class Commento implements Serializable {
 	private Boolean spoiler;
 	private String data;
 	private String testo;
+	private Boolean segnalato;
+	
 	@ManyToOne
 	private Challenge challenge;
 	
 	@ManyToOne
 	private Utente autore;
 	
-	private static final long serialVersionUID = 1L;
-
 	public Commento() {
 		super();
+		this.spoiler = false; 
+		this.segnalato = false;
 	}   
+	
+
+	public void setId(int id) {
+		this.id = id;
+	}   
+	
+	public int getId() {
+		return this.id;
+	}
+	
 	@JsonGetter
-	public Challenge getChallenger() {
+	public Challenge getChallenge() {
 		return this.challenge;
 	}
      
 	@JsonSetter
-	public void setChallenger(Challenge challenger) {
-		this.challenge = challenger;
+	public void setChallenger(Challenge challenge) {
+		this.challenge = challenge;
 	}   
    
 	@JsonGetter 
@@ -56,13 +71,22 @@ public class Commento implements Serializable {
 	public void setAutore(Utente autore) {
 		this.autore = autore;
 	}   
-	public int getId() {
-		return this.id;
+
+	
+	
+	
+	
+	
+	public Boolean getSegnalato() {
+		return segnalato;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}   
+
+	public void setSegnalato(Boolean segnalato) {
+		this.segnalato = segnalato;
+	}
+
+
 	public Boolean getSpoiler() {
 		return this.spoiler;
 	}
@@ -84,5 +108,17 @@ public class Commento implements Serializable {
 	public void setTesto(String testo) {
 		this.testo = testo;
 	}
-   
+
+
+	@Override
+	public String toString() {
+		return "Commento [id=" + id + ", spoiler=" + spoiler + ", data=" + data + ", testo=" + testo + ", segnalato="
+				+ segnalato + ", challenge=" + challenge.toString() + ", autore=" + autore + "]";
+	}
+	
+	
+  
+	
+	
+	
 }

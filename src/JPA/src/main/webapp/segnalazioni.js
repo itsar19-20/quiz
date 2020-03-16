@@ -1,67 +1,56 @@
-
+    
 
  var utente = JSON.parse(localStorage.getItem('user'));
  $('#name').text(`${utente.username}`);
  
  $('#tipoSegn').text('Segnalazioni non risolte');
  var flag = false;
- 
+ var listSegn;
+
+
 $.ajax({
     url: '/sc',
     method: 'post'
 })
-    .done((mod) => {
-        modList = JSON.parse(mod);
-  
-      console.log(modList) 
+    .done((segn) => {
+     listSegn=segn;
+     
 
- /*lista negativa*/ 
-        var nonRisList=[];
-      
-        var o =0; 
-         modList.forEach(el =>{
-            if(!el.risolta ){
-            nonRisList[o]= el;
-          };
-         
-         o++
-        
-        }
-         )     
-     /*   console.log(nonRisList);*/
+        //console.log(listSegn);
 
 
-         lengthmod = modList.length;
+//Generazione liste
+       var nonRisList=[];
+       var RisList=[];
+       var o =0; 
+       var w =0;
+       
+       listSegn.forEach(s=> {
+           if(s.risolta){
+              RisList[o]=s;
+              o++ 
+           }else{
+               nonRisList[w]=s
+                w ++}; 
+       })
+       //console.log(RisList) 
+       //console.log(nonRisList)     
+       
+//Generazione tabelle
+
         var i = 0;
         nonRisList.forEach(u => {   
             $('#tabbIrrisolte').append(
                 `<tr class='line' id='${i}'>` +    
                 `<td data-id='${i}' id='autore${i}'>${u.autore.username}</td>` + 
                 `<td data-id='${i}' id='data${i}'>${u.data}</td>` +
-                `<td data-id='${i}' id='motivazione${i}'>${u.motivazione}</td>` +
+                `<td data-id='${i}' id='tipo${i}'>${u.tipo}</td>` +
                "</tr>");
                      
             i++;
         });
- /*lista positiva*/
+ //lista positiva
 
-   var RisList=[];
-
-var w =0; 
- modList.forEach(el =>{
-    if(el.risolta ){
-
-       RisList[w]= el;
-  }   
-  ;
-  w++
-}
- )     
-
- console.log(RisList)
-
-
- lengthmod = modList.length;
 var e = 0;
 RisList.forEach(u => {   
     $('#tabbRisolte').append(
@@ -74,10 +63,8 @@ RisList.forEach(u => {
              
     e++;
 });
- /*lista positiva*/   
-
-
-/*bottone*/
+   
+//bottone
 
 
 $('#bott').click(() => {
@@ -89,9 +76,9 @@ $('#bott').click(() => {
         $('#tabbRisolte').hide();
         flag=false; 
     }else {$('#tipoSegn').text('Segnalazioni  risolte');
-           $('#bott').ss('background-color', 'green');
+           $('#bott').css('background-color', 'green');
            $('#bott').css('border','green');
-           $('#tabbIrrisolte').hide();
+           $('#tabbIrrisolte').hide();  
            $('#tabbRisolte').show();
            flag =true; };
         
@@ -101,23 +88,6 @@ $('#bott').click(() => {
 } )
 
 
-/*bottone*/
-/*modal*/
-var idline;
-
-
-$("#tabbIrrisolte tbody" ).on( "click", ".line td", function() {
-    /*idline = $(this).data('id);*/
-    console.log("il metodo è andato"); 
-    $('#myModal').modal('show');      
-});
-
-
-
-
-/*modal*/
-
-
-
-
 })
+
+

@@ -17,6 +17,7 @@ public class UtenteWeb {
 	private String username;
 	private String password;
 	private boolean admin;
+	
 	@OneToMany(mappedBy = "risolutore")
 	private List<Segnalazione> segnalazioni;
 	
@@ -48,7 +49,7 @@ public class UtenteWeb {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public boolean isAdmin() {
+	public boolean getAdmin() {
 		return admin;
 	}
 	public void setAdmin(boolean admin) {
