@@ -36,41 +36,19 @@ public class Segnalazione implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "risolutore_username")
 	private UtenteWeb risolutore;
-
-	private boolean lavorazione;
-
-
-	
 	private String data;
 	private boolean risolta;
     private String tipo;
     private boolean inLavorazione; 
 
-	
-    
-    
-   
-
-	
-
-    
 	public 	Segnalazione (){
 		this.risolta = false;
 		this.risolutore = null;
 		this.inLavorazione = false;
 	}
 
-	
-
-	public Boolean getLavorazione(){
-		return this.lavorazione;
-	} 
-
-	public void setLavorazione(Boolean lavorazione) {
-		if (this.risolta) {
-			this.lavorazione = false;
-		}else {this.lavorazione= lavorazione;
-		}
+	public void setInLavorazione(Boolean lavorazione) {
+		this.inLavorazione= lavorazione;
 	}
 
 
@@ -100,6 +78,8 @@ public class Segnalazione implements Serializable {
 		}
 	}
 
+	
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}

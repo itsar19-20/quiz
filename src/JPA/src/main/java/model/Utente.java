@@ -26,7 +26,7 @@ public class Utente implements Serializable {
 	private int punteggio;
 	private String nazionalita;
 	private String ultimoaccesso;
-	private boolean attivo;
+	//private boolean attivo;
 	
 	@OneToMany (mappedBy = "autore")
 	private List<Commento> commenti;
@@ -161,7 +161,7 @@ public class Utente implements Serializable {
 	}
 
 
-
+/*
 	public boolean isAttivo() {
 		return attivo;
 	}
@@ -169,5 +169,5 @@ public class Utente implements Serializable {
 	public void setAttivo(boolean attivo) {
 		this.attivo = attivo;
 	}
-   
+  */ 
 }

@@ -61,4 +61,4 @@ public class SegnSpoiler extends  Extended implements Serializable {
 
 
 
-}
+
