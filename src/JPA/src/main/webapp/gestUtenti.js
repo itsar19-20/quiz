@@ -12,6 +12,7 @@ $(() => {
     })
         .done((utenti) => {
             userList = utenti;
+            console.log(userList);
             lengthmod = userList.length;
             var i = 0;
             userList.forEach(u => { //creazione della tabella

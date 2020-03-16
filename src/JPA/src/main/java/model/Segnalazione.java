@@ -39,18 +39,28 @@ public class Segnalazione implements Serializable {
 
 	private boolean lavorazione;
 
-	private String tipo;   
+
+	
 	private String data;
 	private boolean risolta;
+    private String tipo;
+    private boolean inLavorazione; 
+
+	
+    
+    
+   
 
 	
 
+    
 	public 	Segnalazione (){
 		this.risolta = false;
 		this.risolutore = null;
-		this.lavorazione= false;
-
+		this.inLavorazione = false;
 	}
+
+	
 
 	public Boolean getLavorazione(){
 		return this.lavorazione;
@@ -63,6 +73,7 @@ public class Segnalazione implements Serializable {
 		}
 	}
 
+
 	
 	
 
@@ -70,7 +81,7 @@ public class Segnalazione implements Serializable {
 		return this.tipo;
 	};  
 
-	protected void setTipo (String tipo) {
+	public void setTipo (String tipo) {
 		this.tipo = tipo;
 	};
 
@@ -117,25 +128,18 @@ public class Segnalazione implements Serializable {
 		this.data = data;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Segnalazione [id=" + id + ", autore=" + autore + ", risolutore=" + risolutore + ", lavorazione="
-				+ lavorazione + ", tipo=" + tipo + ", data=" + data + ", risolta=" + risolta + "]";
+		return "Segnalazione [id=" + id + ", autore=" + autore + ", risolutore=" + risolutore + ", data=" + data
+				+ ", risolta=" + risolta + ", tipo=" + tipo + ", inLavorazione=" + inLavorazione + "]";
 	}
 
 	
 
 	
 
-
-
 	
-
-	
-
-
-
-
 
 
 }

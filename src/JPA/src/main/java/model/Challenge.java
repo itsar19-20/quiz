@@ -5,6 +5,11 @@ import java.lang.String;
 import java.util.List;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
+
 import model.Utente;
 
 /**
@@ -26,15 +31,18 @@ public class Challenge implements Serializable {
 	private int punteggio;
 	private String data;
 	private String flag;
+	
 	@OneToMany (mappedBy = "challenge")
 	private List<Commento> commenti;
 	
 	
 	
-	
+	@JsonIgnore
 	public List<Commento> getCommenti() {
 		return commenti;
 	}
+	
+	@JsonIgnore
 	public void setCommenti(List<Commento> commenti) {
 		this.commenti = commenti;
 	}
@@ -58,11 +66,13 @@ public class Challenge implements Serializable {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}   
+	
+	@JsonGetter
 	public Utente getCreatore() {
 		return this.creatore;
 	}
-
-	public void setCreatore(Utente creatore) {
+    @JsonSetter 
+ 	public void setCreatore(Utente creatore) {
 		this.creatore = creatore;
 	}   
 	public int getRating() {

@@ -11,9 +11,10 @@ import org.junit.After;
 import org.junit.Test;
 
 public class UserManagerTest {
-	private final String USERNAME ="giocatore";
-	private final String PASSWORD ="play";
-	private final String EMAIL= "@gioco";
+
+	private final String USERNAME ="oliz";
+	private final String PASSWORD ="wtf";
+	private final String EMAIL= "@Cicco";
 	private final Boolean CANCELLA =false;
 	
     
@@ -23,7 +24,7 @@ public class UserManagerTest {
 	public void test() {
 	 
 		userM.addUser(USERNAME, EMAIL, PASSWORD);
-		System.out.print("l'aggionta è andata a buon fine");
+		System.out.print("l'aggiunta è andata a buon fine");
 
 		
 

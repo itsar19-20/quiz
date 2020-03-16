@@ -2,68 +2,105 @@ package utility;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.junit.After;
 import org.junit.Test;
 import business.SegnalazioniManager;
 import business.exeception.NotFindInDbException;
 import model.Commento;
 import model.Utente;
-import model.Segnalazione;
-
-
-
+import model.UtenteWeb;
+import model.tipiSegn.SegnGenerica;
+import model.tipiSegn.SegnSpoiler;
 
 public class SegnalazioneManagerTest {
-private String AUTORE= "tizio";
-private String RISOLUTORE ="tEst";
+	private final  String AUTORE= "oliz";
+	private final String RISOLUTORE="phobos-1995";
+    private final int  IDSEGN=40;  
 
-// SEGNALAZIONE SPOILER
+	//SENGLAZIONE SPOILER
+	private int IDCOMMENTO= 1;
 
-private int ID_COMMENTO= 1;
 
-//SEGNALAZIONE GENRICA
+	//SEGNALAZIONE GENERICA
+	private String DESCRIZIONE ="body shaming";
 
-private String DESCRIZIONE ="non mi fa accedere da un altro computer";
+	//CONTROLLI
 
-// COMANDI TEST
+	private Boolean DELATESPOILER=true;
+	private Boolean DELATEGENERICA=false;
+    private Boolean RISOLVI= true; 
+	//Utility
 
-private Boolean ADD_SPOILER = false;
-private Boolean ADD_GENRIC= false;
-private Boolean RISOLVI = false; 
-private Boolean LIST = true; 
+	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
+	SegnalazioniManager sm = new SegnalazioniManager();
+
+	int  idSpoiler;
+	int  idGenerica;
+
+
+
+
 	
 
-EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
-SegnalazioniManager sm = new SegnalazioniManager();
 	
+
 	@Test
-	public void test() throws NotFindInDbException {
-		if (ADD_SPOILER) {
-			sm.addSegnalazioneSpoiler(em.find(Utente.class, AUTORE), em.find(Commento.class, ID_COMMENTO));
+	public void test() throws NotFindInDbException, {
+
+		//CREA SPOILER
+		idSpoiler=sm.addSegnalazioneSpoiler(AUTORE, IDCOMMENTO);
+		if(idSpoiler==0) {
+			System.out.println("non è stata aggiunta la segnalazione Spoiler");
+		}; 
+
+		//CREA GENERICA
+		idGenerica=sm.addSegnalazioneGenerica(AUTORE, DESCRIZIONE);
+		if(idGenerica==0) {
+			System.out.println("non è stata aggiunta la segnalazione Generica");
+		}; 
+ 		
+		//TROVA SEGNALZZIONI 
+         List<Segnalazione> listSegn =sm.trovaSegnalazioni();
+         for (Segnalazione segn : listSegn) {
+			System.out.print(segn );
 		}
-		
-	
-	if (ADD_GENRIC) {	
-		sm.addSegnalazioneGenerica(em.find(Utente.class, AUTORE), DESCRIZIONE);		
-		
+
+	   //RISOLVI SEGNALAZIONE
+	  if(RISOLVI) {
+         sm.risolviSegnalazione(IDSEGN, RISOLUTORE);
+	  }
 	}
-
-	if(RISOLVI) {
-		sm.risolviSegnalazione(5, RISOLUTORE);
-				};
 	
+	
+	@After
+	public void delate() {
+		if (DELATESPOILER) {
 
-	if (LIST) {
-		List<Segnalazione> sengS =sm.trovaSegnalazioni();
-		
-		
-		
-		 
-		 
-		 
+			if (idSpoiler != 0) {
+				SegnSpoiler ss = em.find(SegnSpoiler.class,idSpoiler );
+				em.getTransaction().begin();
+				em.remove(ss);
+				em.getTransaction().commit();
+			}
+		}
+
+		if ( DELATEGENERICA) {
+
+			if(idGenerica!=0) {
+				SegnGenerica sg = em.find(SegnGenerica.class, idGenerica);
+				em.getTransaction().begin();
+				em.remove(sg);
+				em.getTransaction().commit();
+			}
+
+
+		}
+	 
 		 
 	}			
 				

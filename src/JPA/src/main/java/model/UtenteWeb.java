@@ -17,6 +17,7 @@ public class UtenteWeb {
 	private String username;
 	private String password;
 	private boolean admin;
+	
 	@OneToMany(mappedBy = "risolutore")
 	private List<Segnalazione> segnalazioni;
 	

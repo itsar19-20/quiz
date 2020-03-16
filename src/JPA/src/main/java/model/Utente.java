@@ -89,7 +89,8 @@ public class Utente implements Serializable {
 
 
 
-	@JsonSetter
+
+     @JsonIgnore
 	public void setSegnalazioni(List<Segnalazione> segnalazioni) {
 		this.segnalazioni = segnalazioni;
 	}

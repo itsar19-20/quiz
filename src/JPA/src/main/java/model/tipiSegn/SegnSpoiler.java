@@ -21,7 +21,6 @@ public class SegnSpoiler extends  Extended implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name ="commento_id")
-
 	private Commento comm;
 
 	@JsonGetter 
@@ -36,9 +35,18 @@ public class SegnSpoiler extends  Extended implements Serializable {
 
 	@Override
 	public String toString() {
-		return "SegnSpoiler [getComm()=" + getComm() + ", getLavorazione()=" + getLavorazione() + ", getTipo()="
-				+ getTipo() + ", getId()=" + getId() + ", getRisolutore()=" + getRisolutore() + ", getAutore()="
-				+ getAutore() + ", getData()=" + getData() + ", isRisolta()=" + isRisolta() +  "]";
+		return "SegnSpoiler [ id=" + getId() + ", risolutore="
+				+getRisolutore() + " autore" + getAutore() + ", data=" + getData() + ", isRisolta="
+				+ isRisolta() + "comm=" + comm.getTesto() + ", tipo()=" + getTipo() +"]";
+	}
+
+	
+
+	
+
+	
+
+
 	}
 
 	

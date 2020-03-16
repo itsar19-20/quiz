@@ -29,17 +29,11 @@ public class SegnGenerica  extends Extended  implements Serializable {
 
 	@Override
 	public String toString() {
-		return "SegnGenerica [descrizione=" + descrizione + ", getLavorazione()=" + getLavorazione() + ", getTipo()="
-				+ getTipo() + ", getId()=" + getId() + ", getRisolutore()=" + getRisolutore() + ", getAutore()="
-				+ getAutore() + ", getData()=" + getData() + ", isRisolta()=" + isRisolta() +"]";
+
+		return "SegnGenerica [id=" + getId()+ ", risolutore=" + getRisolutore() + ", autore=" + getAutore() + ", data=" + getData()
+				+ ", risolta=" + isRisolta() +"descrizione=" + descrizione + ", tipo=" + getTipo() + "]";
 	}
 
-	
-
-	
-
-
-	
 	
 	
 	
