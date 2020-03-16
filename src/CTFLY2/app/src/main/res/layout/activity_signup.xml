@@ -109,7 +109,7 @@
         android:id="@+id/signup_button"
         android:layout_width="200dp"
         android:layout_height="35dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/rounded_button_blue"
         android:fontFamily="@font/palanquin_dark"
         android:text="@string/signup"
@@ -118,7 +118,7 @@
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_input" />
 
@@ -218,14 +218,28 @@
         android:id="@+id/goto_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="96dp"
+        android:layout_marginBottom="32dp"
         android:contextClickable="true"
         android:text="@string/already_have_an_account"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup_button"
+        app:layout_constraintVertical_bias="0.691" />
+
+    <TextView
+        android:id="@+id/passwordErr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Le password non corrispondono!"
+        android:textColor="#ff0000"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/signup_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_input" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

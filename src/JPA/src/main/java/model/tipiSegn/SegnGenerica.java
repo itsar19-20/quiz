@@ -9,9 +9,8 @@ import javax.persistence.*;
  */
 @Entity
 
-public class SegnGenerica extends Extended  implements Serializable {
+public class SegnGenerica  extends Extended  implements Serializable {
 
-	
 	private static final long serialVersionUID = 1L;
 
 	public SegnGenerica() {
@@ -30,6 +29,7 @@ public class SegnGenerica extends Extended  implements Serializable {
 
 	@Override
 	public String toString() {
+
 		return "SegnGenerica [id=" + getId()+ ", risolutore=" + getRisolutore() + ", autore=" + getAutore() + ", data=" + getData()
 				+ ", risolta=" + isRisolta() +"descrizione=" + descrizione + ", tipo=" + getTipo() + "]";
 	}

@@ -8,19 +8,14 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonSetter;
-
 /**
  * Entity implementation class for Entity: Utente
  *
  */
 @Entity
 public class Utente implements Serializable {
-
-	   
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	private String username;
 	private String email;
@@ -31,6 +26,7 @@ public class Utente implements Serializable {
 	private int punteggio;
 	private String nazionalita;
 	private String ultimoaccesso;
+	private boolean attivo;
 	
 	@OneToMany (mappedBy = "autore")
 	private List<Commento> commenti;
@@ -40,6 +36,9 @@ public class Utente implements Serializable {
 
     @OneToMany (mappedBy="autore") 
     private List<Segnalazione> segnalazioni;
+    
+    @OneToMany
+    private List<Amicizia> amicizie;
 	
     
     
@@ -55,8 +54,7 @@ public class Utente implements Serializable {
     
     }
 
-
-     @JsonIgnore
+     @JsonGetter
 	public List<Commento> getCommenti() {
 		return commenti;
 		
@@ -64,30 +62,31 @@ public class Utente implements Serializable {
 
 
 
-     @JsonIgnore
+     @JsonSetter
 	public void setCommenti(List<Commento> commenti) {
 		this.commenti = commenti;
 	}
 
 
-     @JsonIgnore
+     @JsonGetter
  	public List<Challenge> getChallengers() {
 		return challengers;
 	}
 
 
 
-     @JsonIgnore
+     @JsonSetter
 	public void setChallengers(List<Challenge> challengers) {
 		this.challengers = challengers;
 	}
 
 
 
-     @JsonIgnore
+	@JsonGetter
 	public List<Segnalazione> getSegnalazioni() {
 		return segnalazioni;
 	}
+
 
 
 
@@ -95,6 +94,7 @@ public class Utente implements Serializable {
 	public void setSegnalazioni(List<Segnalazione> segnalazioni) {
 		this.segnalazioni = segnalazioni;
 	}
+
 
   
 	public String getUsername() {
@@ -159,10 +159,15 @@ public class Utente implements Serializable {
 	public void setUltimoaccesso(String ultimoaccesso) {
 		this.ultimoaccesso = ultimoaccesso;
 	}
-	
-	
-	
-	
 
+
+
+	public boolean isAttivo() {
+		return attivo;
+	}
+
+	public void setAttivo(boolean attivo) {
+		this.attivo = attivo;
+	}
    
 }

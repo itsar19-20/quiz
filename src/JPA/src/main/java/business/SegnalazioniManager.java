@@ -67,6 +67,7 @@ public class SegnalazioniManager {
 	
 	public void risolviSegnalazione(Integer segnId , String   userNameRisolutore) throws NotFindInDbException{
 		try {
+			
 			if (em.find(Segnalazione.class, segnId)== null ) {
 				throw new  NotFindInDbException("Segnalazione","segnId");
 			} 
@@ -74,6 +75,10 @@ public class SegnalazioniManager {
 			if ((em.find(UtenteWeb.class, userNameRisolutore))== null ){
 				throw new  NotFindInDbException("UtenteWeb", userNameRisolutore);			
 			}
+			
+			if((em.find(Segnalazione.class, segnId).getRisolutore()!= null) ) {
+				throw new BasicException("la query è già stata risolta",""+segnId);			
+				}
 
 			UtenteWeb risolutore =(em.find(UtenteWeb.class, userNameRisolutore)); 
 
@@ -89,6 +94,9 @@ public class SegnalazioniManager {
 
 		catch(NotFindInDbException ex) {
 			System.out.print(ex.toString());
+		
+		} catch (BasicException e) {
+			e.toString();
 		}
 	}
 
@@ -108,10 +116,10 @@ public class SegnalazioniManager {
 				throw new NotFindInDbException("Utente", idAutore);
 			}
 
+			
 			SegnGenerica segn = new SegnGenerica();
-			addBase(autore,segn.getTipo(),segn);
 
-
+			addBase(autore,segn,segn.getTipo());
 			em.getTransaction().begin();
 			em.persist(segn);
 			em.getTransaction().commit();
@@ -140,6 +148,7 @@ public class SegnalazioniManager {
 			}
 
 			if (comm == null) {
+
 				throw new NotFindInDbException("Commneto", ""+idComm+"");
 			}
 
@@ -148,7 +157,9 @@ public class SegnalazioniManager {
 
 			  
 			
-			addBase(autore,segn.getTipo(),segn);
+			addBase(autore,segn,segn.getTipo());
+
+
 			segn.setComm(comm);  
 
 			
@@ -179,7 +190,7 @@ public class SegnalazioniManager {
 	//	LE UTILITY
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 
-	private void addBase( Utente autore ,String tipo, Segnalazione segn) {	
+	private void addBase( Utente autore ,Segnalazione segn , String tipo  ) {	
 
 		try {
 			if (em.find(Utente.class, autore.getUsername()) == null) {
@@ -188,9 +199,10 @@ public class SegnalazioniManager {
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 			LocalDateTime now = LocalDateTime.now();
 			segn.setData(dtf.format(now));
-			segn.setTipo(tipo);
+            segn.setTipo(tipo); 			
 			segn.setAutore(autore);
-
+			segn.setAutore(autore);
+			
 
 
 		}catch(NotFindInDbException nfdbx) {

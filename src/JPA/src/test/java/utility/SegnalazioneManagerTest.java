@@ -6,18 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.ManyToOne;
 
 import org.junit.After;
 import org.junit.Test;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import business.SegnalazioniManager;
-import business.exeception.BasicException;
 import business.exeception.NotFindInDbException;
-import model.Segnalazione;
+import model.Commento;
 import model.Utente;
 import model.UtenteWeb;
 import model.tipiSegn.SegnGenerica;
@@ -48,11 +42,15 @@ public class SegnalazioneManagerTest {
 	int  idSpoiler;
 	int  idGenerica;
 
+
+
+
 	
+
 	
 
 	@Test
-	public void test() throws NotFindInDbException, BasicException, JsonProcessingException {
+	public void test() throws NotFindInDbException, {
 
 		//CREA SPOILER
 		idSpoiler=sm.addSegnalazioneSpoiler(AUTORE, IDCOMMENTO);
@@ -102,10 +100,10 @@ public class SegnalazioneManagerTest {
 
 
 		}
-
-
-
-
-	}
-
+	 
+		 
+	}			
+				
+				
+}
 }

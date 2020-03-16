@@ -21,7 +21,7 @@ public class SegnSpoiler extends  Extended implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name ="commento_id")
-	private Commento	comm;
+	private Commento comm;
 
 	@JsonGetter 
 	public Commento getComm() {
@@ -47,7 +47,12 @@ public class SegnSpoiler extends  Extended implements Serializable {
 	
 
 
+	}
 
+	
+	
+	
+	
 
 
 

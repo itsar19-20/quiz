@@ -1,4 +1,9 @@
 $(() => {
+    var utente = JSON.parse(localStorage.getItem('userCTFLY'));
+    console.log(utente);
+    if(utente.admin==0) {
+        location.href = 'home.html';
+    }
     $('#filter').text("Tutti");//setta subito il testo del bottone su "tutti"
     var modList; //variabile per salvare la lista di moderatori
     var utente = JSON.parse(localStorage.getItem('userCTFLY'));

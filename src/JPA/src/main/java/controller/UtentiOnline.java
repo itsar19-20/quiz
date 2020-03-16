@@ -11,33 +11,34 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import business.WebUserManager;
-import model.UtenteWeb;
+import business.UtentiOnlineManager;
+import model.Utente;
+
 
 /**
- * Servlet implementation class WebUserController
+ * Servlet implementation class UtentiOnline
  */
-@WebServlet("/webus")
-public class WebUserSearchController extends HttpServlet {
+@WebServlet("/UtentiOnline")
+public class UtentiOnline extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WebUserSearchController() {
+    public UtentiOnline() {
         super();
     }
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-    @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		WebUserManager wum = new WebUserManager();
-		List<UtenteWeb> modList = wum.getUtenteWebList();
+		UtentiOnlineManager uom=new UtentiOnlineManager();
+		List<Utente> list=uom.selezionaUtenti();
 		ObjectMapper om = new ObjectMapper();
-		response.setContentType("/application/JSON");
-		response.getWriter().append(om.writeValueAsString(modList));
+		response.setContentType("application/json");
+		response.getWriter().append(om.writeValueAsString(list));
 	}
 
 }

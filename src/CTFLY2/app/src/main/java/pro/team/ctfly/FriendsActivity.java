@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 
 public class FriendsActivity extends AppCompatActivity {
 
@@ -16,7 +18,8 @@ public class FriendsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends);
-
+        BottomNavigationView plafoniera = findViewById(R.id.bottom_navigation);
+        MenuCreate.createMenu(R.id.friends, this, plafoniera);
     }
 
 }
