@@ -13,9 +13,8 @@ private String type ;
     	   this.type =type;
        };  
 	
-       public String getType() {
-    	   return this.type;
-       };    
-       
+       public String getTipo() {
+    	   return type;
+       };       
        
 }

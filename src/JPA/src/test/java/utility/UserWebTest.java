@@ -8,9 +8,9 @@ import org.junit.Test;
 import business.WebUserManager;
 
 public class UserWebTest {
-     private final String USERNAME ="tEST";
-     private final String PASSWORD ="k$";
-     private final String ADMIN ="true";
+     private final String USERNAME ="phobos-1995";
+     private final String PASSWORD ="pass";
+     private final String ADMIN ="false";
      private final Boolean CANCELLA = false;
      
      WebUserManager webM = new WebUserManager();

@@ -39,24 +39,31 @@ public class Segnalazione implements Serializable {
 	private UtenteWeb risolutore;
 
 
-	private String motivazione;
+	
 	private String data;
 	private boolean risolta;
     private String tipo;
+    private boolean inLavorazione; 
 
+	
+    
+    
+    public String getTipo() {
+		return tipo;
+	}
 
+	
+    public void setTipo(String tipo) {
+    	this.tipo =tipo;
+    };
+    
 	public 	Segnalazione (){
 		this.risolta = false;
 		this.risolutore = null;
+		this.inLavorazione = false;
 	}
 
-	public String getTipo(){
-		return tipo;
-	};  
-	
-	public void setTipo(String tipo) {
-		this.tipo= tipo;
-	};
+	;
 	
 	
 	public Integer getId() {
@@ -101,13 +108,27 @@ public class Segnalazione implements Serializable {
 	public void setData(String data) {
 		this.data = data;
 	}
-	
-	
+
+
+	public boolean isInLavorazione() {
+		return inLavorazione;
+	}
+
+
+	public void setInLavorazione(boolean inLavorazione) {
+		this.inLavorazione = inLavorazione;
+	}
+
 
 	@Override
 	public String toString() {
-		return "Segnalazione [id=" + id + ", autore=" + autore + ", risolutore=" + risolutore + ", motivazione="
-				+ motivazione + ", data=" + data + ", risolta=" + risolta + "]";
+		return "Segnalazione [id=" + id + ", autore=" + autore + ", risolutore=" + risolutore + ", data=" + data
+				+ ", risolta=" + risolta + ", tipo=" + tipo + ", inLavorazione=" + inLavorazione + "]";
 	}
+
+	
+	
+
+	
 
 }

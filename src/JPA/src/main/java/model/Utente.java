@@ -4,7 +4,10 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
 /**
  * Entity implementation class for Entity: Utente
@@ -81,14 +84,14 @@ public class Utente implements Serializable {
 
 
 
-	@JsonIgnore
+     @JsonIgnore
 	public List<Segnalazione> getSegnalazioni() {
 		return segnalazioni;
 	}
 
 
 
-	@JsonIgnore
+     @JsonIgnore
 	public void setSegnalazioni(List<Segnalazione> segnalazioni) {
 		this.segnalazioni = segnalazioni;
 	}
