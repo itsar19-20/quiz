@@ -46,7 +46,5 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        //MenuCreate.createMenu(R.id.homepage, this, plafoniera);
-
     }
 }
