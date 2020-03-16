@@ -72,7 +72,6 @@ public class FriendFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        dbAdapt = new DbFriendsAdapter(getActivity());
         dbAdapt.removeAllFriend();
     }
 

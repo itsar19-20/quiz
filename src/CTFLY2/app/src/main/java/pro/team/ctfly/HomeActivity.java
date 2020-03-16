@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import Fragment.FriendFragment;
+import Fragment.ShopFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -39,7 +40,8 @@ public class HomeActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.containerfragment, new FriendFragment()).commit();
                         break;
                     case R.id.shops:
-                        HomeActivity.this.startActivity(new Intent(HomeActivity.this, ShopActivity.class));
+                        menuItem.setChecked(true);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.containerfragment, new ShopFragment()).commit();
                         break;
                 }
                 return false;

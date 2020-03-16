@@ -78,7 +78,7 @@ public class DbFriendsAdapter {
     }
 
     public boolean removeAllFriend() {
-        return db.delete(DatabaseHelper.FRIEND_TABLE_NAME, null, null)>0;
+        return db.delete(DatabaseHelper.FRIEND_TABLE_NAME, null , null)>0;
     }
 
 }

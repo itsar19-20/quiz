@@ -15,7 +15,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity android:name=".PodioActivity"></activity>
-        <activity android:name=".ShopActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
