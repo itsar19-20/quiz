@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GameActivity">
+<TextView
+
+    android:id="@+id/textDescription"
+
+    android:textSize="30dp"
+    android:textStyle="bold"
+    android:text="Infiltrati nel database"
+    android:layout_marginBottom="20dp"
+    android:layout_marginTop="180dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"/>
+    <TextView
+        android:id="@+id/textDescription1"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:text="La bandiera si trova qui"
+        android:layout_below="@+id/textDescription"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/textDescription2"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textDescription1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:textAlignment="center"
+        android:text="Flag's name"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/textFlag"
+        android:ems="10"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/textDescription2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>
