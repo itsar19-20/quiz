@@ -24,6 +24,7 @@ public class AddFriendDialog extends DialogFragment {
                 .setPositiveButton("Chiudi", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        getTargetFragment().onActivityResult(getTargetRequestCode(), 1, null);
                         AddFriendDialog.this.getDialog().dismiss();
                     }
                 });
