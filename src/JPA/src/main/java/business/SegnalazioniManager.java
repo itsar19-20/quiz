@@ -65,7 +65,7 @@ public class SegnalazioniManager {
 //RISOLVISEGNALAZIONE
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	
-	public void risolviSegnalazione(Integer segnId , String   userNameRisolutore) throws NotFindInDbException{
+	public void risolviSegnalazione(Integer segnId , String   userNameRisolutore) {
 		try {
 			
 			if (em.find(Segnalazione.class, segnId)== null ) {
@@ -119,6 +119,9 @@ public class SegnalazioniManager {
 			
 			SegnGenerica segn = new SegnGenerica();
 
+			segn.setDescrizione(motivazione);
+			
+			
 			addBase(autore,segn,segn.getTipo());
 			em.getTransaction().begin();
 			em.persist(segn);

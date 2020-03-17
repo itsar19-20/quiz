@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartGameActivity">
+
+
+    <TextView
+
+        android:id="@+id/txtchal"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="La challenge è:"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="127dp" />
+
+    <TextView
+         android:id="@+id/txtTitle"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Basic injection"
+        android:layout_below="@id/txtchal"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="90dp" />
+
+    <TextView
+        android:id="@+id/txtCreator"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtTitle"
+        android:text="Creata da lightingsword00"
+        android:layout_centerHorizontal="true"
+        tools:layout_editor_absoluteX="102dp"
+        tools:layout_editor_absoluteY="146dp" />
+
+    <TextView
+        android:id="@+id/txtMod"
+        android:textSize="20dp"
+        android:layout_marginBottom="20dp"
+        android:textStyle="bold"
+        android:layout_below="@id/txtCreator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modalità:Web"
+        android:layout_centerHorizontal="true"
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="190dp" />
+
+    <TextView
+        android:id="@+id/txtDiff"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@id/txtMod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Difficoltà:facile"
+        android:layout_centerHorizontal="true"
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="226dp" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar"
+        android:layout_below="@+id/txtDiff"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"/>
+
+    <TextView
+        android:id="@+id/txtData"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data: 10/04/2020"
+        android:layout_centerHorizontal="true"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="309dp" />
+
+    <TextView
+        android:id="@+id/txtPoints"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:layout_below="@id/txtData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Punti ottenibili :20"
+        android:layout_centerHorizontal="true"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="369dp" />
+
+    <Button
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginBottom="172dp"
+        android:text="Gioca"
+        android:layout_below="@id/txtPoints"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+
+        />
+
+
+</RelativeLayout>

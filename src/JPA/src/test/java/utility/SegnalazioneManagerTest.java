@@ -12,6 +12,7 @@ import org.junit.Test;
 import business.SegnalazioniManager;
 import business.exeception.NotFindInDbException;
 import model.Commento;
+import model.Segnalazione;
 import model.Utente;
 import model.UtenteWeb;
 import model.tipiSegn.SegnGenerica;
@@ -27,13 +28,13 @@ public class SegnalazioneManagerTest {
 
 
 	//SEGNALAZIONE GENERICA
-	private String DESCRIZIONE ="body shaming";
+	private String DESCRIZIONE ="dio cane va";
 
 	//CONTROLLI
 
 	private Boolean DELATESPOILER=true;
 	private Boolean DELATEGENERICA=false;
-    private Boolean RISOLVI= true; 
+    private Boolean RISOLVI= false; 
 	//Utility
 
 	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
@@ -42,15 +43,8 @@ public class SegnalazioneManagerTest {
 	int  idSpoiler;
 	int  idGenerica;
 
-
-
-
-	
-
-	
-
 	@Test
-	public void test() throws NotFindInDbException, {
+	public void test()  {
 
 		//CREA SPOILER
 		idSpoiler=sm.addSegnalazioneSpoiler(AUTORE, IDCOMMENTO);
@@ -105,5 +99,4 @@ public class SegnalazioneManagerTest {
 	}			
 				
 				
-}
 }
