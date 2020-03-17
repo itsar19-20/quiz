@@ -54,7 +54,7 @@ public class Utente implements Serializable {
     
     }
 
-     @JsonGetter
+     @JsonIgnore
 	public List<Commento> getCommenti() {
 		return commenti;
 		
@@ -62,27 +62,27 @@ public class Utente implements Serializable {
 
 
 
-     @JsonSetter
+     @JsonIgnore
 	public void setCommenti(List<Commento> commenti) {
 		this.commenti = commenti;
 	}
 
 
-     @JsonGetter
+     @JsonIgnore
  	public List<Challenge> getChallengers() {
 		return challengers;
 	}
 
 
 
-     @JsonSetter
+     @JsonIgnore
 	public void setChallengers(List<Challenge> challengers) {
 		this.challengers = challengers;
 	}
 
 
 
-	@JsonGetter
+     @JsonIgnore
 	public List<Segnalazione> getSegnalazioni() {
 		return segnalazioni;
 	}
