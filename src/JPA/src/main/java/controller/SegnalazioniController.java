@@ -1,7 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import business.SegnalazioniManager;
 import model.Segnalazione;
-import model.tipiSegn.*;
+
 
 /**
  * Servlet implementation class SegnalazioniController
@@ -35,11 +35,8 @@ public class SegnalazioniController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-
-	
-	
 		SegnalazioniManager sm = new SegnalazioniManager();	
 		ObjectMapper om = new ObjectMapper();
 
