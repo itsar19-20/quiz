@@ -21,6 +21,8 @@
         app:menu="@menu/bottom_navigation_menu" />
 
 
+
+
     <!-- <ImageButton
         android:id="@+id/prof"
         android:layout_width="80dp"
@@ -63,7 +65,7 @@
         app:layout_constraintEnd_toStartOf="@+id/friends"
         app:layout_constraintStart_toEndOf="@+id/homepage" />
 
-    <ImageButton
+    ImageButton
         android:id="@+id/homepage"
         android:layout_width="80dp"
         android:layout_height="80dp"
