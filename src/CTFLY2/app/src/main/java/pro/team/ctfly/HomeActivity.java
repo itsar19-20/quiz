@@ -3,12 +3,11 @@ package pro.team.ctfly;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-<<<<<<< HEAD
-=======
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
->>>>>>> a22c4340fc0053dda860674359ccae302f8031d5
+
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
