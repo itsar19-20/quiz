@@ -1,4 +1,4 @@
-package webService;
+package Model;
 
 import com.google.gson.annotations.SerializedName;
 

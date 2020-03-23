@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.ProfileFragment">
+    <ImageButton
+        android:id="@+id/btnProfile"
+        android:src="@drawable/ic_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null" />
+    <TextView
+        android:id="@+id/txtP"
+    android:text="Gestione profilo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="120dp"
+    android:textSize="30dp"
+    android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/txtOldPass"
+        android:layout_marginBottom="30dp"
+        android:ems="10"
+        android:hint="old password"
+        android:gravity="center"
+        android:layout_below="@id/txtP"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/txtNewPass"
+        android:layout_below="@+id/txtOldPass"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="new password"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnEdit"
+        android:text="Modifica"
+        android:textColor="#FFFFFF"
+        android:background="#2196F3"
+        android:layout_below="@+id/txtNewPass"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_marginTop="30dp"
+        android:text="Logout"
+        android:textColor="#FFFFFF"
+        android:layout_below="@+id/btnEdit"
+        android:background="#2196F3"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <FrameLayout
+        android:id="@+id/prof_img_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>
