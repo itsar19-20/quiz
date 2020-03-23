@@ -7,10 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import Model.Friend;
+
 
 public class DbFriendsAdapter {
     private Context context;
@@ -52,17 +52,11 @@ public class DbFriendsAdapter {
     public Cursor getFriends() {
         String buildSQL = "SELECT * FROM " + DatabaseHelper.FRIEND_TABLE_NAME + " ORDER BY " + DatabaseHelper.FRIEND_COLUMN_PUNTEGGIO + " DESC";
         Cursor c = db.rawQuery(buildSQL, null);
-        if(c.moveToFirst()){
+        if (c.moveToFirst()) {
+            Log.d("FIND: ", "Ho trovato entry nel dbLite");
             return c;
         } else {
-            Friend f1 = new Friend("Pippo", "150");
-            Friend f2 = new Friend("Pluto", "5000");
-            List<Friend> friends = new ArrayList<Friend>();
-            friends.add(f1);
-            friends.add(f2);
-            Log.d("Si:", "" + friends.size());
-            insertFast(friends.size(), friends);
-            c = getFriends();
+            Log.d("ERROR: ", "Non ho trovato nulla nel dbLite");
         }
         return c;
     }

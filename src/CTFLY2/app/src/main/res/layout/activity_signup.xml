@@ -233,7 +233,7 @@
         android:id="@+id/passwordErr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Le password non corrispondono!"
+        android:text=""
         android:textColor="#ff0000"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/signup_button"

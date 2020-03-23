@@ -11,6 +11,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import DbUtility.DbUserLoginAdapter;
+import Model.Utente;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import webService.AndroidWebService;
+import webService.MyApiEndpointInterface;
 
 public class SignupActivity extends AppCompatActivity {
     private DbUserLoginAdapter adapt;
@@ -42,11 +48,30 @@ public class SignupActivity extends AppCompatActivity {
                 String strPass = password.getText().toString();
                 String strPassConf = passwordConfirm.getText().toString();
                 if (strPass.contentEquals(strPassConf)) {
-                    Toast.makeText(SignupActivity.this, username.getText().toString() + password.getText().toString() + email.getText().toString(), Toast.LENGTH_SHORT).show();
-                    adapt.createUserLogged(username.getText().toString(), password.getText().toString(), email.getText().toString(), "A", 0);
-                    startActivity(new Intent(SignupActivity.this, HomeActivity.class));
-                    finish();
+                    MyApiEndpointInterface apiService = AndroidWebService.getRetrofit().create(MyApiEndpointInterface.class);
+                    Call<Utente> call = apiService.addUser(username.getText().toString(), email.getText().toString(), password.getText().toString());
+                    call.enqueue(new Callback<Utente>() {
+                        @Override
+                        public void onResponse(Call<Utente> call, Response<Utente> response) {
+                            Utente check = response.body();
+                            if(check!=null) {
+                                adapt.createUserLogged(check.getUsername(), check.getPassword(), check.getEmail(), null, 0);
+                                startActivity(new Intent(SignupActivity.this, HomeActivity.class));
+                                finish();
+                            } else {
+                                passErr.setText("Username gia esistente!");
+                                passErr.setVisibility(View.VISIBLE);
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<Utente> call, Throwable t) {
+                            Toast.makeText(SignupActivity.this, "Connessione al server non riuscita", Toast.LENGTH_LONG).show();
+                            passErr.setVisibility(View.INVISIBLE);
+                        }
+                    });
                 } else {
+                    passErr.setText("Le password non corrispondono!");
                     passErr.setVisibility(View.VISIBLE);
                 }
             }

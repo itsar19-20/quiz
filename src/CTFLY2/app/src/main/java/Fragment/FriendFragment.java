@@ -11,17 +11,28 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import DbUtility.DbFriendsAdapter;
 import CursorAdapter.CursorFriendAdapter;
 import Dialog.AddFriendDialog;
 import Dialog.RemoveFriend;
 import Dialog.UserNotFoundDialog;
+import Model.Friend;
+import Model.Utente;
 import pro.team.ctfly.R;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import webService.AndroidWebService;
+import webService.MyApiEndpointInterface;
 
 public class FriendFragment extends Fragment {
     private static int REMOVE_CODE = 1;
@@ -40,11 +51,36 @@ public class FriendFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.friends_fragment, container, false);
+        ProgressBar loading = rootView.findViewById(R.id.loadingFriends);
         dbAdapt = new DbFriendsAdapter(getActivity());
         dbAdapt.open();
-        friendAdp = new CursorFriendAdapter(getActivity(), dbAdapt.getFriends());
         listView = rootView.findViewById(R.id.friendlist);
-        listView.setAdapter(friendAdp);
+        MyApiEndpointInterface apiService = AndroidWebService.getRetrofit().create(MyApiEndpointInterface.class);
+        Call<List<Utente>> call = apiService.getUsers();
+        call.enqueue(new Callback<List<Utente>>() {
+            @Override
+            public void onResponse(Call<List<Utente>> call, Response<List<Utente>> response) {
+                Log.d("CONNECTION STATUS: ", "" + response.code());
+                List<Utente> list = response.body();
+                Log.d("SI: ", "" + list.size());
+                Friend frn;
+                List<Friend> friends = new ArrayList<Friend>();
+                for (int x = 0; x < list.size(); x++) {
+                    Integer p = list.get(x).getPunteggio();
+                    frn = new Friend(list.get(x).getUsername(), p.toString());
+                    friends.add(frn);
+                    Log.d("Si:", "" + friends.size());
+                }
+                dbAdapt.insertFast(friends.size(), friends);
+                loading.setVisibility(View.INVISIBLE);
+                friendAdp = new CursorFriendAdapter(getActivity(), dbAdapt.getFriends());
+                listView.setAdapter(friendAdp);
+            }
+            @Override
+            public void onFailure(Call<List<Utente>> call, Throwable t) {
+                Log.d("CONNECTION ERROR: ", "connessiona al db fallita");
+            }
+        });
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -105,6 +141,13 @@ public class FriendFragment extends Fragment {
     public void onPause() {
         super.onPause();
         dbAdapt.removeAllFriend();
+        Log.d("PAUSA: ", "È stata messa in pausa");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        //friendAdp.swapCursor(dbAdapt.getFriends());
     }
 
 }

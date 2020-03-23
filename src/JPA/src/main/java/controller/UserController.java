@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,15 @@ public class UserController extends HttpServlet {
         super();
     }
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    	UserManager um = new UserManager();
+		List<Utente> u = um.userSearch();
+		ObjectMapper om = new ObjectMapper();
+		resp.setContentType("application/JSON");
+		resp.getWriter().append(om.writeValueAsString(u));
+    }
+    
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
