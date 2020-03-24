@@ -2,6 +2,7 @@ package business;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 
@@ -16,6 +17,20 @@ public class ChallengeManager {
 
 	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
 
+///////////////////////////////////////////////////////////////////////////////////
+////	FIND ALL
+///////////////////////////////////////////////////////////////////////////////////	
+public  List<Challenge>  findAllChallenger(){
+	return em.createQuery("Select c from Challenge c ",Challenge.class).getResultList();
+	
+}	
+
+	
+////////////////////////////////////////////////////////////////////////////////////	
+////	CREATE REMUVE
+////////////////////////////////////////////////////////////////////////////////////	
+	
+	
 	public void addChallenge(String titolo, String descrizione, String  creatore, int punteggio, String flag) {
 
 		try {if (em.find(Utente.class,creatore)== null  ) {
@@ -60,24 +75,28 @@ public class ChallengeManager {
 
 
 
-
-
-
+////////////////////////////////////////////////////////////////////////////////////
+///CHALLENGR MOD
+////////////////////////////////////////////////////////////////////////////////////
 
 
 	public void challengeModifier(String titolo, String descrizione, String punteggio, String flag) {
-		try {if (em.find(Challenge.class, titolo)==null) {
+		try 
+		
+		{    Challenge chal =em.find(Challenge.class, titolo);
+			if (chal==null) {
 	    	throw new NotFindInDbException("Challenge", titolo);};
             
             
-            Challenge chal =em.find(Challenge.class, titolo);
-            int punteggioChange;
+            
+            
             
             
             if(descrizione== null){
                descrizione =chal.getDescrizione();
             } 
             
+            int punteggioChange;
             if (punteggio == null){
                punteggioChange =chal.getPunteggio();
             }else { 

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src/CTFLY2/app/src/androidTest/java"/>
+	<classpathentry kind="src" path="src/CTFLY2/app/src/main/java"/>
+	<classpathentry kind="src" path="src/CTFLY2/app/src/test/java"/>
+	<classpathentry kind="src" path="src/JPA/src/main/java"/>
+	<classpathentry kind="src" path="src/JPA/src/test/java"/>
+	<classpathentry kind="src" path="test/CTFLY_mockup_app/app/src/androidTest/java"/>
+	<classpathentry kind="src" path="test/CTFLY_mockup_app/app/src/main/java"/>
+	<classpathentry kind="src" path="test/CTFLY_mockup_app/app/src/test/java"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

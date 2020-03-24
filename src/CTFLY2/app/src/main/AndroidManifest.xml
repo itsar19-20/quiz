@@ -7,16 +7,20 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_ctfly_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_ctfly_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+
         <activity android:name=".Fragment.ProfileImageFragment"></activity>
         <activity android:name=".Fragment.ProfileFragment" />
-        <activity android:name=".GameActivity" />
+      
+        <activity android:name=".GameActivity"></activity>
+
         <activity android:name=".StartGameActivity" />
         <activity android:name=".GeneraQuizActivity" />
         <activity android:name=".PodioActivity" />
