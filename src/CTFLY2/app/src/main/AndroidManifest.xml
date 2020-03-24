@@ -17,18 +17,14 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
 
         <activity android:name="Fragment.ProfileImageFragment"></activity>
-        <activity android:name="Fragment.ProfileFragment" />
-      
+        <activity android:name="Fragment.ProfileFragment"/>
         <activity android:name=".GameActivity"></activity>
-
         <activity android:name=".StartGameActivity" />
         <activity android:name=".GeneraQuizActivity" />
         <activity android:name=".PodioActivity" />
-        <activity android:name=".ProfileActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

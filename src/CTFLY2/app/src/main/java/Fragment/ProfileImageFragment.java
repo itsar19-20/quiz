@@ -54,9 +54,6 @@ Button btnBack;
                 transaction.replace(R.id.containerfragment,new ProfileFragment()).commit();
             }
         });
-
-
-
         return  rootView;
     }
 

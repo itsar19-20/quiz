@@ -19,7 +19,7 @@ public class MenuCreate {
                 int id = menuItem.getItemId();
                 switch (id) {
                     case R.id.prof:
-                        ss.startActivity(new Intent(ss, ProfileActivity.class));
+                        //ss.startActivity(new Intent(ss, ProfileActivity.class));
                         break;
                     case R.id.podium:
                         ss.startActivity(new Intent(ss, PodioActivity.class));
