@@ -22,7 +22,6 @@
         android:id="@+id/txtP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="156dp"
         android:text="Gestione profilo"
         android:textSize="30dp"
@@ -37,12 +36,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txtP"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:gravity="center"
         android:hint="old password"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtP" />
 
@@ -50,8 +49,6 @@
         android:id="@+id/txtNewPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtOldPass"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="68dp"
         android:ems="10"
         android:gravity="center"
@@ -65,9 +62,7 @@
         android:id="@+id/btnEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtNewPass"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="36dp"
         android:background="#2196F3"
         android:text="Modifica"
         android:textColor="#FFFFFF"
@@ -80,10 +75,8 @@
         android:id="@+id/btnLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnEdit"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="96dp"
         android:background="#2196F3"
+
         android:text="Logout"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -91,7 +84,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnEdit"
-        app:layout_constraintVertical_bias="0.808" />
+        app:layout_constraintVertical_bias="0.421" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
