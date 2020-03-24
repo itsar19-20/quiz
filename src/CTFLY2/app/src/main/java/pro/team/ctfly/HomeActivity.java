@@ -5,21 +5,15 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-
-
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
-import pro.team.ctfly.Fragment.FriendFragment;
-import pro.team.ctfly.Fragment.ProfileFragment;
-import pro.team.ctfly.Fragment.ShopFragment;
+import Fragment.FriendFragment;
+import Fragment.ProfileFragment;
+import Fragment.ShopFragment;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -37,18 +31,12 @@ public class HomeActivity extends AppCompatActivity {
                 int id = menuItem.getItemId();
                 switch (id) {
                     case R.id.prof:
-
+                        menuItem.setChecked(true);
                         getSupportFragmentManager().beginTransaction().replace(R.id.containerfragment,new ProfileFragment()).commit();
-                      
                         break;
                     case R.id.podium:
-
-                        HomeActivity.this.startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
                         break;
-                    case R.id.podium:
-                    break;
-                   
-                 case R.id.friends:
+                    case R.id.friends:
                         menuItem.setChecked(true);
                         getSupportFragmentManager().beginTransaction().replace(R.id.containerfragment, new FriendFragment()).commit();
                         break;

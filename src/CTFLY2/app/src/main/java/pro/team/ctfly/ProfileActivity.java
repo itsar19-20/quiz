@@ -1,17 +1,13 @@
 package pro.team.ctfly;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageButton;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import pro.team.ctfly.Fragment.ProfileFragment;
-import pro.team.ctfly.Fragment.ProfileImageFragment;
+import Fragment.ProfileFragment;
+import Fragment.ProfileImageFragment;
 
 public class ProfileActivity extends AppCompatActivity {
 
