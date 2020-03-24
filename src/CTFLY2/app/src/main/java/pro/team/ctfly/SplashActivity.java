@@ -22,6 +22,7 @@ import retrofit2.Response;
 import webService.AndroidWebService;
 import webService.MyApiEndpointInterface;
 
+
 public class SplashActivity extends AppCompatActivity {
 
     private DbUserLoginAdapter adapt;

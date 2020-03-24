@@ -11,7 +11,6 @@ import java.util.List;
 
 import Model.Friend;
 
-
 public class DbFriendsAdapter {
     private Context context;
     private SQLiteDatabase db;
@@ -52,11 +51,14 @@ public class DbFriendsAdapter {
     public Cursor getFriends() {
         String buildSQL = "SELECT * FROM " + DatabaseHelper.FRIEND_TABLE_NAME + " ORDER BY " + DatabaseHelper.FRIEND_COLUMN_PUNTEGGIO + " DESC";
         Cursor c = db.rawQuery(buildSQL, null);
+
+
         if (c.moveToFirst()) {
             Log.d("FIND: ", "Ho trovato entry nel dbLite");
             return c;
         } else {
             Log.d("ERROR: ", "Non ho trovato nulla nel dbLite");
+
         }
         return c;
     }

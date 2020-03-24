@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.ProfileImageFragment">
+   <ImageView
+       android:id="@+id/picProfile"
+       android:src="@drawable/ic_user"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="40dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       />
+   <Button
+       android:id="@+id/btnGallery"
+       android:text="Da galleria"
+       android:textColor="#FFFFFF"
+       android:layout_below="@+id/picProfile"
+       android:background="#2196F3"
+       android:layout_centerHorizontal="true"
+       android:layout_marginTop="40dp"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnCamera"
+        android:text="Da fotocamera"
+
+        android:background="#2196F3"
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/btnGallery"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnDelete"
+        android:text="Rimuovi"
+
+        android:background="#2196F3"
+
+        android:textColor="#FFFFFF"
+        android:layout_below="@id/btnCamera"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnBack"
+        android:text="back"
+        android:background="#2196F3"
+        android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>
