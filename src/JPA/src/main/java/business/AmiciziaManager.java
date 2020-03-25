@@ -1,6 +1,7 @@
 
 package business;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -61,10 +62,15 @@ public class AmiciziaManager {
 	}
 
 
-	public List<Amicizia> findAllAmiciza(Utente utente) {
-		return em.createQuery("select a from  Amicizia a where utente = :utente", Amicizia.class)
+	public List<Utente> findAllAmiciza(Utente utente) {
+		List<Amicizia> friendlist = em.createQuery("select a from  Amicizia a where utente = :utente", Amicizia.class)
 				.setParameter("utente", utente)
 				.getResultList();
+		List<Utente> u = new ArrayList<Utente>();
+		for(int x=0; x<friendlist.size(); x++) {
+			u.add(friendlist.get(x).getAmico());
+		}
+		return u;
 	}
 
 }

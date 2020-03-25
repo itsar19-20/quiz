@@ -23,7 +23,7 @@ Button btnBack;
     @Override
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView= inflater.inflate(R.layout.activity_profile_image_fragment, container, false);
+        View rootView= inflater.inflate(R.layout.fragment_profile_image, container, false);
         btnGallery=rootView.findViewById(R.id.btnGallery);
         btnCamera=rootView.findViewById(R.id.btnCamera);
         btnDelete=rootView.findViewById(R.id.btnDelete);

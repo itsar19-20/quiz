@@ -5,13 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.widget.Toast;
-
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import DbUtility.DatabaseHelper;
 import DbUtility.DbUserLoginAdapter;
@@ -38,7 +33,7 @@ public class SplashActivity extends AppCompatActivity {
         if(cursor.moveToFirst()) {
             Log.d("CHECKUSERNAME ", ""+ cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_USERNAME)));
             MyApiEndpointInterface apiService = AndroidWebService.getRetrofit().create(MyApiEndpointInterface.class);
-            Call<Utente> call = apiService.getUser(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_USERNAME)), cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_PASSWORD)));
+            Call<Utente> call = apiService.getUserLogin(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_USERNAME)), cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_PASSWORD)));
             call.enqueue(new Callback<Utente>() {
                 @Override
                 public void onResponse(Call<Utente> call, Response<Utente> response) {

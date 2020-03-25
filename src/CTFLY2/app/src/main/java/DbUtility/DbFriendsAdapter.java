@@ -1,5 +1,6 @@
 package DbUtility;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -28,6 +29,18 @@ public class DbFriendsAdapter {
         dbHelper.close();
     }
 
+    private ContentValues createCV(String username, String punteggio) {
+        ContentValues cv = new ContentValues();
+        cv.put(DatabaseHelper.FRIEND_COLUMN_USERNAME, username);
+        cv.put(DatabaseHelper.FRIEND_COLUMN_PUNTEGGIO, punteggio);
+        return cv;
+    }
+
+    public long addFriend(String username, String punteggio) {
+        ContentValues initCV = createCV(username, punteggio);
+        return db.insertOrThrow(DatabaseHelper.FRIEND_TABLE_NAME, null, initCV);
+    }
+
     public void insertFast(int insertCount, List<Friend> friends) {
         String sql = "INSERT INTO " + DatabaseHelper.FRIEND_TABLE_NAME + " ( " + DatabaseHelper.FRIEND_COLUMN_USERNAME + ", " + DatabaseHelper.FRIEND_COLUMN_PUNTEGGIO + ") VALUES ( ?, ? )";
         db = dbHelper.getWritableDatabase();
@@ -51,14 +64,11 @@ public class DbFriendsAdapter {
     public Cursor getFriends() {
         String buildSQL = "SELECT * FROM " + DatabaseHelper.FRIEND_TABLE_NAME + " ORDER BY " + DatabaseHelper.FRIEND_COLUMN_PUNTEGGIO + " DESC";
         Cursor c = db.rawQuery(buildSQL, null);
-
-
         if (c.moveToFirst()) {
             Log.d("FIND: ", "Ho trovato entry nel dbLite");
             return c;
         } else {
             Log.d("ERROR: ", "Non ho trovato nulla nel dbLite");
-
         }
         return c;
     }

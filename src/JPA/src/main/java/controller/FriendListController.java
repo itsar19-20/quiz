@@ -1,4 +1,4 @@
-package controllerTest;
+package controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,42 +13,31 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import business.AmiciziaManager;
 import business.UserManager;
-import business.exeception.BasicException;
-import model.Amicizia;
 import model.Utente;
 
 /**
- * Servlet implementation class Test2
+ * Servlet implementation class FriendListController
  */
-@WebServlet("/Test2")
-public class Test2 extends HttpServlet {
+@WebServlet("/friendlist")
+public class FriendListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Test2() {
+
+    public FriendListController() {
         super();
     }
 
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String username = request.getParameter("username");
 		UserManager um = new UserManager();
-		Utente u = um.getUser(request.getParameter("username1"));
-		Utente u2 = um.getUser(request.getParameter("username2"));
+		Utente u = um.getUser(username);
 		AmiciziaManager am = new AmiciziaManager();
-		try {
-			am.aggiungiAmicizia(u, u2);
-		} catch (BasicException e) {
-			e.printStackTrace();
-		}
-		List<Amicizia> l = am.findAllAmiciza(u);
+		List<Utente> friendlist = am.findAllAmiciza(u);
+		System.out.println("PASS");
 		ObjectMapper om = new ObjectMapper();
 		response.setContentType("application/json");
-		response.getWriter().append(om.writeValueAsString(l));
+		response.getWriter().append(om.writeValueAsString(friendlist));
 	}
+
+	
 
 }

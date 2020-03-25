@@ -20,7 +20,7 @@ public class DonateDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle onSavedInstance) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = requireActivity().getLayoutInflater();
-        View vw = inflater.inflate(R.layout.donate_dialog, null);
+        View vw = inflater.inflate(R.layout.dialog_donate, null);
         TextView soldi = vw.findViewById(R.id.sssoldi);
         ImageButton upBtn = vw.findViewById(R.id.up);
         ImageButton downBtn = vw.findViewById(R.id.down);

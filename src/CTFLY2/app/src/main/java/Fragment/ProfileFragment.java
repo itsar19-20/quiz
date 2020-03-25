@@ -22,7 +22,7 @@ public class ProfileFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-         View v=inflater.inflate(R.layout.activity_profile_fragment, container, false);
+         View v=inflater.inflate(R.layout.fragment_profile, container, false);
 
          btnProfile=v.findViewById(R.id.btnProfile);
          btnEdit=v.findViewById(R.id.btnEdit);
