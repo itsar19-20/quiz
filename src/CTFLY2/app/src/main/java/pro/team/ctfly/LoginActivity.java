@@ -3,7 +3,6 @@ package pro.team.ctfly;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -38,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 loading.setVisibility(View.VISIBLE);
                 MyApiEndpointInterface apiService = AndroidWebService.getRetrofit().create(MyApiEndpointInterface.class);
-                Call<Utente> call = apiService.getUser(username.getText().toString(), password.getText().toString());
+                Call<Utente> call = apiService.getUserLogin(username.getText().toString(), password.getText().toString());
                 call.enqueue(new Callback<Utente>() {
                     @Override
                     public void onResponse(Call<Utente> call, Response<Utente> response) {

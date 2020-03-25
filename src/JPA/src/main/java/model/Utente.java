@@ -5,9 +5,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonSetter;
 /**
  * Entity implementation class for Entity: Utente
  *
@@ -26,7 +24,7 @@ public class Utente implements Serializable {
 	private int punteggio;
 	private String nazionalita;
 	private String ultimoaccesso;
-	//private boolean attivo;
+	private boolean attivo;
 	
 	@OneToMany (mappedBy = "autore")
 	private List<Commento> commenti;
@@ -50,8 +48,7 @@ public class Utente implements Serializable {
 	     setPunteggio(0);
 		this.commenti=null;
 		  this.segnalazioni=null;
-
-    
+		  setAttivo(false);
     }
 
      @JsonIgnore
@@ -160,8 +157,6 @@ public class Utente implements Serializable {
 		this.ultimoaccesso = ultimoaccesso;
 	}
 
-
-/*
 	public boolean isAttivo() {
 		return attivo;
 	}
@@ -169,5 +164,5 @@ public class Utente implements Serializable {
 	public void setAttivo(boolean attivo) {
 		this.attivo = attivo;
 	}
-  */ 
+  
 }

@@ -31,7 +31,7 @@ public class UserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     	UserManager um = new UserManager();
-		List<Utente> u = um.userSearch();
+		Utente u = um.getUser(req.getParameter("username"));
 		ObjectMapper om = new ObjectMapper();
 		resp.setContentType("application/JSON");
 		resp.getWriter().append(om.writeValueAsString(u));

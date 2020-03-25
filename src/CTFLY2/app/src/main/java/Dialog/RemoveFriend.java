@@ -24,6 +24,7 @@ public class RemoveFriend extends DialogFragment {
                         check = true;
                         i.putExtra("check", check);
                         i.putExtra("id", bnl.getLong("id"));
+                        i.putExtra("username", bnl.getString("username"));
                         getTargetFragment().onActivityResult(getTargetRequestCode(), 1, i);
                         RemoveFriend.this.getDialog().dismiss();
                     }
