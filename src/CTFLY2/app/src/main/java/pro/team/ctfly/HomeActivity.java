@@ -12,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 import Fragment.FriendFragment;
+import Fragment.HomeFragment;
 import Fragment.ProfileFragment;
 import Fragment.ShopFragment;
 
@@ -30,6 +31,10 @@ public class HomeActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int id = menuItem.getItemId();
                 switch (id) {
+                    case R.id.homepage:
+                        menuItem.setChecked(true);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.containerfragment, new HomeFragment()).commit();
+                        break;
                     case R.id.prof:
                         menuItem.setChecked(true);
                         getSupportFragmentManager().beginTransaction().replace(R.id.containerfragment,new ProfileFragment()).commit();
