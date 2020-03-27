@@ -1,6 +1,7 @@
 package webService;
 import java.util.List;
 
+import Model.ChallengeServerSide;
 import Model.Utente;
 import retrofit2.Call;
 
@@ -32,6 +33,9 @@ public interface MyApiEndpointInterface {
     Call<Utente> getUserLogin(@Field("username") String username, @Field("password") String password);
 
     @FormUrlEncoded
-    @POST("signUp")
+    @POST("/signUp")
     Call<Utente> addUser(@Field("username") String username, @Field("email") String email, @Field("password") String password);
+
+    @GET("/cc")
+    Call<List<ChallengeServerSide>> getAllChallenge();
 }

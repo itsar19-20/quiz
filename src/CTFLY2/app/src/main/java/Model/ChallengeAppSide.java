@@ -9,6 +9,16 @@ public class ChallengeAppSide {
     private String punteggio;
     private String data;
 
+    public ChallengeAppSide(String titolo, String descrizione, String usernameCreatore, String categoria, String rating, String punteggio, String data) {
+        this.titolo = titolo;
+        this.descrizione = descrizione;
+        this.usernameCreatore = usernameCreatore;
+        this.categoria = categoria;
+        this.rating = rating;
+        this.punteggio = punteggio;
+        this.data = data;
+    }
+
     public String getTitolo() {
         return titolo;
     }

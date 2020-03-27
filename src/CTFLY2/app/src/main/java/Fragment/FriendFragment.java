@@ -196,11 +196,4 @@ public class FriendFragment extends Fragment {
         Log.d("PAUSA: ", "È stata messa in pausa");
     }
 
-    /*@Override
-    public void onResume() {
-        super.onResume();
-        dbAdapt.open();
-        friendAdp.swapCursor(dbAdapt.getFriends());
-    }*/
-
 }

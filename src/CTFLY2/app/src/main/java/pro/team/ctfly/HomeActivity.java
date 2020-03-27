@@ -24,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         BottomNavigationView plafoniera = findViewById(R.id.bottom_navigation);
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.containerfragment, new HomeFragment()).commit();
         plafoniera.setSelectedItemId(R.id.homepage);
         plafoniera.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

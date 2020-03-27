@@ -2,7 +2,6 @@ package CursorAdapter;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,7 @@ public class CursorFriendAdapter extends CursorAdapter {
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View retView = inflater.inflate(R.layout.friend_list_layout, parent, false);
+        View retView = inflater.inflate(R.layout.list_friend_layout, parent, false);
         return retView;
     }
 
