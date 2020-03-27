@@ -16,7 +16,7 @@ public class Commento {
     @SerializedName("autore")
     private Utente autore;
     @SerializedName("challenge")
-    private Challenge challenge;
+    private ChallengeServerSide challenge;
 
     public int getId() {
         return id;
@@ -66,11 +66,11 @@ public class Commento {
         this.autore = autore;
     }
 
-    public Challenge getChallenge() {
+    public ChallengeServerSide getChallenge() {
         return challenge;
     }
 
-    public void setChallenge(Challenge challenge) {
+    public void setChallenge(ChallengeServerSide challenge) {
         this.challenge = challenge;
     }
 }

@@ -27,6 +27,7 @@ public class Challenge implements Serializable {
 	@JoinColumn(name = "creatore")
 	private Utente creatore;
 	
+	private String categoria;
 	private int rating;
 	private int punteggio;
 	private String data;
@@ -75,6 +76,14 @@ public class Challenge implements Serializable {
  	public void setCreatore(Utente creatore) {
 		this.creatore = creatore;
 	}   
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
 	public int getRating() {
 		return this.rating;
 	}

@@ -21,6 +21,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String FRIEND_COLUMN_USERNAME = "username";
     public static final String FRIEND_COLUMN_PUNTEGGIO = "punteggio";
 
+    public static final String CHALLENGE_TABLE_NAME = "challenge";
+    public static final String CHALLENGE_COLUMN_ID = "_id";
+    public static final String CHALLENGE_COLUMN_TITOLO = "titolo";
+    public static final String CHALLENGE_COLUMN_DESC = "descrizione";
+    public static final String CHALLENGE_COLUMN_CREATORE = "creatore";
+    public static final String CHALLENGE_COLUMN_CATEGORIA = "categoria";
+    public static final String CHALLENGE_COLUMN_RATING = "rating";
+    public static final String CHALLENGE_COLUMN_PUNTEGGIO = "punteggio";
+    public static final String CHALLENGE_COLUMN_DATA = "data";
+
+    private static final String CHALLENGE_TABLE_CREATE = "create table " + CHALLENGE_TABLE_NAME + " (" + CHALLENGE_COLUMN_ID + " integer primary key autoincrement, " +
+            CHALLENGE_COLUMN_TITOLO + " text not null, " +
+            CHALLENGE_COLUMN_DESC + " text not null, " +
+            CHALLENGE_COLUMN_CREATORE + " text not null, " +
+            CHALLENGE_COLUMN_CATEGORIA + " text not null, " +
+            CHALLENGE_COLUMN_RATING + " text, " +
+            CHALLENGE_COLUMN_PUNTEGGIO + " text, " +
+            CHALLENGE_COLUMN_DATA + " text);";
+
     private static final String FRIEND_TABLE_CREATE = "create table " + FRIEND_TABLE_NAME + " (" + FRIEND_COLUMN_ID + " integer primary key autoincrement, " +
             FRIEND_COLUMN_USERNAME + " text not null, " +
             FRIEND_COLUMN_PUNTEGGIO + " integer);";
@@ -40,6 +59,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_CREATE);
         db.execSQL(FRIEND_TABLE_CREATE);
+        db.execSQL(CHALLENGE_TABLE_CREATE);
     }
 
     @Override

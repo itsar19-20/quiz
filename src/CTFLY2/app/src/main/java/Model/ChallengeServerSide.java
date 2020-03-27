@@ -4,17 +4,19 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Challenge {
+public class ChallengeServerSide {
     @SerializedName("titolo")
     private String titolo;
     @SerializedName("descrizione")
     private String descrizione;
     @SerializedName("creatore")
     private Utente creatore;
+    @SerializedName("categoria")
+    private String categoria;
     @SerializedName("rating")
-    private int rating;
+    private Integer rating;
     @SerializedName("punteggio")
-    private int punteggio;
+    private Integer punteggio;
     @SerializedName("data")
     private String data;
     @SerializedName("flag")
@@ -40,6 +42,14 @@ public class Challenge {
 
     public Utente getCreatore() {
         return creatore;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public void setCreatore(Utente creatore) {
