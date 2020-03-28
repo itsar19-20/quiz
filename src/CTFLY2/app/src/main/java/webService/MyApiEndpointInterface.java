@@ -16,6 +16,9 @@ public interface MyApiEndpointInterface {
     Call<Utente> getUser(@Query("username") String username);
 
     @FormUrlEncoded
+    @POST("/uc")
+    Call<List<Utente>> getAllUser(@Field("action")String search);
+    @FormUrlEncoded
     @POST("/addfriend")
     Call<Boolean> addFriend(@Field("username") String username, @Field("usernameFriend") String usernameFriend);
 

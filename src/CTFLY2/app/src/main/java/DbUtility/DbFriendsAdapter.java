@@ -42,7 +42,9 @@ public class DbFriendsAdapter {
     }
 
     public void insertFast(int insertCount, List<Friend> friends) {
-        String sql = "INSERT INTO " + DatabaseHelper.FRIEND_TABLE_NAME + " ( " + DatabaseHelper.FRIEND_COLUMN_USERNAME + ", " + DatabaseHelper.FRIEND_COLUMN_PUNTEGGIO + ") VALUES ( ?, ? )";
+        String sql = "INSERT INTO " + DatabaseHelper.FRIEND_TABLE_NAME + " ( "
+                + DatabaseHelper.FRIEND_COLUMN_USERNAME + ", "
+                + DatabaseHelper.FRIEND_COLUMN_PUNTEGGIO + ") VALUES ( ?, ? )";
 
         db.beginTransactionNonExclusive();
 

@@ -21,6 +21,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String FRIEND_COLUMN_USERNAME = "username";
     public static final String FRIEND_COLUMN_PUNTEGGIO = "punteggio";
 
+    public static final String USER_TABLE_NAME="user";
+    public   static  final String USER_ID="_id";
+    public  static final String USER_COLUMN_USERNAME="username";
+    public  static  final String USER_COLUMN_PUNTEGGIO="punteggio";
+
+
+
     public static final String CHALLENGE_TABLE_NAME = "challenge";
     public static final String CHALLENGE_COLUMN_ID = "_id";
     public static final String CHALLENGE_COLUMN_TITOLO = "titolo";
@@ -40,7 +47,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             CHALLENGE_COLUMN_PUNTEGGIO + " text, " +
             CHALLENGE_COLUMN_DATA + " text);";
 
-    private static final String FRIEND_TABLE_CREATE = "create table " + FRIEND_TABLE_NAME + " (" + FRIEND_COLUMN_ID + " integer primary key autoincrement, " +
+    private static final String USER_TABLE_CREATE="create table "
+            + USER_TABLE_NAME +"("+USER_ID+ " integer primary key autoincrement,"+
+            USER_COLUMN_USERNAME + " text not null, " +
+            USER_COLUMN_PUNTEGGIO + " integer);";
+
+    private static final String FRIEND_TABLE_CREATE = "create table "
+            + FRIEND_TABLE_NAME + " (" + FRIEND_COLUMN_ID +
+            " integer primary key autoincrement, " +
             FRIEND_COLUMN_USERNAME + " text not null, " +
             FRIEND_COLUMN_PUNTEGGIO + " integer);";
 
@@ -60,6 +74,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(TABLE_CREATE);
         db.execSQL(FRIEND_TABLE_CREATE);
         db.execSQL(CHALLENGE_TABLE_CREATE);
+        db.execSQL(USER_TABLE_CREATE);
     }
 
     @Override

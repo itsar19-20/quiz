@@ -77,7 +77,7 @@ public class FriendFragment extends Fragment {
                         friends.add(frn);
                         Log.d("Si:", "" + friends.size());
                     }
-                    dbAdapt.insertFast(friends.size(), friends);
+                    dbAdapt.insertFast(friends.size(),friends);
                 }
                 loading.setVisibility(View.INVISIBLE);
                 friendAdp = new CursorFriendAdapter(getActivity(), dbAdapt.getFriends());

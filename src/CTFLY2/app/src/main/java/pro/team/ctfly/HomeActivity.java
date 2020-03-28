@@ -13,6 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import Fragment.FriendFragment;
 import Fragment.HomeFragment;
+import Fragment.PodioFragment;
 import Fragment.ProfileFragment;
 import Fragment.ShopFragment;
 
@@ -40,6 +41,8 @@ public class HomeActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.containerfragment,new ProfileFragment()).commit();
                         break;
                     case R.id.podium:
+                        menuItem.setChecked(true);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.containerfragment,new PodioFragment()).commit();
                         break;
                     case R.id.friends:
                         menuItem.setChecked(true);
