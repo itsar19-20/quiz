@@ -19,6 +19,7 @@ public interface MyApiEndpointInterface {
     @FormUrlEncoded
     @POST("/uc")
     Call<List<Utente>> getAllUser(@Field("action")String search);
+
     @FormUrlEncoded
     @POST("/addfriend")
     Call<Boolean> addFriend(@Field("username") String username, @Field("usernameFriend") String usernameFriend);
@@ -41,4 +42,8 @@ public interface MyApiEndpointInterface {
 
     @GET("/cc")
     Call<List<ChallengeServerSide>> getAllChallenge();
+
+    @FormUrlEncoded
+    @POST("/cc")
+    Call<Boolean> addChallenge(@Field("titolo") String titolo, @Field("descrizione") String descrizione, @Field("categoria") String categoria, @Field("creatore") String creatore, @Field("flag") String flag);
 }

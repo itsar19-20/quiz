@@ -54,12 +54,18 @@ public class DbChallengeAdapter {
     }
 
     public Cursor getChallengeByCategoria(String categoria) {
-        return db.query(DatabaseHelper.CHALLENGE_TABLE_NAME, new String[]{DatabaseHelper.CHALLENGE_COLUMN_ID, DatabaseHelper.CHALLENGE_COLUMN_TITOLO, DatabaseHelper.CHALLENGE_COLUMN_DESC, DatabaseHelper.CHALLENGE_COLUMN_CREATORE, DatabaseHelper.CHALLENGE_COLUMN_CATEGORIA, DatabaseHelper.CHALLENGE_COLUMN_RATING, DatabaseHelper.CHALLENGE_COLUMN_PUNTEGGIO, DatabaseHelper.CHALLENGE_COLUMN_DATA},
+        Cursor c = db.query(DatabaseHelper.CHALLENGE_TABLE_NAME, new String[]{DatabaseHelper.CHALLENGE_COLUMN_ID, DatabaseHelper.CHALLENGE_COLUMN_TITOLO, DatabaseHelper.CHALLENGE_COLUMN_DESC, DatabaseHelper.CHALLENGE_COLUMN_CREATORE, DatabaseHelper.CHALLENGE_COLUMN_CATEGORIA, DatabaseHelper.CHALLENGE_COLUMN_RATING, DatabaseHelper.CHALLENGE_COLUMN_PUNTEGGIO, DatabaseHelper.CHALLENGE_COLUMN_DATA},
                 DatabaseHelper.CHALLENGE_COLUMN_CATEGORIA + " = '" + categoria + "'", null, null, null, null);
+        c.moveToFirst();
+        return c;
     }
 
     public Cursor getSingleChallenge(String titolo) {
         return db.query(DatabaseHelper.CHALLENGE_TABLE_NAME, new String[]{DatabaseHelper.CHALLENGE_COLUMN_ID, DatabaseHelper.CHALLENGE_COLUMN_TITOLO, DatabaseHelper.CHALLENGE_COLUMN_DESC, DatabaseHelper.CHALLENGE_COLUMN_CREATORE, DatabaseHelper.CHALLENGE_COLUMN_CATEGORIA, DatabaseHelper.CHALLENGE_COLUMN_RATING, DatabaseHelper.CHALLENGE_COLUMN_PUNTEGGIO, DatabaseHelper.CHALLENGE_COLUMN_DATA},
                 DatabaseHelper.CHALLENGE_COLUMN_TITOLO + " = '" + titolo + "'", null, null, null, null);
+    }
+
+    public boolean deleteAllChallenge() {
+        return db.delete(DatabaseHelper.CHALLENGE_TABLE_NAME, null, null)>0;
     }
 }

@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,6 +24,7 @@ import CursorAdapter.CursorChallengeAdapter;
 import DbUtility.DbChallengeAdapter;
 import Model.ChallengeAppSide;
 import Model.ChallengeServerSide;
+import pro.team.ctfly.GameActivity;
 import pro.team.ctfly.GeneraQuizActivity;
 import pro.team.ctfly.R;
 import retrofit2.Call;
@@ -104,9 +106,13 @@ public class HomeFragment extends Fragment {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                TextView titolo = view.findViewById(R.id.titoloChallengeList);
+                Intent i = new Intent(getActivity(), GameActivity.class);
+                i.putExtra("titolo", titolo.getText().toString());
+                startActivity(i);
             }
         });
         return rootview;
     }
+
 }

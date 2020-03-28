@@ -31,32 +31,57 @@ public  List<Challenge>  findAllChallenger(){
 ////////////////////////////////////////////////////////////////////////////////////	
 	
 	
-	public void addChallenge(String titolo, String descrizione, String  creatore, int punteggio, String flag) {
-
-		try {if (em.find(Utente.class,creatore)== null  ) {
-
-			throw new NotFindInDbException("Utente", creatore); }
-
-		Challenge check = new Challenge();
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
-		LocalDateTime now = LocalDateTime.now();
-		check.setData(dtf.format(now));  
-		check.setTitolo(titolo);
-		check.setDescrizione(descrizione);
-		check.setCreatore(em.find(Utente.class,creatore));
-		check.setPunteggio(punteggio);
+	public boolean addChallenge(String titolo, String descrizione, String categoria, String creatore, String flag) {
 		
-		check.setFlag(flag);
+		Utente u = em.find(Utente.class,creatore);
 
-		em.getTransaction().begin();
-		em.persist(check);
-		em.getTransaction().commit();
+		try {if (u == null  ) {
+
+			throw new NotFindInDbException("Utente", creatore);}
+
+		Challenge security = em.find(Challenge.class, titolo);
+		if(security == null) {
+			Challenge check = new Challenge();
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");  
+			LocalDateTime now = LocalDateTime.now();
+			check.setData(dtf.format(now));  
+			check.setTitolo(titolo);
+			check.setDescrizione(descrizione);
+			check.setCategoria(categoria);
+			check.setCreatore(u);
+			int p;
+			switch(categoria) {
+				case "Coding":
+					p = 100;
+					break;
+				case "Encription":
+					p = 200;
+					break;
+				case "Security":
+					p = 300;
+					break;
+				default:
+					p = 0;
+					break;
+				
+			}
+			check.setPunteggio(p);
+			
+			check.setFlag(flag);
+	
+			em.getTransaction().begin();
+			em.persist(check);
+			em.getTransaction().commit();
+			
+			return true;
+		} else {
+			return false;
+		}
 
 		}catch(NotFindInDbException nfdbx) {
 			System.out.print(nfdbx.toString());
 		};
-
-
+		return false;
 	}
 
 	public void challengeRemover(String titolo) {
@@ -86,13 +111,8 @@ public  List<Challenge>  findAllChallenger(){
 		{    Challenge chal =em.find(Challenge.class, titolo);
 			if (chal==null) {
 	    	throw new NotFindInDbException("Challenge", titolo);};
-            
-            
-            
-            
-            
-            
-            if(descrizione== null){
+ 
+	    	if(descrizione== null){
                descrizione =chal.getDescrizione();
             } 
             

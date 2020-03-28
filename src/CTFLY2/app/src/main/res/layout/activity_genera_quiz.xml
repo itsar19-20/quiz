@@ -23,7 +23,7 @@
     <Spinner
         android:id="@+id/categoriaNewChallenge"
         android:layout_width="240dp"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

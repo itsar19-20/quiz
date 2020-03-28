@@ -5,7 +5,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AndroidWebService {
-    private static final String BASE_URL = "http://192.168.1.5:8080";
+    private static final String BASE_URL = "http://192.168.1.27:8080";
     private static Retrofit retrofit;
 
     public static Retrofit getRetrofit() {

@@ -54,17 +54,9 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 dbUserAdapter=new DbUserLoginAdapter(getActivity());
-                dbUserAdapter.open();
-
-                Cursor cursor=dbUserAdapter.getLoggedUser();
-                if (cursor!=null && cursor.moveToFirst()){
-                    dbUserAdapter.deleteLoggedUser(cursor.getLong(cursor.getColumnIndex(DatabaseHelper.COLUMN_ID)));
-                    Log.d("Utente","" + "rimosso");
-                    Toast.makeText(getContext(),"Disconnesso",Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(getActivity(),SignupActivity.class));
-                    cursor.close();
-                }
-
+               // long _id= dbUserAdapter.getLoggedUser();
+                //dbUserAdapter.deleteLoggedUser(_id);
+                Toast.makeText(getContext(),"Disconnesso",Toast.LENGTH_SHORT).show();
 
             }
         });

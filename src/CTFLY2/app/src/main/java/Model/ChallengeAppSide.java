@@ -19,9 +19,6 @@ public class ChallengeAppSide {
         this.data = data;
     }
 
-    public  ChallengeAppSide(String categoria){
-        this.categoria=categoria;
-    }
     public String getTitolo() {
         return titolo;
     }

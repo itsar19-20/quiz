@@ -1,39 +1,46 @@
 package pro.team.ctfly;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-import Model.ChallengeAppSide;
-
 public class GeneraQuizActivity extends AppCompatActivity {
-Spinner cat;
-private List<ChallengeAppSide> challengeAppSides=new Challenges().getList();
+    private final String[] CATEGORIE = {"Coding", "Security", "Encription"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_genera_quiz);
-        cat=findViewById(R.id.categoriaNewChallenge);
-        cat.setAdapter(new ArrayAdapter<ChallengeAppSide>(this,android.R.layout.simple_spinner_item,challengeAppSides));
-        cat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        Spinner categorie = findViewById(R.id.categoriaNewChallenge);
+        Button continua = findViewById(R.id.continuaNewChallenge);
+        List<String> spinnerArray = new ArrayList<String>();
+        spinnerArray.addAll(Arrays.asList(CATEGORIE));
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_newchallenge_categoria, spinnerArray);
+        categorie.setAdapter(adapter);
+        continua.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(),"Test di prova",Toast.LENGTH_SHORT).show();
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+            public void onClick(View v) {
+                Log.d("CLICK ", "" + categorie.getSelectedItem().toString());
+                Intent i = new Intent(GeneraQuizActivity.this, GeneraQuizP2Activity.class);
+                i.putExtra("categoria", categorie.getSelectedItem().toString());
+                startActivity(i);
             }
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(GeneraQuizActivity.this, HomeActivity.class));
+    }
 }
