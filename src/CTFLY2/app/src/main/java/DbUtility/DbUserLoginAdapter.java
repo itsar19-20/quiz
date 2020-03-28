@@ -5,7 +5,13 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
+
+import java.util.List;
+
+import Model.UserPunteggio;
+import Model.Utente;
 
 public class DbUserLoginAdapter {
 
@@ -52,4 +58,6 @@ public class DbUserLoginAdapter {
         String buildSQL = "SELECT * FROM " + DatabaseHelper.TABLE_NAME;
         return db.rawQuery(buildSQL, null);
     }
+
+
 }
