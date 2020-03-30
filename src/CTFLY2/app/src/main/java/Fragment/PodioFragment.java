@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
-import DbUtility.UserPunteggioAdapter;
+import DbUtility.DbUserPunteggioAdapter;
 import Model.UserPunteggio;
 import Model.Utente;
 import pro.team.ctfly.R;
@@ -24,7 +24,7 @@ import webService.MyApiEndpointInterface;
 
 public class PodioFragment extends Fragment {
     private ListView listUsers;
-    private UserPunteggioAdapter dbUserAdapter;
+    private DbUserPunteggioAdapter dbUserAdapter;
     private CursorUserAdapter userAdapter;
 
     private MyApiEndpointInterface api= AndroidWebService.getRetrofit().create(MyApiEndpointInterface.class);
@@ -33,7 +33,7 @@ public class PodioFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.fragment_podio,container,false);
         listUsers=v.findViewById(R.id.listUser);
-        dbUserAdapter=new UserPunteggioAdapter(getActivity());
+        dbUserAdapter=new DbUserPunteggioAdapter(getActivity());
         dbUserAdapter.open();
         Call <List<Utente>> call=api.getAllUser("search");
         call.enqueue(new Callback<List<Utente>>() {

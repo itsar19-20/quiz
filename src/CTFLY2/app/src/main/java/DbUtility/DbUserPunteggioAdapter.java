@@ -11,16 +11,16 @@ import java.util.List;
 
 import Model.UserPunteggio;
 
-public class UserPunteggioAdapter {
+public class DbUserPunteggioAdapter {
     private Context context;
     private SQLiteDatabase db;
     private DatabaseHelper dbHelper;
 
-    public UserPunteggioAdapter(Context context) {
+    public DbUserPunteggioAdapter(Context context) {
         this.context = context;
     }
 
-    public UserPunteggioAdapter open() throws SQLException {
+    public DbUserPunteggioAdapter open() throws SQLException {
         dbHelper=new DatabaseHelper(context);
         db = dbHelper.getWritableDatabase();
         return this;

@@ -49,7 +49,8 @@ public class GeneraQuizP2Activity extends AppCompatActivity {
                 Log.d("CHECK ", "" + strTitolo + " " + strDescrizione + " " + strFlag);
                 if(!strTitolo.matches("") && !strDescrizione.matches("") && !strFlag.matches("")) {
                     MyApiEndpointInterface apiService = AndroidWebService.getRetrofit().create(MyApiEndpointInterface.class);
-                    Call<Boolean> call = apiService.addChallenge(strTitolo, strDescrizione, categoria, creatore, strFlag);
+                    Call<Boolean> call = apiService.addChallenge(
+                            strTitolo, strDescrizione, categoria, creatore, strFlag);
                     call.enqueue(new Callback<Boolean>() {
                         @Override
                         public void onResponse(Call<Boolean> call, Response<Boolean> response) {

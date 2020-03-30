@@ -1,32 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GameActivity">
-<TextView
 
-    android:id="@+id/textDescription"
-
-    android:textSize="30dp"
-    android:textStyle="bold"
-    android:text="Infiltrati nel database"
-    android:layout_marginBottom="20dp"
-    android:layout_marginTop="180dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_centerHorizontal="true"/>
     <TextView
-        android:id="@+id/textDescription1"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:text="La bandiera si trova qui"
-        android:layout_below="@+id/textDescription"
-        android:layout_marginBottom="20dp"
+        android:id="@+id/textDescription"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
+        android:text="Infiltrati nel database"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textDescription1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="La bandiera si trova qui"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDescription" />
 
     <TextView
         android:id="@+id/textDescription2"
@@ -34,18 +39,40 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textDescription1"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:textAlignment="center"
+        android:layout_marginTop="72dp"
         android:text="Flag's name"
+        android:textAlignment="center"
         android:textSize="30dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDescription1" />
+
     <EditText
         android:id="@+id/textFlag"
-        android:ems="10"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/textDescription2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:ems="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.424"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDescription2" />
+
+    <Button
+        android:id="@+id/inviaFlag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="76dp"
+        android:background="@drawable/rounded_button_blue"
+        android:text="invia"
+        android:textColor="#FFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textFlag" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

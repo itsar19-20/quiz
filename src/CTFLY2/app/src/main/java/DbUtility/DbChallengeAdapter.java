@@ -68,4 +68,8 @@ public class DbChallengeAdapter {
     public boolean deleteAllChallenge() {
         return db.delete(DatabaseHelper.CHALLENGE_TABLE_NAME, null, null)>0;
     }
+    public  Cursor getAllChallenge(){
+        String query="SELECT * FROM " + DatabaseHelper.CHALLENGE_TABLE_NAME;
+       return db.rawQuery(query,null);
+    }
 }
