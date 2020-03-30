@@ -1,4 +1,6 @@
 package webService;
+import android.text.Editable;
+
 import java.util.List;
 
 import Model.ChallengeServerSide;
@@ -49,5 +51,5 @@ public interface MyApiEndpointInterface {
 
     @FormUrlEncoded
     @POST("/cs")
-    Call<Boolean> getChallengeSolution(@Field("flag")String flag ,@Field("titolo") String titolo);
+    Call<Boolean> getChallengeSolution(@Field("titolo")String titolo , @Field("flag") Editable flag);
 }

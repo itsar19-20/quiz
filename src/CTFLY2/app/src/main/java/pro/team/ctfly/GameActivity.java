@@ -40,8 +40,11 @@ MyApiEndpointInterface api;
                 dbChallengeAdapter.open();
                 api= AndroidWebService.getRetrofit().create(MyApiEndpointInterface.class);
                 String flag = "flag";
-                String titolo = "titolo";
-                    Call<Boolean> call = api.getChallengeSolution(flag,titolo);
+                Bundle extras=getIntent().getExtras();
+               String titolo= extras.getString("titolo");
+
+
+                    Call<Boolean> call = api.getChallengeSolution(titolo,flagTest.getText());
                     call.enqueue(new Callback<Boolean>() {
                         @Override
                         public void onResponse(Call<Boolean> call, Response<Boolean> response) {
@@ -52,7 +55,7 @@ MyApiEndpointInterface api;
                                 Toast.makeText(getApplicationContext(), "Risposta sbagliata", Toast.LENGTH_SHORT).show();
                             }
 
-                            Toast.makeText(getApplicationContext(), "Connesione stabilita con successo", Toast.LENGTH_SHORT).show();
+
                         }
 
                         @Override
