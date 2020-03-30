@@ -42,6 +42,7 @@ public class SplashActivity extends AppCompatActivity {
                     if(u!=null) {
                         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                     } else {
+                        adapt.deleteLoggedUser(cursor.getLong(cursor.getColumnIndex(DatabaseHelper.COLUMN_ID)));
                         startActivity(new Intent(getApplicationContext(), SignupActivity.class));
                     }
                 }
