@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import business.ChallengeManager;
 import business.UserManager;
+import model.Challenge;
 import model.Utente;
 
 /**
@@ -50,6 +52,14 @@ public class UserController extends HttpServlet {
 			response.setContentType("application/JSON");
 			response.getWriter().append(om.writeValueAsString(u));
 		} else if (cause.contentEquals("delete")) {
+			Utente user = um.getUser(request.getParameter("username"));
+			List<Challenge> ch = user.getChallengers();
+			if (ch!=null) {
+				ChallengeManager cm = new ChallengeManager();
+				for(int x=0; x<ch.size(); x++) {
+					cm.challengeRemover(ch.get(x).getTitolo());
+				}
+			}
 			um.removeUser(request.getParameter("username"));
 		}
 	}

@@ -5,6 +5,9 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 /**
  * Entity implementation class for Entity: Utente
@@ -27,15 +30,19 @@ public class Utente implements Serializable {
 	private boolean attivo;
 	
 	@OneToMany (mappedBy = "autore")
+	@Cascade(value = {CascadeType.REMOVE, CascadeType.SAVE_UPDATE})
 	private List<Commento> commenti;
     
     @OneToMany (mappedBy = "creatore")
+    @Cascade(value = {CascadeType.REMOVE, CascadeType.SAVE_UPDATE})
     private List<Challenge> challengers;
 
     @OneToMany (mappedBy="autore") 
+    @Cascade(value = {CascadeType.REMOVE, CascadeType.SAVE_UPDATE})
     private List<Segnalazione> segnalazioni;
     
     @OneToMany
+    @Cascade(value = {CascadeType.REMOVE, CascadeType.SAVE_UPDATE})
     private List<Amicizia> amicizie;
 	
     
