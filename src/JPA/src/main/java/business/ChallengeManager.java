@@ -146,15 +146,13 @@ public class ChallengeManager {
 ////////////////////////////////////////////////////////////////////////////////////
 	public boolean challengeSolution(String titolo,String flag) {
 
-		Challenge ch = new Challenge();
-		ch=em.find(Challenge.class, titolo);
-		if(flag.contentEquals(ch.getFlag())==true) {
-		
+		Challenge ch = em.find(Challenge.class, titolo);
+		System.out.println(titolo + " " + flag + ch);
+		if(flag.contentEquals(ch.getFlag())) {
 			return true;
-		
-			}
+		}
 		return false;
-
+		
 	}
 
 }

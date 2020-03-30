@@ -21,22 +21,13 @@ public class ChallengeSolution extends HttpServlet {
     public ChallengeSolution() {
         super();
     }
-   
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-	}
-
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ChallengeManager ch=new ChallengeManager();
-		Boolean sol=ch.challengeSolution(request.getParameter("flag"),request.getParameter("titolo"));
+		Boolean sol=ch.challengeSolution(request.getParameter("titolo"),request.getParameter("flag"));
 		ObjectMapper o=new ObjectMapper();
 		response.setContentType("application/JSON");
 		response.getWriter().append(o.writeValueAsString(sol));
-		
-		
-	
 	}
 
 }

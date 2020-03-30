@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,10 +39,9 @@ MyApiEndpointInterface api;
                 dbChallengeAdapter=new DbChallengeAdapter(getApplicationContext());
                 dbChallengeAdapter.open();
                 api= AndroidWebService.getRetrofit().create(MyApiEndpointInterface.class);
-
-
-
-                    Call<Boolean> call = api.getChallengeSolution("flag","titolo");
+                String flag = "flag";
+                String titolo = "titolo";
+                    Call<Boolean> call = api.getChallengeSolution(flag,titolo);
                     call.enqueue(new Callback<Boolean>() {
                         @Override
                         public void onResponse(Call<Boolean> call, Response<Boolean> response) {
@@ -58,7 +58,6 @@ MyApiEndpointInterface api;
                         @Override
                         public void onFailure(Call<Boolean> call, Throwable t) {
                             Toast.makeText(getApplicationContext(), "Connesione fallita", Toast.LENGTH_SHORT).show();
-
                         }
                     });
                 }

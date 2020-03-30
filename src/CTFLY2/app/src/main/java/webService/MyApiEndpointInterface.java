@@ -46,6 +46,7 @@ public interface MyApiEndpointInterface {
     @FormUrlEncoded
     @POST("/cc")
     Call<Boolean> addChallenge(@Field("titolo") String titolo, @Field("descrizione") String descrizione, @Field("categoria") String categoria, @Field("creatore") String creatore, @Field("flag") String flag);
+
     @FormUrlEncoded
     @POST("/cs")
     Call<Boolean> getChallengeSolution(@Field("flag")String flag ,@Field("titolo") String titolo);
