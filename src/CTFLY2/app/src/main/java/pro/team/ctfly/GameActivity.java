@@ -39,9 +39,9 @@ MyApiEndpointInterface api;
                 dbChallengeAdapter=new DbChallengeAdapter(getApplicationContext());
                 dbChallengeAdapter.open();
                 api= AndroidWebService.getRetrofit().create(MyApiEndpointInterface.class);
-                String flag = "flag";
+
                 Bundle extras=getIntent().getExtras();
-               String titolo= extras.getString("titolo");
+                String titolo= extras.getString("titolo");
 
 
                     Call<Boolean> call = api.getChallengeSolution(titolo,flagTest.getText());

@@ -5,9 +5,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="Fragment.PodioFragment">
+
+    <TextView
+        android:id="@+id/tab_number"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="48dp"
+        android:background="@drawable/black_rectangle"
+        android:gravity="center"
+        android:text="1"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        app:layout_constraintBottom_toTopOf="@+id/listUser"
+        app:layout_constraintEnd_toStartOf="@+id/tab_user"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.267" />
+
+    <TextView
+        android:id="@+id/tab_user"
+        android:layout_width="175dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="148dp"
+        android:background="@drawable/black_rectangle"
+        android:ems="10"
+        android:gravity="center"
+        android:text="Username"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        app:layout_constraintBottom_toTopOf="@+id/listUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.267" />
+
+    <TextView
+        android:id="@+id/tab_punteggio"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/black_rectangle"
+        android:ems="10"
+        android:gravity="center"
+        android:text="Punteggio"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        app:layout_constraintBottom_toTopOf="@+id/listUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.267" />
+
     <ListView
         android:id="@+id/listUser"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_width="315dp"
+        android:layout_height="360dp"
+        android:background="@drawable/tab"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
