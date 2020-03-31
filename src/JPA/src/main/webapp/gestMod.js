@@ -21,7 +21,10 @@ $(() => {
                 $('#tabb').append(`<tr class='line' id='${i}'>` + 
                     `<td data-id='${i}' id='user${i}'>${u.username}</td>` + 
                     `<td data-id='${i}' id='pass${i}'>${u.password}</td>` + 
-                    `<td data-id='${i}'><span class = 'admin' id='admin${i}'>${u.admin}</span><span class='dot' id='dot${i}'></span></td>` + //lo span è per poter controllare se l'utente di una determinata linea è moderatore
+                    `<td data-id='${i}'><span class = 'admin' id='admin${i}'>${u.admin}</span>
+                          <span class='dot' id='dot${i}'></span></td>` + //lo span è per poter controllare
+                                                                        // se l'utente di una determinata 
+                                                                        //linea è moderatore
                 "</tr>");
                 if(u.admin) { //cambia il colore del pallino in base ai permessi da amministratore
                     $('#dot' + i).css("background-color","green");
@@ -43,7 +46,8 @@ $(() => {
         var temp = $('#usernameIns').val();
         var i = 0;
         modList.forEach(u => {
-            if(u.username==temp || utente.username==temp) { //se l'username esiste gia mostra un errore e toglie il pulsante per salvare
+            if(u.username==temp || utente.username==temp) { //se l'username esiste gia mostra
+                                                           // un errore e toglie il pulsante per salvare
                 $('#errorUser').show();
                 $('#save').css("visibility", "hidden");
                 i = 1;
@@ -56,7 +60,8 @@ $(() => {
 
     $('#save').click(() => {
         var admin = "false";
-        if ($('#adminIns').prop("checked")) { //se la checkbox è attivata setta la variabile admin a true
+        if ($('#adminIns').prop("checked")) { //se la checkbox è attivata setta la variabile 
+                                              //admin a true
             admin = "true";
         }
         $.ajax({
@@ -69,11 +74,13 @@ $(() => {
             }
         })
         .done(() => {
-            location.reload(true); //dopo aver inserito un utente ricarica la pagina per mostrare le modifiche effettuate
+            location.reload(true); //dopo aver inserito un utente ricarica la pagina per mostrare 
+                                 //le modifiche effettuate
         })
     })
 
-    $('#userinput').focus(() => { //quando la barra di ricerca prende il focus sistema il pulsante di filtro e mostra di nuovo tutte le linee
+    $('#userinput').focus(() => { //quando la barra di ricerca prende il focus sistema il
+                                  // pulsante di filtro e mostra di nuovo tutte le linee
         $('#filter').text("Tutti");
         $('#btnadmin').show();
         $('#btnmod').show();
@@ -138,9 +145,13 @@ $(() => {
         }
     })
 
+    //////////////////////////////////////////////////////////////////////////////////////////////
+    ////MODAL USER EDIT
+    ////////////////////////////////////////////////////////////////////////////////////////////////
     var idline; //variabile per riferirsi alla linea in cui si sta operando
 
-    $( "#tabb tbody" ).on( "click", ".line td", function() { //funzione per rendere clickabili le righe, editing degli utenti web
+    $( "#tabb tbody" ).on( "click", ".line td", function() { //funzione per rendere clickabili le righe, 
+                                                            //editing degli utenti web
         idline = $(this).data('id');
         $('#userEdit').modal('show');
         var username = $(`#user${idline}`).text();

@@ -14,13 +14,13 @@ import org.junit.Test;
 import business.CommentoManager;
 
 public class CommentoManagerTest {
-	private final String AUTORE="tizio";
+	private final String AUTORE="oliz";
 	private final String CHALLENGER ="pest";
 	private final Boolean SPOILER =false;
-	private final String  TESTO ="questo è il flag $$$$$$$$";
+	private final String  TESTO =" bella merda";
 	private final Boolean CANCELLA= false; 	
-	private final Boolean ADD = false;
-	private final Boolean CHANGESPOILER = true;
+	private final Boolean ADD = true;
+	private final Boolean CHANGESPOILER = false;
 
 	CommentoManager commM = new CommentoManager();
 	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager(); 

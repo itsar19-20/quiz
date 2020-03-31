@@ -5,6 +5,7 @@ import java.util.List;
 import javax.management.BadAttributeValueExpException;
 import javax.persistence.EntityManager;
 
+import business.exeception.BasicException;
 import business.exeception.NotFindInDbException;
 import model.Challenge;
 import model.Segnalazione;
@@ -58,16 +59,16 @@ public class WebUserManager {
 	}
 
 
-	public void changeWebUser(String username , String password , String admin) {
+	public void changeWebUser(String username , String password , String admin)  {
 		try {if (em.find(UtenteWeb.class, username )== null ) {
 			throw new  NotFindInDbException("UtenteWeb",username);
 		}
 
 		   
-		if(!(admin.equals(null)) && 
+		if(     (!admin.equals(null)) && 
 				(!admin.equals("false"))  && 
 				(!admin.equals("true"))   ) {
-         throw new BadAttributeValueExpException(admin);      
+         throw new BasicException("Valore scorretto:",admin);      
 		};
 
 		UtenteWeb web = em.find(UtenteWeb.class, username ); 
@@ -82,7 +83,8 @@ public class WebUserManager {
 
 		if(admin == null) {
 			adminChange = web.getAdmin();
-		}else {adminChange =Boolean.parseBoolean(admin);} 
+		}
+		else {adminChange =Boolean.parseBoolean(admin);} 
 
 		em.getTransaction().begin();
 		web.setAdmin(adminChange);
@@ -93,9 +95,8 @@ public class WebUserManager {
 		}catch(NotFindInDbException ex) {
 			System.out.print(ex.toString());
 		
-		} catch (BadAttributeValueExpException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (BasicException e) {
+			System.out.print(e.toString());
 		}
 
 

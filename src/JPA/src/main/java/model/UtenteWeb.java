@@ -9,6 +9,7 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import model.Segnalazione;
+import model.tipiSegn.SegnGenerica;
 
 @Entity
 public class UtenteWeb {
@@ -21,7 +22,10 @@ public class UtenteWeb {
 	@OneToMany(mappedBy = "risolutore")
 	private List<Segnalazione> segnalazioni;
 	
-    public UtenteWeb() {
+    @OneToMany(mappedBy="consegna")
+    private List<SegnGenerica> consegne;
+	
+	public UtenteWeb() {
       segnalazioni = null;
       
     };
@@ -30,6 +34,18 @@ public class UtenteWeb {
 		return username;
 	}
 	
+	
+	
+	@JsonIgnore
+	public List<SegnGenerica> getConsegne() {
+		return consegne;
+	}
+
+	@JsonIgnore
+	public void setConsegne(List<SegnGenerica> consegne) {
+		this.consegne = consegne;
+	}
+
 	@JsonIgnore
 	public List<Segnalazione> getSegnalazioni() {
 		return segnalazioni;

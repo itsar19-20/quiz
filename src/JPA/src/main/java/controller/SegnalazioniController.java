@@ -32,18 +32,67 @@ public class SegnalazioniController extends HttpServlet {
 	}
 
 
+	SegnalazioniManager sm = new SegnalazioniManager();	
+	ObjectMapper om = new ObjectMapper();
+
+	
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGets(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		SegnalazioniManager sm = new SegnalazioniManager();	
-		ObjectMapper om = new ObjectMapper();
-
+		
 		 List<Segnalazione>listSegnalazioni = sm.trovaSegnalazioni();	 	
 	  	response.setContentType("application/JSON");
 		response.getWriter().append(om.writeValueAsString(listSegnalazioni));
 	
 	}
+  
+	
+	
+	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * 	 */
+   
+	@Override
+	protected void doPost (HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException  {
+		
+		
+		String flag =request.getParameter("azione");
+		
+		if ( flag.equals("nascondi")) {
+	   Boolean stato =Boolean.parseBoolean(request.getParameter("stato")); 
+	   Integer segnId=Integer.parseInt(request.getParameter("segn"));
+       sm.SegnaLavorazione(segnId, stato);};	   
+ 	
+	   if(flag.equals("rspoiler")) {
+		//   System.out.print("è arrivata una rispsota");
+	    	int segn= Integer.parseInt(request.getParameter("segn"));	
+			String user = request.getParameter("user");
+			Boolean spoiler=Boolean.parseBoolean(request.getParameter("spoiler"));
+			//System.out.print("idSpoieler:"+spoiler +" risolutore:"+user+" correggere:"+segn );
+			sm.risolviSpoiler(segn, user,spoiler);
+		   
+	  if(flag.equals("gconsegna")) {
+		 int segnId=Integer.parseInt(request.getParameter("segn"));
+		 String risolutore =  request.getParameter("user");
+		 sm.consegna(segnId,risolutore);
+	  }
+	   
+	  
+	  if (flag.equals("rgenrica")) {
+		  int segnId=Integer.parseInt(request.getParameter("segn"));
+		  String risolutore =  request.getParameter("user");
+		  sm.risolviSegnalazione(segnId, risolutore);
+	  }
+	   
+	   };
+       
+       
+       
+   }
 
 }

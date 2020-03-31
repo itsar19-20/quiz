@@ -2,7 +2,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
-  <title>Segnalazioni1</title>
+  <title>Segnalazioni</title>
 
     <!--bootstrap-->
     <link rel="stylesheet" href="/bootstrap.min.css">
@@ -35,20 +35,97 @@
         <span id="name"></span>
         <span id ="tipoSegn"></span>
         <button id="bott" type="button"  ></button>
+        <button id="bottConsegne" type="button" > le mie Consegne</button>
       </div>
    
-      <!--tabella1-->
+      <!--TABIRRISOLTE-->
     <table class="table" id="tabbIrrisolte">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Autore</th>
             <th scope="col">Data</th>
-            <th scope="col">Tipo</th>
+            <th scope="col">Tipo</th>         
           </tr>
-        </thead>
-        <!--tabella1-->
-      
-        <!--tabella2-->
+        </thead>  
+      <tbody>
+      </tbody>
+    </table>
+  <!--TABIRRISOLTE-->
+  
+  <table class="table" id="tabbConsegna">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Autore</th>
+        <th scope="col">Data</th>
+        <th scope="col">Tipo</th>         
+      </tr>
+    </thead>  
+  <tbody>
+  </tbody>
+</table>
+
+
+  <!--TABCONSEGNA-->
+  
+  
+  
+  
+  <!--TABCONSEGNA-->      
+        <!---Modal Generica  Consegna-->
+ 
+      <div class="modal" id = "risolviSegnG" tabindex="-1" role="dialog">
+         <div class="modal-dialog" role="document">        
+          <div class="modal-content"> 
+        <div class="modal-header">
+          <h5 class="modal-title">Prenota Segnalazione</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>  
+          </button>            
+        </div>
+      <div class="modal-body">
+          <div id = "testo">  
+            <span id ="testoDesc"></span>  
+          </div> 
+        </div> 
+      <div class="modal-footer">
+         <button type="button" class="btn btn-primary" id="consegna">Consegna </button>
+         
+        
+        </div>
+        </div>
+      </div>
+    </div> 
+        <!---Modal Generica  consegna -->
+     
+     <!---Modal Spoiler -->
+     <div class="modal" id = "risolviSegnS" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+     
+     
+       <div class="modal-content"> 
+     <div class="modal-header">
+       <h5 class="modal-title">Risolvi segnalazione</h5>
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>  
+       </button>            
+     </div>
+   <div class="modal-body">
+       <div id = "testo">  
+         <span id ="testoCom"></span>  
+       </div> 
+     </div> 
+   <div class="modal-footer">
+      <button type="button" class="btn btn-primary" id="spoiler">Spoiler </button>
+      <button type="button" class="btn btn-primary" id="nonSpoiler">NON Spoiler </button>
+     </div>
+     </div>
+   </div>
+ </div>
+  
+     <!---Modal Spoiler -->
+        
+     
+        <!--TABRISOLTE-->
    <table class="table" id="tabbRisolte">
       <thead class="thead-dark">
         <tr>
@@ -56,22 +133,21 @@
           <th scope="col">Data</th>
           <th scope="col">Tipo </th>
          <th scope="col">Risolutore </th>
+        
         </tr>
       </thead>  
         <tbody>
         </tbody>
       </table>
-<!--tabella2-->
--->
+      <!--TABRISOLTE-->
+
        <!--jquery--> 
        <script src="/jquery-3.4.1.min.js"></script>
        <script src="/popper.min.js"></script>
        <script src="/bootstrap.min.js"></script>
-       <script src="/common.js"></script>
-   
        <script src="/segnalazioni.js"></script>
-
-
+       <script src="/common.js"></script>
+      
+               
 </body>
-
 </html>
