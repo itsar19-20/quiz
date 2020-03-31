@@ -4,12 +4,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import CursorAdapter.CursorUserAdapter;
+
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.List;
 import DbUtility.DbUserPunteggioAdapter;
@@ -26,6 +33,8 @@ public class PodioFragment extends Fragment {
     private ListView listUsers;
     private DbUserPunteggioAdapter dbUserAdapter;
     private CursorUserAdapter userAdapter;
+    private ImageButton searchUserList;
+    private EditText searchUser;
 
     private MyApiEndpointInterface api= AndroidWebService.getRetrofit().create(MyApiEndpointInterface.class);
     @Nullable
@@ -33,6 +42,8 @@ public class PodioFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v=inflater.inflate(R.layout.fragment_podio,container,false);
         listUsers=v.findViewById(R.id.listUser);
+        searchUserList=v.findViewById(R.id.searchUserList);
+        searchUser=v.findViewById(R.id.searchUser);
         dbUserAdapter=new DbUserPunteggioAdapter(getActivity());
         dbUserAdapter.open();
         Call <List<Utente>> call=api.getAllUser("search");
@@ -54,8 +65,23 @@ public class PodioFragment extends Fragment {
                     listUsers.setAdapter(userAdapter);
 
                 }
+             searchUserList.setOnClickListener(new View.OnClickListener() {
+                 TextView user=v.findViewById(R.id.searchUser);
+                 @Override
+                 public void onClick(View v) {
 
+                     Cursor c=dbUserAdapter.getSingleUser(user.getText().toString());
+                     if (c.moveToFirst()){
+                        userAdapter.swapCursor(c);
+                         Toast.makeText(getActivity(),"Utente trovato", Toast.LENGTH_SHORT).show();
+                     }else{
+                         Toast.makeText(getActivity(),"Utente non trovato", Toast.LENGTH_SHORT).show();
+                         user.setText("");
+                     }
+                 }
+             });
             }
+
 
             @Override
             public void onFailure(Call<List<Utente>> call, Throwable t) {

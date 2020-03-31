@@ -65,7 +65,7 @@ public class FriendFragment extends Fragment {
         call.enqueue(new Callback<List<Utente>>() {
             @Override
             public void onResponse(Call<List<Utente>> call, Response<List<Utente>> response) {
-                if(response.body()!=null) {
+                if (response.body() != null) {
                     Log.d("CONNECTION STATUS: ", "" + response.code());
                     List<Utente> list = response.body();
                     Log.d("SI: ", "" + list.size());
@@ -77,17 +77,19 @@ public class FriendFragment extends Fragment {
                         friends.add(frn);
                         Log.d("Si:", "" + friends.size());
                     }
-                    dbAdapt.insertFast(friends.size(),friends);
+                    dbAdapt.insertFast(friends.size(), friends);
                 }
                 loading.setVisibility(View.INVISIBLE);
                 friendAdp = new CursorFriendAdapter(getActivity(), dbAdapt.getFriends());
                 listView.setAdapter(friendAdp);
             }
+
             @Override
             public void onFailure(Call<List<Utente>> call, Throwable t) {
                 Log.d("CONNECTION ERROR: ", "connessiona al db fallita");
             }
         });
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -100,13 +102,14 @@ public class FriendFragment extends Fragment {
                 removeDialog.show(getFragmentManager(), "RemovingFriend");
             }
         });
+
         ImageButton searchBtn = rootView.findViewById(R.id.searchbtnfriendlist);
         TextView filter = rootView.findViewById(R.id.searchfriendlist);
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Cursor c = dbAdapt.getSingleFriend(filter.getText().toString());
-                if(c.moveToFirst()) {
+                if (c.moveToFirst()) {
                     friendAdp.swapCursor(c);
                 } else {
                     dialog.show(getFragmentManager(), "UserNotFound");
@@ -114,6 +117,7 @@ public class FriendFragment extends Fragment {
                 }
             }
         });
+
         ImageButton addBtn = rootView.findViewById(R.id.addfriend);
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -187,7 +191,11 @@ public class FriendFragment extends Fragment {
                 });
             }
         }
+
+
     }
+
+
 
     @Override
     public void onPause() {
@@ -196,4 +204,6 @@ public class FriendFragment extends Fragment {
         Log.d("PAUSA: ", "È stata messa in pausa");
     }
 
-}
+
+
+    }

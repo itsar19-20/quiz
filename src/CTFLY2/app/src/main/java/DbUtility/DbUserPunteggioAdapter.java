@@ -58,6 +58,14 @@ public class DbUserPunteggioAdapter {
         String query="SELECT * FROM " + DatabaseHelper.USER_TABLE_NAME +" ORDER BY " + DatabaseHelper.USER_COLUMN_PUNTEGGIO +" DESC";
        return db.rawQuery(query,null);
     }
+    public Cursor getSingleUser(String username){
+        Cursor user= db.query(DatabaseHelper.USER_TABLE_NAME,
+                 new String[]{DatabaseHelper.USER_ID,
+                        DatabaseHelper.USER_COLUMN_USERNAME,
+                        DatabaseHelper.USER_COLUMN_PUNTEGGIO},
+                DatabaseHelper.USER_COLUMN_USERNAME +" ='"+ username +"'",null,null,null,null);
+               return  user;
+    }
     public boolean removeAllUsers(){
         return db.delete(DatabaseHelper.USER_TABLE_NAME,null,null)>0;
     }
