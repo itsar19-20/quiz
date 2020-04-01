@@ -6,31 +6,34 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import business.WebUserManager;
-
-
+import business.CommentoManager;
 /**
- * Servlet implementation class WebUserEditController
+ * Servlet implementation class CommentoController
  */
-@WebServlet("/wuec")
-public class WebUserEditController extends HttpServlet {
+@WebServlet("/comSpoiler")
+public class CommentoController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WebUserEditController() {
+    public CommentoController() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-    @Override
+	
+
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		WebUserManager wue = new WebUserManager();
-		wue.changeWebUser(request.getParameter("username"), request.getParameter("password"), request.getParameter("admin"));
+	CommentoManager  cm = new CommentoManager();
+	int id = Integer.parseInt(request.getParameter("id"));
+	
+	cm.ChangeSpoiler(id);
+	response.setContentType("application/json");
+	response.getWriter().print("il commento è stato cambiato");
+	
+	
 	}
 
 }

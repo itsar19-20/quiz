@@ -55,6 +55,14 @@ public class Segnalazione implements Serializable {
 	
 	
 
+	public boolean getInLavorazione() {
+		return inLavorazione;
+	}
+
+	public void isInLavorazione(boolean inLavorazione) {
+		this.inLavorazione = inLavorazione;
+	}
+
 	public String getTipo() {
 		return this.tipo;
 	};  

@@ -8,14 +8,15 @@ import org.junit.Test;
 import business.WebUserManager;
 
 public class UserWebTest {
-     
-	private final String USERNAME ="phobos-1955";
-	private final String PASSWORD ="pass";
+
+	private final String USERNAME ="Dio";
+	private final String PASSWORD ="Mi piaccio solo io";
 	private final String ADMIN ="true";
 
 	private final Boolean CANCELLA = false;
-	private final Boolean CAMBIAUTENTE = true;
-	private final Boolean ADDUTENTE = false;
+	private final Boolean CAMBIAUTENTE = false;
+	private final Boolean ADDUTENTE = true;
+	private final Boolean CAHNGEUTENTE= false;
 
 
 	WebUserManager webM = new WebUserManager();
@@ -32,7 +33,18 @@ public class UserWebTest {
 			webM.changeWebUser("tEST", null, "false");
 			System.out.println("La modifica funziona");
 		}
+
+
+		if(CAHNGEUTENTE) {
+			webM.changeWebUser(USERNAME, null, "true");
+		};
+
+
 	}
+
+
+
+
 
 	@After
 	public void delate() {

@@ -12,9 +12,9 @@ import org.junit.Test;
 
 public class UserManagerTest {
 
-	private final String USERNAME ="oliz";
-	private final String PASSWORD ="wtf";
-	private final String EMAIL= "@Cicco";
+	private final String USERNAME ="tizio";
+	private final String PASSWORD ="wee";
+	private final String EMAIL= "@Tizo";
 	private final Boolean CANCELLA =false;
 	
     

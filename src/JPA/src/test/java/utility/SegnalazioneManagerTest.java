@@ -21,20 +21,27 @@ import model.tipiSegn.SegnSpoiler;
 public class SegnalazioneManagerTest {
 	private final  String AUTORE= "oliz";
 	private final String RISOLUTORE="phobos-1995";
-    private final int  IDSEGN=40;  
+    private final int  IDSEGN=2;  
 
 	//SENGLAZIONE SPOILER
-	private int IDCOMMENTO= 1;
-
-
-	//SEGNALAZIONE GENERICA
-	private String DESCRIZIONE ="dio cane va";
+	private final int IDCOMMENTO= 2;
+    
+	// RISOLVI SPOILER 
+     private final  int IDSEGNSPOILER=71;
+	 private final  Boolean ISSPOILER= false;
+     
+	 //SEGNALAZIONE GENERICA
+	private final String DESCRIZIONE ="app pallosa";
+	
+	//CONSEGNA GENERICA
+	private final int IDSEGNCONSEGNA=2;
 
 	//CONTROLLI
-
-	private Boolean DELATESPOILER=true;
-	private Boolean DELATEGENERICA=false;
-    private Boolean RISOLVI= false; 
+	private final Boolean PRENDIINCONSEGNA=true;
+	private final Boolean DELATESPOILER=true;
+	private final Boolean DELATEGENERICA=true;
+    private final Boolean RISOLVI= false; 
+    private final Boolean RISOLVI_SPOILER =false;
 	//Utility
 
 	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
@@ -46,7 +53,7 @@ public class SegnalazioneManagerTest {
 	@Test
 	public void test()  {
 
-		//CREA SPOILER
+/*		//CREA SPOILER
 		idSpoiler=sm.addSegnalazioneSpoiler(AUTORE, IDCOMMENTO);
 		if(idSpoiler==0) {
 			System.out.println("non è stata aggiunta la segnalazione Spoiler");
@@ -56,18 +63,33 @@ public class SegnalazioneManagerTest {
 		idGenerica=sm.addSegnalazioneGenerica(AUTORE, DESCRIZIONE);
 		if(idGenerica==0) {
 			System.out.println("non è stata aggiunta la segnalazione Generica");
-		}; 
+		};*/ 
  		
 		//TROVA SEGNALZZIONI 
          List<Segnalazione> listSegn =sm.trovaSegnalazioni();
          for (Segnalazione segn : listSegn) {
-			System.out.print(segn );
+			System.out.print(segn.toString());
 		}
 
 	   //RISOLVI SEGNALAZIONE
 	  if(RISOLVI) {
          sm.risolviSegnalazione(IDSEGN, RISOLUTORE);
 	  }
+	
+	
+	  if (RISOLVI_SPOILER) {
+		  sm.risolviSpoiler(IDSEGNSPOILER, RISOLUTORE, ISSPOILER);
+	  } 
+	
+	
+	//PRENDI IN CONSEGNA
+	  
+	  if (PRENDIINCONSEGNA) {
+		//SegnGenerica segn =em.find(SegnGenerica.class, 2);  	
+	   System.out.print("la nostra sengalazione"/*+segn.toString()*/);
+		
+	  }
+	  
 	}
 	
 	

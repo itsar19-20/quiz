@@ -6,6 +6,14 @@
   
 }
 
+#tabbConsegna{
+  background-color: white;
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 1%;
+  display : none;  
+}
+
 #tabbRisolte{
   background-color: white;
   width: 80%;
@@ -13,6 +21,9 @@
   margin-top: 1%;
   display : none;  
 }
+
+
+
 
 .line:hover {
   background-color: rgba(7, 153, 255, .5);
@@ -45,5 +56,13 @@
     border: 2px solid  red;
     
   }
-
- 
+  
+  #bottConsegne{
+    margin-left: 24%;    
+    margin-top: 1%;
+    color :white;
+    background-color:black;
+    border : 2px solid black;
+    font-size: 24px;
+    border-radius: 12px;
+  }

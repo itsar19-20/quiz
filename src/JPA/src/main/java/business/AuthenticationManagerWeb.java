@@ -11,10 +11,12 @@ import utility.JPAUtil;
 
 public class AuthenticationManagerWeb {
 	private static Logger log=LoggerFactory.getLogger(AuthenticationManagerWeb.class);
+	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
+	
 	
 	public UtenteWeb login(String username, String password) {
 		UtenteWeb _return = null;
-		EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();
+		
 		_return = em.find(UtenteWeb.class, username);
 		log.debug("perfect");
 		if (_return == null)
