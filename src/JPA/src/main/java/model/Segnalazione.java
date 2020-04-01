@@ -12,6 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
@@ -30,10 +33,12 @@ public class Segnalazione implements Serializable {
 
 
 	@ManyToOne
+	@Cascade(value = {CascadeType.REMOVE, CascadeType.SAVE_UPDATE})
 	@JoinColumn(name = "autore_username")
 	private Utente autore;
 
 	@ManyToOne
+	@Cascade(value = {CascadeType.REMOVE, CascadeType.SAVE_UPDATE})
 	@JoinColumn(name = "risolutore_username")
 	private UtenteWeb risolutore;
 	private String data;

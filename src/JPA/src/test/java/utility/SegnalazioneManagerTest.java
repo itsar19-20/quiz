@@ -19,12 +19,12 @@ import model.tipiSegn.SegnGenerica;
 import model.tipiSegn.SegnSpoiler;
 
 public class SegnalazioneManagerTest {
-	private final  String AUTORE= "oliz";
+	private final  String AUTORE= "Matteo";
 	private final String RISOLUTORE="phobos-1995";
     private final int  IDSEGN=2;  
 
 	//SENGLAZIONE SPOILER
-	private final int IDCOMMENTO= 2;
+	private final int IDCOMMENTO= 1;
     
 	// RISOLVI SPOILER 
      private final  int IDSEGNSPOILER=71;
@@ -37,9 +37,9 @@ public class SegnalazioneManagerTest {
 	private final int IDSEGNCONSEGNA=2;
 
 	//CONTROLLI
-	private final Boolean PRENDIINCONSEGNA=true;
-	private final Boolean DELATESPOILER=true;
-	private final Boolean DELATEGENERICA=true;
+	private final Boolean PRENDIINCONSEGNA=false;
+	private final Boolean DELATESPOILER=false;
+	private final Boolean DELATEGENERICA=false;
     private final Boolean RISOLVI= false; 
     private final Boolean RISOLVI_SPOILER =false;
 	//Utility
@@ -53,7 +53,7 @@ public class SegnalazioneManagerTest {
 	@Test
 	public void test()  {
 
-/*		//CREA SPOILER
+		//CREA SPOILER
 		idSpoiler=sm.addSegnalazioneSpoiler(AUTORE, IDCOMMENTO);
 		if(idSpoiler==0) {
 			System.out.println("non è stata aggiunta la segnalazione Spoiler");
@@ -63,7 +63,7 @@ public class SegnalazioneManagerTest {
 		idGenerica=sm.addSegnalazioneGenerica(AUTORE, DESCRIZIONE);
 		if(idGenerica==0) {
 			System.out.println("non è stata aggiunta la segnalazione Generica");
-		};*/ 
+		}; 
  		
 		//TROVA SEGNALZZIONI 
          List<Segnalazione> listSegn =sm.trovaSegnalazioni();

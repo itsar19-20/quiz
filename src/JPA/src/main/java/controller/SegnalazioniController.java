@@ -32,8 +32,7 @@ public class SegnalazioniController extends HttpServlet {
 	}
 
 
-	SegnalazioniManager sm = new SegnalazioniManager();	
-	ObjectMapper om = new ObjectMapper();
+	
 
 	
 	/**
@@ -42,8 +41,11 @@ public class SegnalazioniController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
+		SegnalazioniManager sm = new SegnalazioniManager();	
+		ObjectMapper om = new ObjectMapper();
 		
-		 List<Segnalazione>listSegnalazioni = sm.trovaSegnalazioni();	 	
+		 List<Segnalazione> listSegnalazioni = sm.trovaSegnalazioni();	
+		 System.out.println("DIO CANE " + listSegnalazioni);
 	  	response.setContentType("application/JSON");
 		response.getWriter().append(om.writeValueAsString(listSegnalazioni));
 	
@@ -59,6 +61,7 @@ public class SegnalazioniController extends HttpServlet {
 	@Override
 	protected void doPost (HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException  {
+		SegnalazioniManager sm = new SegnalazioniManager();	
 		
 		
 		String flag =request.getParameter("azione");
@@ -69,12 +72,13 @@ public class SegnalazioniController extends HttpServlet {
        sm.SegnaLavorazione(segnId, stato);};	   
  	
 	   if(flag.equals("rspoiler")) {
-		//   System.out.print("è arrivata una rispsota");
+		    System.out.print("è arrivata una rispsota");
 	    	int segn= Integer.parseInt(request.getParameter("segn"));	
 			String user = request.getParameter("user");
 			Boolean spoiler=Boolean.parseBoolean(request.getParameter("spoiler"));
 			//System.out.print("idSpoieler:"+spoiler +" risolutore:"+user+" correggere:"+segn );
 			sm.risolviSpoiler(segn, user,spoiler);
+	   }
 		   
 	  if(flag.equals("gconsegna")) {
 		 int segnId=Integer.parseInt(request.getParameter("segn"));
@@ -88,10 +92,8 @@ public class SegnalazioniController extends HttpServlet {
 		  String risolutore =  request.getParameter("user");
 		  sm.risolviSegnalazione(segnId, risolutore);
 	  }
-	   
-	   };
        
-       
+       System.out.println(flag);
        
    }
 

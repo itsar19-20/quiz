@@ -14,7 +14,7 @@ import org.junit.Test;
 import business.CommentoManager;
 
 public class CommentoManagerTest {
-	private final String AUTORE="oliz";
+	private final String AUTORE="Matteo";
 	private final String CHALLENGER ="pest";
 	private final Boolean SPOILER =false;
 	private final String  TESTO =" bella merda";

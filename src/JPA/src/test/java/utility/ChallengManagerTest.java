@@ -11,7 +11,7 @@ import org.junit.After;
 import org.junit.Test;
 
 public class ChallengManagerTest {
-	private final String CREATORE ="tizio";
+	private final String CREATORE ="MAtteo";
 	private final String TITOLO ="pest";
 	private final int RATING =4;
 	private final String CATEGORIA="Coding";
@@ -20,7 +20,7 @@ public class ChallengManagerTest {
 	
 	private final Boolean CANCELLA = false;
 	private final Boolean ADD = true;
-	private final Boolean MOD = true;
+	private final Boolean MOD = false;
 	
 	
 	EntityManager em = JPAUtil.getInstance().getEmf().createEntityManager();

@@ -105,24 +105,24 @@ public class SegnalazioniManager {
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 
 	public void risolviSegnalazione(Integer segnId , String   userNameRisolutore) {
+		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		try {
-
-			if (em.find(Segnalazione.class, segnId)== null ) {
-				throw new  NotFindInDbException("Segnalazione","segnId");
-			} 
-
-			if ((em.find(UtenteWeb.class, userNameRisolutore))== null ){
-				throw new  NotFindInDbException("UtenteWeb", userNameRisolutore);			
-			}
-
-			if((em.find(Segnalazione.class, segnId).getRisolutore()!= null) ) {
-				throw new BasicException("la query è già stata risolta",""+segnId);			
-			}
-
+			
 			UtenteWeb risolutore =(em.find(UtenteWeb.class, userNameRisolutore)); 
 
 			Segnalazione s =em.find(Segnalazione.class, segnId);
+			
+			if (s == null ) {
+				throw new  NotFindInDbException("Segnalazione","segnId");
+			} 
 
+			if (risolutore == null ){
+				throw new  NotFindInDbException("UtenteWeb", userNameRisolutore);			
+			}
+
+			if(s.getRisolutore()!= null) {
+				throw new BasicException("la query è già stata risolta",""+segnId);			
+			}
 
 
 			em.getTransaction().begin(); 
@@ -206,6 +206,7 @@ public class SegnalazioniManager {
  
           if (segn == null) {
 			throw new  NotFindInDbException("SegnGenerica", ""+segnId);}
+          
 
 		em.getTransaction().begin();
 		segn.setConsegna(risolutore);
