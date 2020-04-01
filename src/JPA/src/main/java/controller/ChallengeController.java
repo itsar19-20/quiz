@@ -33,7 +33,17 @@ public class ChallengeController extends HttpServlet{
 		response.getWriter().append(o.writeValueAsString(ListChalleng));
 		
 	}
-
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Boolean check = false;
+		ChallengeManager ch = new ChallengeManager();
+		
+		check = ch.addChallenge(request.getParameter("titolo"), request.getParameter("descrizione"), request.getParameter("categoria"), request.getParameter("creatore"), request.getParameter("flag"));
+		ObjectMapper o = new ObjectMapper();
+		response.setContentType("application/JSON");
+		response.getWriter().append(o.writeValueAsString(check));
+		
+	}
 	
 	
 }

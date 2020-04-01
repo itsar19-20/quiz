@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="310dp"
+    android:layout_height="180dp">
+
+    <EditText
+        android:id="@+id/searchingnewfriend"
+        android:layout_width="210dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Username"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.145" />
+
+    <ImageButton
+        android:id="@+id/addfriendsearch"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/black_sphere"
+        android:src="@drawable/ic_search_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintStart_toEndOf="@+id/searchingnewfriend"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.145" />
+
+    <TextView
+        android:id="@+id/findfrienddialog"
+        android:layout_width="180dp"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchingnewfriend"
+        app:layout_constraintVertical_bias="0.573" />
+
+    <Button
+        android:id="@+id/addfrienddialog"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:background="@drawable/black_rectangle"
+        android:text="Aggiungi"
+        android:textColor="#FFF"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toEndOf="@+id/findfrienddialog"
+        app:layout_constraintTop_toBottomOf="@+id/addfriendsearch"
+        app:layout_constraintVertical_bias="0.573" />
+</androidx.constraintlayout.widget.ConstraintLayout>

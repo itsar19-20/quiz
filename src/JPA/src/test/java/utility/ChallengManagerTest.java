@@ -14,7 +14,7 @@ public class ChallengManagerTest {
 	private final String CREATORE ="tizio";
 	private final String TITOLO ="pest";
 	private final int RATING =4;
-	private final int PUNTEGGIO=12;
+	private final String CATEGORIA="Coding";
 	private final String FLAG = "soluione@@";
 	private final String DESCRIZIONE ="qualcosa";
 	
@@ -32,7 +32,7 @@ public class ChallengManagerTest {
 	
 	if(ADD) {	
 	Challenge chal = new Challenge();	
-	chalMan.addChallenge(TITOLO, DESCRIZIONE,  CREATORE, PUNTEGGIO, FLAG);
+	chalMan.addChallenge(TITOLO, DESCRIZIONE, CATEGORIA,  CREATORE, FLAG);
 	System.out.print("l'add ha funzioanto");
 	}
 	
