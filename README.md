@@ -6,7 +6,6 @@ Progetto iniziato mercoledì 11 dicembre 2019.
 
 - Matteo Conti
 - Davide Candalino
-- Mattia Cantoni
 - Davide Grasso
 
 
